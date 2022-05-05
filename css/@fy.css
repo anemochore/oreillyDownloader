@@ -1,0 +1,620 @@
+/* order
+1. O'Reilly Media, Inc.
+2. Packt Publishing
+3. Apress
+4. Academic Press
+5. McGraw-Hill
+6. Manning Publications
+7. Wiley
+*/
+
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  color: #272727;
+  font-family: Georgia, Palatino, "Palatino Linotype", Times, "Times New Roman", serif;
+  line-height: 1.7;
+  padding: 1em;
+  margin: auto auto auto 2em;
+  max-width: 42em;
+  background: #ffffff;
+}
+
+/* not working */
+/* :not(blockquote)>p:not([class^="figcap"]):not([class^="tabcap"]) em, :not(blockquote)>p:not([class^="figcap"]):not([class^="tabcap"]) strong */
+p>em, p>strong, 
+table em, table strong, article em, article strong, div>strong, 
+
+
+em.EmphasisTypeItalic, :not(blockquote)>p[id]>i, 
+
+i[class^="calibre"], i.fm-italics {
+  background-color: lightgreen;
+}
+
+p.p3>em, kbd {
+  margin: auto 0.25em;
+}
+
+p.source-code>strong, pre>strong, th>strong, p>em.italic {
+  background-color: initial;
+}
+
+[data-type="inline_eq"], mjx-math, math,  /* order: inline, not firefox, firefox */
+img.fm-editor-equation, 
+p.eqr>img, 
+
+span.hiddenClass>math, 
+
+p.fm-equation, 
+i[class^="fm-in-times-italic"] {
+  background-color: Lavender;
+}
+
+/* academic press */
+span.hiddenClass+span, div.showClass>p>img, div.big_device {
+  display: none;
+}
+
+div.OrderedList>ol {
+  list-style: none;
+}
+
+section[data-type="foreword"], section[data-type="preface"], div[data-type="part"], section[data-type="chapter"], section[data-type="appendix"], section[data-type="afterword"], section[data-type="glossary"], section[data-type="bibliography"], section[data-type="index"], 
+section[data-type="part"], 
+:not(section)>div[data-type="front-mat"], :not(section)>div[data-type="preface"], :not(section)>div[data-type="part"], :not(section)>div[data-type="chapter"], :not(section)>div[data-type="appendix"], :not(section)>div[data-type="index"] {
+  border-top: 16px solid blue;
+  margin-top: 5em;
+}
+
+section>table:first-child td:first-child {
+  padding-right: 1em;
+}
+
+section>table:first-child td.part, section>table:first-child td.chap {
+  display: none;
+}
+
+div.BookFrontmatter div {
+  margin: 1em 0;
+}
+
+div[data-type="footnotes"], 
+
+aside.FootnoteSection,
+p[class^="hr"], p.alg, div.Affiliations, 
+
+
+section.noteSet {
+  border-top: 4px solid coral;
+  border-bottom: 2px solid coral;
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+aside.FootnoteSection>div.Heading {
+  font-weight: bold;
+}
+
+p[data-type="footnote"], 
+
+aside.FootnoteSection p, aside.FootnoteSection span.FootnoteNumber, 
+div.Affiliation, 
+
+p.fn, p.fm-footnote,
+section.noteSet>.notesList {
+  font-size: 90%;
+  color: #666666;
+  padding-left: 0.5em;
+  margin-bottom: 0;
+}
+
+samp, div.listingblock, pre[data-type="programlisting"],
+p.source-code, 
+div.LineGroup {
+  background-color: whitesmoke;
+  border-left: 8px solid lightgray;
+  padding-left: 4px;
+  font-size: 10pt;
+  font-family: monospace;
+}
+
+p.source-code {
+  margin: 0;
+}
+
+pre[data-type="terminal"] {
+  color: white;
+  background-color: #0a0a0a;
+  border: 0;
+  padding-left: 16px;
+  font-size: 10pt;
+  font-family: monospace;
+}
+
+p>code, samp, 
+kbd, 
+strong.source-inline, 
+span.EmphasisFontCategoryNonProportional, span.inlinecode {
+  color: #000;
+  background-color: #ccddff;
+  border: 0;
+  font-family: monospace;
+  font-weight: normal;
+  padding-left: initial;
+}
+
+pre {
+  page-break-inside: avoid;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+pre a {
+  text-decoration: none;
+  color: #0000ee;
+  border-bottom: 1px dashed #bbb
+}
+
+div.sidebarblock, aside[data-type="sidebar"], div[data-type="tip"], div[data-type="note"], div[data-type="warning"], div[data-type="caution"], 
+div.packt_infobox, div.packt_tip, p.callout, 
+div.FormalParaRenderingStyle1, aside.ArticleNote, 
+:not(aside)>div.sidebar, p.notes, 
+
+div.fm-sidebar-block, p.fm-callout, 
+section.feature, section.feature1 {
+  max-width: 90%;
+  font-size: 90%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  border: 1px solid silver;
+  padding: 0.5em;
+}
+
+/* wiley */
+div.top.hr>hr, div.bottom.hr>hr {
+  display: none;
+}
+
+span.AffiliationNumber, :not(figcaption) span.CaptionNumber, span.FootnoteNumber, span.ItemNumber {
+  float: left;
+  padding-right: 0.6em;
+}
+
+div.ItemContent>p {
+  display: table-cell;
+}
+
+div.ClearBoth {
+  clear: both;
+  line-height: 0.75em;
+}
+
+div[data-type="tip"],
+div.packt_tip {
+  padding-left: 80px;
+  background-image: url("@tip.jpg");
+}
+
+div[data-type="note"], 
+div.packt_infobox, p.callout, 
+
+
+
+p.fm-callout, 
+section.feature {
+  padding-left: 80px;
+  background-image: url("@note.jpg");
+}
+
+div[data-type="warning"], div[data-type="caution"] {
+  padding-left: 80px;
+  background-image: url("@warning.jpg");
+}
+
+
+p {
+  margin: 1em 0;
+}
+
+img {
+  max-width: 75%;
+  height: auto;
+}
+
+img[class^="calibre"] {
+  max-width: 100%;
+}
+
+td img[class^="calibre"] {
+  max-width: initial;
+}
+
+h1, h2, h3, h4, h5, h6, 
+p.callout-heading, 
+
+p[class^="ChapterTitle"], p[class^="Heading"], 
+
+p.fm-sidebar-title, span.fm-callout-head {
+  line-height: 125%;
+  margin-top: 2em;
+  font-weight: normal;
+}
+
+h1, h2, h3 {
+  page-break-after: avoid;
+}
+
+h4, h5, h6,
+p.callout-heading, 
+
+p[class^="Heading3"], p[class^="Heading4"], p[class^="Heading5"], 
+
+p.fm-sidebar-title, span.fm-callout-head {
+  font-weight: bold;
+}
+
+h1, 
+
+
+p[class^="ChapterTitle"] {
+  font-size: 2.1em;
+  margin-top: 1.25em;
+  margin-bottom: 1em;
+  page-break-before: always;
+}
+
+h1.h1num {
+  margin-bottom: -1.25em;
+}
+
+/*
+Apress와 MGH 충돌
+p.imagef {
+  float: right;
+  margin-top: 0;
+}
+*/
+
+h1:first-child {
+  page-break-before: avoid;
+}
+
+div.sect1>h1, div.preface>div:not(.sect1)>h1 {
+  font-size: 1.6em;
+}
+
+h2, 
+
+
+div.SubTitle, p[class^="Heading1"] {
+  font-size: 1.425em;
+}
+
+h3, 
+
+
+p[class^="Heading2"] {
+  font-size: 1.3em;
+}
+
+h4, 
+
+
+p[class^="Heading3"] {
+  font-size: 1.05em;
+}
+
+h5, 
+
+
+p[class^="Heading4"] {
+  font-size: 0.975em;
+}
+
+h6, 
+
+
+p[class^="Heading5"], 
+
+p.fm-sidebar-title, span.fm-callout-head {
+  font-size: 0.9em;
+}
+
+blockquote,
+div.packt_quote {
+  font-size: 0.9em;
+  color: #666666;
+  margin: 0;
+  padding-left: 3em;
+  padding-right: 1em;
+  page-break-inside: avoid;
+  border-left: 0.5em #eee solid;
+}
+
+blockquote.BlockQuote>p {
+  margin: 0;
+}
+
+hr {
+  display: block;
+  height: 2px;
+  border: 0;
+  border-top: 1px solid #aaa;
+  border-bottom: 1px solid #eee;
+  margin: 1em 0;
+  padding: 0;
+}
+
+strong code {
+  font-weight: bold;
+}
+
+p[class^="figcap"]>code, p[class^="tabcap"]>code,  td span.inlinecode,
+
+
+td span.EmphasisFontCategoryNonProportional, 
+
+td code, 
+figcaption code {
+  font-size: initial;
+}
+
+dfn {
+  font-style: italic;
+}
+
+ins {
+  background: #ff9;
+  color: #000;
+  text-decoration: none;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+  font-style: italic;
+  font-weight: bold;
+}
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+ul, ol {
+  margin: 1em 0;
+  padding: 0 0 0 2em;
+}
+
+li p:last-child {
+  margin-bottom: 0;
+}
+
+ul ul, ol ol {
+  margin: .3em 0;
+}
+
+dl {
+  margin-bottom: 1em;
+}
+
+dt {
+  font-weight: bold;
+  margin-bottom: .8em;
+}
+
+dd {
+  margin: 0 0 .8em 2em;
+}
+
+dd:last-child {
+  margin-bottom: 0;
+}
+
+img {
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  vertical-align: middle;
+}
+
+
+a.co img {
+  vertical-align: baseline;
+}
+
+dl.calloutlist dd {
+  margin-top: -40px;
+}
+
+div.imageblock, figure,
+:not(td)>p.CDPAlignCenter {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+figure>h1 {
+  text-align: initial;
+}
+
+div.imageblock img, figure img,
+p.CDPAlignCenter>img {
+  border: none;
+  margin: 0 auto;
+}
+
+div.title, caption.title, figcaption, table caption, div[data-type="example"]>h5, div[data-type="equation"]>h5, div.figure>h6, 
+
+div.CaptionContent, 
+p[class^="figcap"], p[class^="tabcap"], div[data-type="example"] span.exam, p.tnum, p.ttitle, span.eqnum, 
+
+p.fm-table-caption, p.fm-code-listing-caption, p.fm-figure-caption {
+  font-size: 0.8em;
+  font-style: italic;
+  margin: 0.8em 0;
+  font-weight: normal;
+}
+
+div.CaptionContent>p {
+  margin-top: 0;
+}
+
+figure>figcaption.Caption>div.CaptionContent {
+  font-size: 100%;
+}
+
+figure>figcaption.Caption>div.CaptionContent>span.CaptionNumber, figure>figcaption.Caption>div.CaptionContent>p {
+  float: none;
+  display: inline;
+}
+
+
+table {
+  margin-bottom: 2em;
+  border: 1px solid #ddd;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+table p {
+  margin: 0.25em 0.5em;
+}
+
+table th {
+  background-color: #eee;
+  padding-right: 0.25em 1em;
+  text-align: start;
+}
+
+table td {
+  vertical-align: top;
+  text-align: start;
+}
+
+:not(div.admonitionblock)>table th, :not(div.admonitionblock)>table td {
+  font-size: 80%;
+  font-family: sans-serif;
+  padding: 0.3em 0.4em;
+}
+
+div.admonitionblock>table td.icon {
+  padding-left: 10px;
+  padding-right: 25px;
+}
+
+div.admonitionblock>table td.icon>div.title, 
+div.admonitionblock>table td.content>div.title, 
+div.sidebarblock>div.content>div.title {
+  line-height: 125%;
+  margin-top: 2em;
+  font-size: 1em;
+  font-weight: bold;
+  font-style: normal;
+}
+
+div.admonitionblock>table td.content>div.title {
+  margin-left: 1em;
+}
+
+.meta {
+  color: #666666;
+  margin-bottom: 0;
+}
+
+.author-img {
+  border-radius: 50%;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.break {
+  page-break-before: always;
+}
+
+@media print {
+  * {
+    background: transparent !important;
+    color: black !important;
+    filter: none !important;
+    -ms-filter: none !important;
+  }
+
+  body {
+    font-size: 12pt;
+    max-width: 100%;
+  }
+
+  a, a:visited {
+    text-decoration: underline;
+  }
+
+  hr {
+    height: 1px;
+    border: 0;
+    border-bottom: 1px solid black;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+
+  abbr[title]:after {
+    content: " (" attr(title) ")";
+  }
+
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
+    content: "";
+  }
+
+  pre, blockquote {
+    border: 1px solid #999;
+    padding-right: 1em;
+  }
+
+  tr, img {
+    page-break-inside: avoid;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page :left {
+    margin: 15mm 20mm 15mm 10mm;
+}
+
+  @page :right {
+    margin: 15mm 10mm 15mm 20mm;
+}
+
+/*  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+
+  h2, h3 {
+    page-break-after: avoid;
+  }*/
+}
