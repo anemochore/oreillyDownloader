@@ -1,6 +1,6 @@
 (async () => {
   if(window.location.search.startsWith('?scrape=')) {
-    alert('탬퍼멍키 스크립트가 실행 중인 듯?');
+    alert('탬퍼멍키 스크립트가 실행 중인 듯? 실행이 완료되었다면 주소에서 ?scrape=... 부분을 떼어보세요.');
     return;
   }
   else {
