@@ -467,11 +467,15 @@ div.title, caption.title, figcaption, table caption, div[data-type="example"]>h5
 div.CaptionContent, 
 p[class^="figcap"], p[class^="tabcap"], div[data-type="example"] span.exam, p.tnum, p.ttitle, span.eqnum, 
 
-p.fm-table-caption, p.fm-code-listing-caption, p.fm-figure-caption {
+p[class$="caption"] {
   font-size: 0.8em;
   font-style: italic;
   margin: 0.8em 0;
   font-weight: normal;
+}
+
+p[class$="caption"]>code {
+  font-style: normal;
 }
 
 div.CaptionContent>p {
