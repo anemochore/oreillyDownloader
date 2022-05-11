@@ -114,7 +114,7 @@ section.noteSet>.notesList {
   margin-bottom: 0;
 }
 
-samp, div.listingblock, pre[data-type="programlisting"],
+samp, div.listingblock, pre[data-type="programlisting"], pre[data-type="example"],
 p.source-code, 
 div.LineGroup {
   background-color: whitesmoke;
@@ -463,7 +463,7 @@ p.CDPAlignCenter>img {
 }
 
 div.title, caption.title, figcaption, table caption, div[data-type="example"]>h5, div[data-type="equation"]>h5, div.figure>h6, 
-
+p.packt_figref, 
 div.CaptionContent, 
 p[class^="figcap"], p[class^="tabcap"], div[data-type="example"] span.exam, p.tnum, p.ttitle, span.eqnum, 
 
@@ -493,7 +493,7 @@ figure>figcaption.Caption>div.CaptionContent>span.CaptionNumber, figure>figcapti
 
 
 table {
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   border: 1px solid #ddd;
   border-spacing: 0;
   border-collapse: collapse;
