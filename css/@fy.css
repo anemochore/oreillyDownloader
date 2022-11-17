@@ -33,7 +33,7 @@ table em, table strong, article em, article strong, div>strong,
 
 em.EmphasisTypeItalic, :not(blockquote)>p[id]>i, 
 
-i[class^="calibre"], i.fm-italics {
+i[class^="calibre"], i.fm-italics, :not(i[class^="timesitalic"]) {
   background-color: lightgreen;
 }
 
@@ -52,7 +52,7 @@ p.eqr>img,
 span.hiddenClass>math, 
 
 p.fm-equation, 
-i[class^="fm-in-times-italic"] {
+i[class^="fm-in-times-italic"], i[class^="timesitalic"] {
   background-color: Lavender;
 }
 
