@@ -32,8 +32,8 @@ table em, table strong, article em, article strong, div>strong,
 
 
 em.EmphasisTypeItalic, :not(blockquote)>p[id]>i, 
-
-i[class^="calibre"], i[class^="fm-italics"], i:not([class^="timesitalic"]) {
+i[class^="fm-italics"]:not([class^="timesitalic"]), 
+i[class^="calibre"] {
   background-color: lightgreen;
 }
 
@@ -330,7 +330,11 @@ p.fm-sidebar-title, span.fm-callout-head {
 }
 
 blockquote,
-div.packt_quote {
+div.packt_quote,
+
+
+
+p[class^="fm-quote"] {
   font-size: 0.9em;
   color: #666666;
   margin: 0;
