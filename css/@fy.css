@@ -561,6 +561,12 @@ div.admonitionblock>table td.content>div.title {
   page-break-before: always;
 }
 
+/* manning only */
+.co-summary-head, .co-summary-bullet {
+  color: #005;
+}
+
+
 @media print {
   * {
     background: transparent !important;
