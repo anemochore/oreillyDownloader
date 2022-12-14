@@ -1,5 +1,6 @@
 (async () => {
-  if(window.location.search.startsWith('?scrape=finished')) {
+  const url = window.location;
+  if(url.search.startsWith('?scrape=finished')) {
     await heyLoad('https://raw.githubusercontent.com/Stuk/jszip/master/dist/jszip.min.js', 'JSZip');
     const zip = new JSZip();
 
@@ -49,24 +50,19 @@
       }
     }
   }
-  else if(window.location.search.startsWith('?scrape=')) {
+  else if(url.search.startsWith('?scrape=')) {
     alert('탬퍼멍키 스크립트가 실행 중인 듯? 다시 실행하려면 주소에서 ?scrape=... 부분을 떼어보세요.');
     return;
   }
   else {
     const BASE_ORIGIN = 'https://learning.oreilly.com';
-    const BASE_PATH_PREFIX = '/library/view/';
-
-    let urlWithoutHash = document.URL;
-    if(urlWithoutHash.lastIndexOf('#') > -1) urlWithoutHash = urlWithoutHash.slice(0, urlWithoutHash.lastIndexOf('#'));
-
-    const matches = urlWithoutHash.match(new RegExp((BASE_ORIGIN + '/library/view/').replace(/\//g, '\\/').replace(/\./g, '\\.') + '(.+)\\/(\\d{13})\\/'));
-    if(!matches) {
-      alert('please run on ' + BASE_ORIGIN + BASE_PATH_PREFIX + 'TITLE/ISBN/');
+    const matches = url.href.match(new RegExp((BASE_ORIGIN+'/library/view/').replace(/\//g, '\\/').replace(/\./g, '\\.')+'(.+)/(\\d{13})/$'));
+    if(url.hash || url.search || !matches) {
+      alert('please run on ' + BASE_ORIGIN+'/library/view/TITLE/ISBN/');
       return;
     }
 
-    window.location.replace(urlWithoutHash + '?scrape=start');
+    url.replace(url.href + '?scrape=start');
     //이후는 탬퍼멍키 스크립트가 처리
   }
 })();
