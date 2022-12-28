@@ -25,6 +25,10 @@
   background-color: inherit;
 }
 
+#menuDiv .matter {
+  opacity: 50%;
+}
+
 #menuDiv a {
   text-decoration: none;
   background-color: inherit;

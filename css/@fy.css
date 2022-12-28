@@ -262,6 +262,12 @@ p.fm-sidebar-title, span.fm-callout-head {
   font-weight: bold;
 }
 
+/* 번호 없는 매닝 4단계... */
+p.fm-head2 {
+  font-weight: bold;
+  color: rgba(20, 20, 100);
+}
+
 h1, 
 
 
