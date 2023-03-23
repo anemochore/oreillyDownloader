@@ -6,6 +6,7 @@
 5. McGraw-Hill
 6. Manning Publications
 7. Wiley
+8. nsp
 */
 
 html {
@@ -30,7 +31,7 @@ body {
 p>em, p>strong, 
 table em, table strong, article em, article strong, div>strong, 
 
-
+/* 강조 */
 em.EmphasisTypeItalic, :not(blockquote)>p[id]>i, 
 i[class^="fm-italics"]:not([class^="timesitalic"]), 
 i[class^="calibre"] {
@@ -45,6 +46,7 @@ p.source-code>strong, pre>strong, th>strong, p>em.italic {
   background-color: initial;
 }
 
+/* 본문 수식 */
 [data-type="inline_eq"], mjx-math, math,  /* order: inline, not firefox, firefox */
 img.fm-editor-equation, 
 p.eqr>img, 
@@ -162,6 +164,7 @@ pre a {
   border-bottom: 1px dashed #bbb
 }
 
+/* 노트 등의 박스, 그냥 박스 */
 div.sidebarblock, aside[data-type="sidebar"], div[data-type="tip"], div[data-type="note"], div[data-type="warning"], div[data-type="caution"], 
 div.packt_infobox, div.packt_tip, p.callout, 
 div.FormalParaRenderingStyle1, aside.ArticleNote, 
@@ -179,7 +182,7 @@ section.feature, section.feature1 {
   padding: 0.5em;
 }
 
-/* wiley */
+/* wiley, nsp */
 div.top.hr>hr, div.bottom.hr>hr {
   display: none;
 }
@@ -253,12 +256,15 @@ h1, h2, h3 {
   page-break-after: avoid;
 }
 
+/* 4~6단계 제목. 박스 안 제목(대부분 h6) */
 h4, h5, h6,
 p.callout-heading, 
 
 p[class^="Heading3"], p[class^="Heading4"], p[class^="Heading5"], 
 
-p.fm-sidebar-title, span.fm-callout-head {
+p.fm-sidebar-title, span.fm-callout-head, 
+
+aside span.GlossaryTermCustom {
   font-weight: bold;
 }
 
@@ -472,13 +478,16 @@ p.CDPAlignCenter>img {
   margin: 0 auto;
 }
 
+/* 캡션 */
 div.title, caption.title, figcaption, table caption, div[data-type="example"]>h5, div[data-type="equation"]>h5, div.figure>h6, 
 p.packt_figref, 
 div.CaptionContent, 
 p[class^="figcap"], p[class^="tabcap"], div[data-type="example"] span.exam, p.tnum, p.ttitle, span.eqnum, 
 
-p[class$="caption"] {
-  font-size: 0.8em;
+figcaption>p, p[class$="caption"],
+
+p.CodeListingCaption {
+  font-size: 0.875em;
   font-style: italic;
   margin: 0.8em 0;
   font-weight: normal;

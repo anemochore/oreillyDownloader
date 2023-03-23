@@ -4,6 +4,10 @@
     await heyLoad('https://raw.githubusercontent.com/Stuk/jszip/master/dist/jszip.min.js', 'JSZip');
     const zip = new JSZip();
 
+    if(!window.GM_getValue) {
+      url.replace(url.href + '?scrape=going');
+      return;
+    }
     const consts = await GM_getValue('consts');
     const BOOK_DIR = consts.BOOK_TITLE.replace(/[/\\?%*:|"<>]/g, '_');
 
