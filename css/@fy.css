@@ -26,16 +26,19 @@ body {
   background: #ffffff;
 }
 
-/* not working */
-/* :not(blockquote)>p:not([class^="figcap"]):not([class^="tabcap"]) em, :not(blockquote)>p:not([class^="figcap"]):not([class^="tabcap"]) strong */
+/* 강조 */
 p>em, p>strong, 
 table em, table strong, article em, article strong, div>strong, 
 
-/* 강조 */
 em.EmphasisTypeItalic, :not(blockquote)>p[id]>i, 
 i[class^="fm-italics"]:not([class^="timesitalic"]), 
 i[class^="calibre"] {
   background-color: lightgreen;
+}
+
+/* 판권지 */
+section.front-mat>p.Copyright {
+  font-size: 0.7em;
 }
 
 p.p3>em, kbd {
@@ -69,7 +72,12 @@ div.OrderedList>ol {
 
 section[data-type="foreword"], section[data-type="preface"], div[data-type="part"], section[data-type="chapter"], section[data-type="appendix"], section[data-type="afterword"], section[data-type="glossary"], section[data-type="bibliography"], section[data-type="index"], 
 section[data-type="part"], 
-:not(section)>div[data-type="front-mat"], :not(section)>div[data-type="preface"], :not(section)>div[data-type="part"], :not(section)>div[data-type="chapter"], :not(section)>div[data-type="appendix"], :not(section)>div[data-type="index"] {
+:not(section)>div[data-type="front-mat"], :not(section)>div[data-type="preface"], :not(section)>div[data-type="part"], :not(section)>div[data-type="chapter"], :not(section)>div[data-type="appendix"], :not(section)>div[data-type="index"],
+
+
+
+
+section[data-type="front-mat"] {
   border-top: 16px solid blue;
   margin-top: 5em;
 }
