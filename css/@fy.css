@@ -36,9 +36,16 @@ i[class^="calibre"] {
   background-color: lightgreen;
 }
 
-/* 판권지 */
+/* nsp 판권지 */
 section.front-mat>p.Copyright {
   font-size: 0.7em;
+}
+
+/* nsp 챕터 시작부 */
+figure.opener {
+  width: 20%;
+  margin: 32px 0;
+  float: left;
 }
 
 p.p3>em, kbd {
@@ -124,6 +131,10 @@ section.noteSet>.notesList {
   margin-bottom: 0;
 }
 
+code {
+  font-family: d2coding, monospace;
+}
+
 samp, div.listingblock, pre[data-type="programlisting"], pre[data-type="example"],
 p.source-code, 
 div.LineGroup {
@@ -131,7 +142,7 @@ div.LineGroup {
   border-left: 8px solid lightgray;
   padding-left: 4px;
   font-size: 10pt;
-  font-family: monospace;
+  font-family: d2coding, monospace;
 }
 
 p.source-code {
@@ -144,19 +155,25 @@ pre[data-type="terminal"] {
   border: 0;
   padding-left: 16px;
   font-size: 10pt;
-  font-family: monospace;
+  font-family: d2coding, monospace;
 }
 
+/* 본문 코드 */
 p>code, samp, 
 kbd, 
 strong.source-inline, 
-span.EmphasisFontCategoryNonProportional, span.inlinecode {
+span.EmphasisFontCategoryNonProportional, span.inlinecode, 
+
+
+
+table code {
   color: #000;
   background-color: #ccddff;
   border: 0;
-  font-family: monospace;
-  font-weight: normal;
   padding-left: initial;
+  font-size: 0.9em;
+  font-family: d2coding, monospace;
+  font-weight: normal;
 }
 
 pre {
@@ -497,7 +514,7 @@ figcaption>p, p[class$="caption"],
 p.CodeListingCaption {
   font-size: 0.875em;
   font-style: italic;
-  margin: 0.8em 0;
+  margin: 0 0 1.6em 0;
   font-weight: normal;
 }
 
