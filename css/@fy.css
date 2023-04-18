@@ -166,12 +166,12 @@ span.EmphasisFontCategoryNonProportional, span.inlinecode,
 
 
 
-table code {
+table code, li code {
   color: #000;
   background-color: #ccddff;
   border: 0;
   padding-left: initial;
-  font-size: 0.9em;
+  font-size: 0.925em;
   font-family: d2coding, monospace;
   font-weight: normal;
 }
@@ -399,6 +399,7 @@ strong code {
   font-weight: bold;
 }
 
+/*
 p[class^="figcap"]>code, p[class^="tabcap"]>code,  td span.inlinecode,
 
 
@@ -408,6 +409,7 @@ td code,
 figcaption code {
   font-size: initial;
 }
+*/
 
 dfn {
   font-style: italic;
