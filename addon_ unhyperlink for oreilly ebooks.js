@@ -6,6 +6,8 @@
   [...doc.querySelectorAll('a:not([href^="#"]):not([class]):not([id]):not([data-type])')].forEach(el => {
     const HTML = el.innerHTML;
     const href = el.href;
+    if(HTML == href.replace(/\/$/, ''))
+      return true;  //continue
     el.outerHTML = `${HTML} (<a href="${href}">${href}</a>)`;
   });
 
