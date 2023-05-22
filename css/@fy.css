@@ -36,8 +36,15 @@ i[class^="calibre"] {
   background-color: lightgreen;
 }
 
-/* nsp 판권지 */
-section.front-mat>p[class^="Copyright"]
+/* 판권지 */
+
+
+
+
+
+div[title2="Copyright"], 
+
+section.front-mat>p[class^="Copyright"] {
   font-size: 0.7em;
 }
 
