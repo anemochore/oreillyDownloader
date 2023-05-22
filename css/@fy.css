@@ -37,7 +37,7 @@ i[class^="calibre"] {
 }
 
 /* nsp 판권지 */
-section.front-mat>p {
+section.front-mat>p[class^="Copyright"]
   font-size: 0.7em;
 }
 
