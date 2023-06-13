@@ -32,7 +32,9 @@ table em, table strong, article em, article strong, div>strong,
 
 em.EmphasisTypeItalic, :not(blockquote)>p[id]>i, 
 i[class^="fm-italics"]:not([class^="timesitalic"]), 
-i[class^="calibre"] {
+i[class^="calibre"],
+
+span.RunInHead {
   background-color: lightgreen;
 }
 
