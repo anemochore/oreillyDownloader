@@ -57,6 +57,11 @@ figure.opener {
   float: left;
 }
 
+/* nsp 인덱스 */
+p.index1, p.index2, p.index3 {
+  font-size: 0.7em;
+}
+
 p.p3>em, kbd {
   margin: auto 0.25em;
 }
