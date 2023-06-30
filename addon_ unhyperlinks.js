@@ -1,25 +1,30 @@
 //이미 safari-dl 등으로 받은 html 파일을 파폭에서 열고 실행할 것. 크롬에서 열면 mathjax까지 포함된다ㅠㅠ
 
-//ex: 오라일리 책
-//unhyperlink(document);
+//ex: 오라일리 책(내부 링크는 처리하지 않을 때)
+//unhyperlink(document, 'a:not([class]):not([id]):not([data-type])');
 
-//ex: mdbooks에서 받은 책의 상호 링크 href 삭제하고 모두 (xxx쪽) 붙이기
-unhyperlink(document, {el => 
-  if(el  //todo+++
+//ex: mdbooks에서 받은 책
+//외부 링크는 기본값대로.
+unhyperlink(document);
+
+//내부 링크는 클래스 넣고 링크와 텍스트까지 삭제하고 (xxx쪽) 삽입
+unhyperlink(document, 'a:not(.header)[href^="#"]', el => { 
+  el.outerHTML = `<span class="with-page">${el.innerHTML}(xxx쪽)</span>`;
+  return el;
 });
 
 //로컬 파일로 저장
-//saveCurDoc();
+saveCurDoc();
 
 
-function unhyperlink(doc, mapOnEl = (el) => { if(!el.getAttribute('href').startsWith('#')) el.outerHTML = `${el.innerHTML} (<a href="${el.href}">${el.href}</a>)`; }) {
-  [...doc.querySelectorAll('a:not([class]):not([id]):not([data-type])')].forEach(el => {
+function unhyperlink(doc, aSelector = 'a:not([class])', mapOnEl = el => { if(!el.getAttribute('href').startsWith('#')) el.outerHTML = `${el.innerHTML}(<a href="${el.href}">${el.href}</a>)`; }) {
+  [...doc.querySelectorAll(aSelector)].forEach(el => {
     const HTML = el.innerHTML;
     const href = el.href;
     if(HTML == href || HTML == href.replace(/\/$/, ''))
       return true;  //continue
-    if(mapOnEl) el = mapOnEl(el);  //no error-check
-    if(el) el.outerHTML = `${HTML} (<a href="${href}">${href}</a>)`;
+
+    el = mapOnEl(el);  //no error-check
   });
 }
 
