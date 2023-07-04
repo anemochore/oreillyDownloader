@@ -183,7 +183,7 @@ kbd,
 strong.source-inline, 
 span.EmphasisFontCategoryNonProportional, span.inlinecode, 
 
-
+span[class^="fm-code-in-text"],
 
 table code, li code {
   color: #000;
