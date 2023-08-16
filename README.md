@@ -1,4 +1,4 @@
-# oreillyDownloader (구 oreillyHack)
+# oreillyDownloader (구 oreillyHack, safari-dl)
 
 ## 역사...?
 1. 오라일리 인하우스 html(asciidoc을 뭔가로 변환한 요상한 형태)을 편집 시 참고하기 쉬운 형태로 바꿔 로컬 브라우저에서 편하게 보려고 만듦.
