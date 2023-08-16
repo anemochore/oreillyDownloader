@@ -7,6 +7,7 @@
 6. Manning Publications
 7. Wiley
 8. nsp
+9. addison-wesley
 */
 
 html {
@@ -38,6 +39,13 @@ span.RunInHead {
   background-color: lightgreen;
 }
 
+/* addison-wesley only (박스 안 강조 취소) */
+div.side>p>em {
+  font-style: normal;
+  background-color: unset;
+}
+
+
 /* 판권지 */
 
 
@@ -57,15 +65,16 @@ figure.opener {
   float: left;
 }
 
-/* nsp 인덱스 */
-p.indexletter {
+/* nsp, awp 인덱스 */
+p.indexletter,
+p.indexmain1 {
   margin-top: 2em;
 }
 
-p.index1, p.index2, p.index3 {
+p.index1, p.index2, p.index3,
+p.indexmain, p.indexsub {
   font-size: 0.7em;
 }
-
 
 p.p3>em, kbd {
   margin: auto 0.25em;
@@ -96,6 +105,7 @@ div.OrderedList>ol {
   list-style: none;
 }
 
+/* 파트나 챕터 */
 section[data-type="foreword"], section[data-type="preface"], div[data-type="part"], section[data-type="chapter"], section[data-type="appendix"], section[data-type="afterword"], section[data-type="glossary"], section[data-type="bibliography"], section[data-type="index"], 
 section[data-type="part"], 
 :not(section)>div[data-type="front-mat"], :not(section)>div[data-type="preface"], :not(section)>div[data-type="part"], :not(section)>div[data-type="chapter"], :not(section)>div[data-type="appendix"], :not(section)>div[data-type="index"],
@@ -120,21 +130,20 @@ div.BookFrontmatter div {
   margin: 1em 0;
 }
 
+/* 각주 */
 div[data-type="footnotes"], 
 
 aside.FootnoteSection,
 p[class^="hr"], p.alg, div.Affiliations, 
 
 
-section.noteSet {
+section.noteSet,
+
+p.footnote {
   border-top: 4px solid coral;
   border-bottom: 2px solid coral;
   margin-top: 2em;
   margin-bottom: 2em;
-}
-
-aside.FootnoteSection>div.Heading {
-  font-weight: bold;
 }
 
 p[data-type="footnote"], 
@@ -143,15 +152,22 @@ aside.FootnoteSection p, aside.FootnoteSection span.FootnoteNumber,
 div.Affiliation, 
 
 p.fn, p.fm-footnote,
-section.noteSet>.notesList {
+section.noteSet>.notesList,
+
+p.footnote {
   font-size: 90%;
   color: #666666;
   padding-left: 0.5em;
   margin-bottom: 0;
 }
 
+aside.FootnoteSection>div.Heading {
+  font-weight: bold;
+}
+
+/* 코드블록 */
 code {
-  font-family: d2coding, monospace;
+  font-family: "Sarasa Fixed K", d2coding, monospace;
 }
 
 samp, div.listingblock, pre[data-type="programlisting"], pre[data-type="example"],
@@ -161,11 +177,16 @@ div.LineGroup {
   border-left: 8px solid lightgray;
   padding-left: 4px;
   font-size: 10pt;
-  font-family: d2coding, monospace;
+  font-family: "Sarasa Fixed K", d2coding, monospace;
 }
 
 p.source-code {
   margin: 0;
+}
+
+/* addison-wesley only (Click here to view code image 제거) */
+p.codelink {
+  display: none;
 }
 
 pre[data-type="terminal"] {
@@ -174,7 +195,7 @@ pre[data-type="terminal"] {
   border: 0;
   padding-left: 16px;
   font-size: 10pt;
-  font-family: d2coding, monospace;
+  font-family: "Sarasa Fixed K", d2coding, monospace;
 }
 
 /* 본문 코드 */
@@ -191,7 +212,7 @@ table code, li code {
   border: 0;
   padding-left: initial;
   font-size: 0.925em;
-  font-family: d2coding, monospace;
+  font-family: "Sarasa Fixed K", d2coding, monospace;
   font-weight: normal;
 }
 
@@ -215,7 +236,9 @@ div.FormalParaRenderingStyle1, aside.ArticleNote,
 :not(aside)>div.sidebar, p.notes, 
 
 div.fm-sidebar-block, p.fm-callout, 
-section.feature, section.feature1 {
+section.feature, section.feature1,
+
+div.side {
   max-width: 90%;
   font-size: 90%;
   margin-top: 32px;
