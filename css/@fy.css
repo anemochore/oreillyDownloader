@@ -54,8 +54,9 @@ div.side>p>em {
 
 div[title2="Copyright"], 
 
-section.front-mat>p[class^="Copyright"] {
-  font-size: 0.7em;
+section.front-mat>p[class^="Copyright"], 
+p.copy {
+  font-size: 0.67em;
 }
 
 /* nsp 챕터 시작부 */
