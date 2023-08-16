@@ -84,6 +84,30 @@ p.source-code>strong, pre>strong, th>strong, p>em.italic {
   background-color: initial;
 }
 
+/* awp 목차 */
+p.toc-part, p:not([class^="toc-bm"])+p[class^="toc-bm"] {
+  margin-top: 2.5em;
+}
+
+p.toc-chap>a>strong {
+  font-weight: normal;
+  font-size: 0.83em;
+}
+
+/* awp 앞부속(beautiful c++) */
+section[data-type="front-mat"]>p>em:has(a) {
+  background-color: unset;
+}
+
+section[data-type="front-mat"]>p.noindent2mk {
+  font-size: 0.75em;
+  margin-top: 0 !important;
+}
+
+section[data-type="front-mat"]>p.noindent1mk {
+  margin-bottom: 0;
+}
+
 /* 본문 수식 */
 [data-type="inline_eq"], mjx-math, math,  /* order: inline, not firefox, firefox */
 img.fm-editor-equation, 
