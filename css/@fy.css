@@ -161,7 +161,7 @@ div[data-type="footnotes"],
 aside.FootnoteSection,
 p[class^="hr"], p.alg, div.Affiliations, 
 
-
+hr[class^="calibre"],
 section.noteSet,
 
 p.footnote {
@@ -304,7 +304,6 @@ div.packt_infobox, p.callout,
 
 
 
-p.fm-callout, 
 section.feature {
   padding-left: 80px;
   background-image: url("@note.jpg");
