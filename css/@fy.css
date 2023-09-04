@@ -209,6 +209,17 @@ p.source-code {
   margin: 0;
 }
 
+
+/* nsp 코드블록 내 원번호 등 */
+span.CodeAnnotationHang, span.CodeAnnotationCode {
+  margin-left: -0.5em;
+}
+
+span.LiteralGray {
+  color: gray;
+}
+
+
 /* addison-wesley only (Click here to view code image 제거) */
 p.codelink {
   display: none;
