@@ -330,8 +330,10 @@ div[data-type="warning"], div[data-type="caution"] {
   background-image: url("@warning.jpg");
 }
 
+
+/* 제목 */
 h1, h2, h3, h4, h5, h6, 
-p.callout-heading, 
+p.callout-heading, header[class$="-title"],
 
 p[class^="ChapterTitle"], p[class^="Heading"], 
 
@@ -373,20 +375,6 @@ p.callout-heading+p.callout em {
   font-style: normal;
 }
 
-
-img {
-  max-width: 75%;
-  height: auto;
-}
-
-img[class^="calibre"] {
-  max-width: 100%;
-}
-
-td img[class^="calibre"] {
-  max-width: initial;
-}
-
 h1, h2, h3 {
   page-break-after: avoid;
 }
@@ -398,7 +386,7 @@ p.fm-head2 {
 }
 
 h1, 
-
+header[class$="-title"],
 
 p[class^="ChapterTitle"] {
   font-size: 2.1em;
@@ -463,6 +451,23 @@ p[class^="Heading5"],
 p.fm-sidebar-title, span.fm-callout-head {
   font-size: 0.9em;
 }
+
+
+
+/* 그림 */
+img {
+  max-width: 75%;
+  height: auto;
+}
+
+img[class^="calibre"] {
+  max-width: 100%;
+}
+
+td img[class^="calibre"] {
+  max-width: initial;
+}
+
 
 blockquote,
 div.packt_quote,
@@ -612,7 +617,7 @@ p.CDPAlignCenter>img {
 
 /* 캡션 */
 div.title, caption.title, figcaption, table caption, div[data-type="example"]>h5, div[data-type="equation"]>h5, div.figure>h6, 
-p.packt_figref, 
+.packt_figref, 
 div.CaptionContent, 
 p[class^="figcap"], p[class^="tabcap"], div[data-type="example"] span.exam, p.tnum, p.ttitle, span.eqnum, 
 
