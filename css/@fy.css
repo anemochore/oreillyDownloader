@@ -42,7 +42,7 @@ span.RunInHead {
 /* addison-wesley only (박스 안 강조 취소) */
 div.side>p>em {
   font-style: normal;
-  background-color: unset;
+  background-color: initial;
 }
 
 
@@ -97,7 +97,7 @@ p.toc-chap>a>strong {
 
 /* awp 앞부속(beautiful c++) */
 section[data-type="front-mat"]>p>em:has(a) {
-  background-color: unset;
+  background-color: initial;
 }
 
 section[data-type="front-mat"]>p.noindent2mk {
@@ -355,6 +355,11 @@ aside span.GlossaryTermCustom {
   font-weight: bold;
 }
 
+/* 오라일리 팁 등 박스 안의 제목 */
+div[data-type="tip"]>h1, div[data-type="note"]>h1, div[data-type="warning"]>h1, div[data-type="caution"]>h1 {
+  font-size: 0.975em;  /* 다른 박스 안 제목(h5)에 준해서 */
+  font-weight: bold;
+}
 
 /* 팩트 제목 있는 박스. 이때는 이런 박스 하나만 쓴다고 보고 그림도 없앤다. */
 p.callout-heading:has(+p.callout) {  /* 파폭에선 X */
@@ -469,6 +474,7 @@ td img[class^="calibre"] {
 }
 
 
+/* 인용 */
 blockquote,
 div.packt_quote,
 
@@ -487,6 +493,12 @@ p[class^="fm-quote"] {
 blockquote.BlockQuote>p {
   margin: 0;
 }
+
+/* 오라일리 인용 출처 */
+blockquote p[data-type="attribution"], aside .byline {
+  text-align: right;
+}
+
 
 hr {
   display: block;
