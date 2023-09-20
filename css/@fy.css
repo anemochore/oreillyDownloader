@@ -331,6 +331,17 @@ div[data-type="warning"], div[data-type="caution"] {
 }
 
 
+/* 매닝 박스 안 본문(문단 간 여백을 빈 행으로 처리해서 너무 떨어져 보임) */
+div.fm-sidebar-block>p.fm-sidebar-text {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+div.fm-sidebar-block>p.fm-sidebar-text:last-of-type {
+  margin-bottom: 1em;
+}
+
+
 /* 제목 */
 h1, h2, h3, h4, h5, h6, 
 p.callout-heading, header[class$="-title"],
