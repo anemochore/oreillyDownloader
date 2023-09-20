@@ -338,7 +338,7 @@ div.fm-sidebar-block>p.fm-sidebar-text {
 }
 
 div.fm-sidebar-block>p.fm-sidebar-text:last-of-type {
-  margin-bottom: 1em;
+  margin-bottom: 2.5em;
 }
 
 
@@ -350,7 +350,8 @@ p[class^="ChapterTitle"], p[class^="Heading"],
 
 p.fm-sidebar-title, span.fm-callout-head {
   line-height: 125%;
-  margin-top: 2em;
+  margin-top: 2.5em;
+  margin-bottom: 2em;
   font-weight: normal;
 }
 
