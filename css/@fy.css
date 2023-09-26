@@ -81,7 +81,7 @@ p.p3>em, kbd {
   margin: auto 0.25em;
 }
 
-p.source-code>strong, pre>strong, th>strong, p>em.italic {
+p.source-code>strong, pre>strong, th>strong {  /* p>em.italic { */
   background-color: initial;
 }
 
