@@ -211,9 +211,8 @@ p.source-code {
 
 
 /* nsp 코드블록 내 원번호 등 */
-/* sarasa 서체에서는 불필요 
-span.CodeAnnotationHang, span.CodeAnnotationCode {
-  margin-left: -0.5em;
+code>span[class^="CodeAnnotation"] {
+  background-color: yellow;
 }
 */
 
