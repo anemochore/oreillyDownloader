@@ -210,12 +210,15 @@ p.source-code {
 }
 
 
-/* nsp 코드블록 내 원번호 등 */
-code>span[class^="CodeAnnotation"] {
+/* 매닝, nsp 코드블록 내 원번호 */
+pre>span.fm-combinumeral,
+
+code>span[class^="CodeAnnotation"]
+{
   background-color: yellow;
 }
-*/
 
+/* nsp 코드블록 내 리터럴 */
 span.LiteralGray {
   color: gray;
 }
