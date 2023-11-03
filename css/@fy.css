@@ -27,6 +27,36 @@ body {
   background: #ffffff;
 }
 
+ul, ol {
+  margin: 1em 0;
+  padding: 0 0 0 2em;
+}
+
+li p:last-child {
+  margin-bottom: 0;
+}
+
+ul ul, ol ol {
+  margin: .3em 0;
+}
+
+dl {
+  margin-bottom: 1em;
+}
+
+dt {
+  font-weight: bold;
+  margin-bottom: .8em;
+}
+
+dd {
+  margin: 0 0 .8em 2em;
+}
+
+dd:last-child {
+  margin-bottom: 0;
+}
+
 /* 강조 */
 p>em, p>strong, 
 table em, table strong, article em, article strong, div>strong, span>strong, 
@@ -191,13 +221,12 @@ aside.FootnoteSection>div.Heading {
 }
 
 /* 코드블록 */
-code {
-  font-family: "Sarasa Fixed K", d2coding, monospace;
-}
-
 samp, div.listingblock, pre[data-type="programlisting"], pre[data-type="example"],
 p.source-code, 
-div.LineGroup {
+div.LineGroup, 
+
+
+div[class$="-codeSnippetContainer"], :not(div[class$="-codeSnippetContainer"])>pre.programlisting {
   background-color: whitesmoke;
   border-left: 8px solid lightgray;
   padding-left: 4px;
@@ -210,12 +239,37 @@ p.source-code {
 }
 
 
-/* 매닝, nsp 코드블록 내 원번호 */
-pre>span.fm-combinumeral,
-
-code>span[class^="CodeAnnotation"]
-{
+/* 오라일리 코드블록 안/아래 원번호 */
+pre a.co, dl.calloutlist>dt>a {
+  /*
+  text-decoration: none;
+  color: #0000ee;
+  */
   background-color: yellow;
+  border-bottom: 1px dashed #bbb;
+  font-family: d2coding, monospace !important;
+}
+
+a.co img {
+  vertical-align: baseline;
+}
+
+/* 매닝, nsp 코드블록 안/아래 원번호 */
+span[class^="fm-combinumeral"],
+code>span[class^="CodeAnnotation"] {
+  background-color: yellow;
+  font-family: d2coding, monospace !important;
+}
+
+/* 오라일리, 매닝 코드블록 아래 설명 */
+dl.calloutlist,
+p[class^="fm-code-annotation"], p.co-fm-toc {
+  font-size: 0.9em;
+}
+
+/* 오라일리 코드블록 아래 설명 */
+dl.calloutlist dd {
+  margin-top: -2.25em;
 }
 
 /* nsp 코드블록 내 리터럴 */
@@ -223,20 +277,97 @@ span.LiteralGray {
   color: gray;
 }
 
-
 /* addison-wesley only (Click here to view code image 제거) */
 p.codelink {
   display: none;
 }
 
+
+
+/* 캡션(아래) */
+div.title, caption.title, figcaption, table caption, div[data-type="example"]>h5, div[data-type="equation"]>h5, div.figure>h6, 
+.packt_figref, 
+div.CaptionContent, 
+p[class^="figcap"], p[class^="tabcap"], div[data-type="example"] span.exam, p.tnum, p.ttitle, span.eqnum, 
+
+figcaption>p, p[class$="caption"], p.equationcaption,
+
+p.CodeListingCaption {
+  margin-top: 0;
+  font-size: 0.875em;
+  font-style: italic;
+  font-weight: normal;
+  color: royalblue;
+}
+
+p[class$="caption"]>code {
+  font-style: normal;
+}
+
+/* 표 캡션(위) */
+table caption, 
+
+
+
+
+p.fm-table-caption, 
+
+figcaption.TableTitle {
+  margin-bottom: 0
+}
+
+/* 매닝 코드블록 캡션(위) */
+p.fm-code-listing-caption {
+  margin-bottom: 0;
+}
+
+/* 매닝 코드블록(위에 캡션 있을 때) */
+p.fm-code-listing-caption+div[class$="-codeSnippetContainer"]>pre.programlisting, p.fm-code-listing-caption+pre.programlisting {
+  margin-top: 0;
+}
+
+/* nsp 코드블록 파일명(위) */
+p.CodeLabel {
+  margin-bottom: 0;
+}
+
+/* nsp 코드블록(위에 파일명 있을 때) */
+p.CodeLabel+pre[data-type="example"] {
+  margin-top: 0;
+}
+
+/* nsp 코드블록(아래에 캡션 있을 때) */
+pre[data-type="example"]+p.CodeListingCaption {
+  margin-top: -1em;
+}
+
+
+/* 어느 출판사인지 까먹어서 일단 주석으로. */
+/*
+div.CaptionContent>p {
+  margin-top: 0;
+}
+
+figure>figcaption.Caption>div.CaptionContent {
+  font-size: 100%;
+}
+
+figure>figcaption.Caption>div.CaptionContent>span.CaptionNumber, figure>figcaption.Caption>div.CaptionContent>p {
+  float: none;
+  display: inline;
+}
+*/
+
+
+/* 터미널 */
 pre[data-type="terminal"] {
   color: white;
   background-color: #0a0a0a;
   border: 0;
   padding-left: 16px;
   font-size: 10pt;
-  font-family: "Sarasa Fixed K", d2coding, monospace;
 }
+
 
 /* 본문 코드 */
 p>code, samp, 
@@ -252,22 +383,18 @@ table code, li code {
   border: 0;
   padding-left: initial;
   font-size: 0.925em;
-  font-family: "Sarasa Fixed K", d2coding, monospace;
   font-weight: normal;
+  font-style: normal;
 }
 
-pre {
+pre, code {
+  font-family: "Sarasa Fixed K", d2coding, monospace;
   page-break-inside: avoid;
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
 
-pre a {
-  text-decoration: none;
-  color: #0000ee;
-  border-bottom: 1px dashed #bbb
-}
 
 /* 노트 등의 박스, 그냥 박스 */
 div.sidebarblock, aside[data-type="sidebar"], div[data-type="tip"], div[data-type="note"], div[data-type="warning"], div[data-type="caution"], 
@@ -348,12 +475,10 @@ div.fm-sidebar-block>p.fm-sidebar-text:last-of-type {
 h1, h2, h3, h4, h5, h6, 
 p.callout-heading, header[class$="-title"],
 
-p[class^="ChapterTitle"], p[class^="Heading"], 
-
-p.fm-sidebar-title, span.fm-callout-head {
+p[class^="ChapterTitle"], p[class^="Heading"] {
   line-height: 125%;
-  margin-top: 2.5em;
-  margin-bottom: 2em;
+  margin-top: 2.4em;
+  margin-bottom: 1.2em;
   font-weight: normal;
 }
 
@@ -363,16 +488,17 @@ p.callout-heading,
 
 p[class^="Heading3"], p[class^="Heading4"], p[class^="Heading5"], 
 
-p.fm-sidebar-title, span.fm-callout-head, 
-
-aside span.GlossaryTermCustom {
+p.fm-sidebar-title, span.fm-callout-head {
   font-weight: bold;
 }
 
-/* 오라일리 팁 등 박스 안의 제목 */
-div[data-type="tip"]>h1, div[data-type="note"]>h1, div[data-type="warning"]>h1, div[data-type="caution"]>h1 {
+/* 오라일리 팁 등 박스 안 제목, 매닝 박스 안 제목, nsp 박스 안 제목 */
+div[data-type]>h1, div[data-type]>h6, 
+p.fm-sidebar-title, span.fm-callout-head, 
+section.note>h2, aside span.GlossaryTermCustom {
   font-size: 0.975em;  /* 다른 박스 안 제목(h5)에 준해서 */
   font-weight: bold;
+  margin: 1em 0 0.5em 0;
 }
 
 /* 팩트 제목 있는 박스. 이때는 이런 박스 하나만 쓴다고 보고 그림도 없앤다. */
@@ -394,6 +520,7 @@ p.callout-heading+p.callout em {
   font-style: normal;
 }
 
+
 h1, h2, h3 {
   page-break-after: avoid;
 }
@@ -402,6 +529,7 @@ h1, h2, h3 {
 p.fm-head2 {
   font-weight: bold;
   color: rgba(20, 20, 100);
+  margin-top: 2em;
 }
 
 h1, 
@@ -472,11 +600,12 @@ p.fm-sidebar-title, span.fm-callout-head {
 }
 
 
-
 /* 그림 */
 img {
   max-width: 75%;
   height: auto;
+  border: 0;
+  vertical-align: middle;
 }
 
 img[class^="calibre"] {
@@ -486,6 +615,27 @@ img[class^="calibre"] {
 td img[class^="calibre"] {
   max-width: initial;
 }
+
+div.imageblock, figure,
+:not(td)>p.CDPAlignCenter,
+
+
+
+div.figure>p.figure1, p.fm-figure, p.equation {
+  /* text-align: center; */
+  margin: 1em 0 0 0;
+}
+
+figure>h1 {
+  text-align: initial;
+}
+
+div.imageblock img, figure img,
+p.CDPAlignCenter>img {
+  margin: 0 auto;
+}
+
+
 
 
 /* 인용 */
@@ -573,106 +723,12 @@ sub, sup {
 }
 
 
-ul, ol {
-  margin: 1em 0;
-  padding: 0 0 0 2em;
-}
-
-li p:last-child {
-  margin-bottom: 0;
-}
-
-ul ul, ol ol {
-  margin: .3em 0;
-}
-
-dl {
-  margin-bottom: 1em;
-}
-
-dt {
-  font-weight: bold;
-  margin-bottom: .8em;
-}
-
-dd {
-  margin: 0 0 .8em 2em;
-}
-
-dd:last-child {
-  margin-bottom: 0;
-}
-
-img {
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-  vertical-align: middle;
-}
-
-
-a.co img {
-  vertical-align: baseline;
-}
-
-dl.calloutlist dd {
-  margin-top: -40px;
-}
-
-div.imageblock, figure,
-:not(td)>p.CDPAlignCenter {
-  display: block;
-  text-align: center;
-  margin: 1em 0;
-}
-
-figure>h1 {
-  text-align: initial;
-}
-
-div.imageblock img, figure img,
-p.CDPAlignCenter>img {
-  border: none;
-  margin: 0 auto;
-}
-
-/* 캡션 */
-div.title, caption.title, figcaption, table caption, div[data-type="example"]>h5, div[data-type="equation"]>h5, div.figure>h6, 
-.packt_figref, 
-div.CaptionContent, 
-p[class^="figcap"], p[class^="tabcap"], div[data-type="example"] span.exam, p.tnum, p.ttitle, span.eqnum, 
-
-figcaption>p, p[class$="caption"],
-
-p.CodeListingCaption {
-  font-size: 0.875em;
-  font-style: italic;
-  margin: 0 0 1.6em 0;
-  font-weight: normal;
-}
-
-p[class$="caption"]>code {
-  font-style: normal;
-}
-
-div.CaptionContent>p {
-  margin-top: 0;
-}
-
-figure>figcaption.Caption>div.CaptionContent {
-  font-size: 100%;
-}
-
-figure>figcaption.Caption>div.CaptionContent>span.CaptionNumber, figure>figcaption.Caption>div.CaptionContent>p {
-  float: none;
-  display: inline;
-}
-
-
 table {
   margin-bottom: 1em;
   border: 1px solid #ddd;
   border-spacing: 0;
   border-collapse: collapse;
+  min-width: 40%;
 }
 
 table p {
