@@ -226,7 +226,7 @@ p.source-code,
 div.LineGroup, 
 
 
-div[class$="-codeSnippetContainer"], :not(div[class$="-codeSnippetContainer"])>pre.programlisting {
+div[class$="-codeSnippetContainer"], :not(div[class$="-codeSnippetContainer"])>pre.programlisting:not(.con) {
   background-color: whitesmoke;
   border-left: 8px solid lightgray;
   padding-left: 4px;
@@ -359,8 +359,8 @@ figure>figcaption.Caption>div.CaptionContent>span.CaptionNumber, figure>figcapti
 */
 
 
-/* 터미널 */
-pre[data-type="terminal"] {
+/* 팩트 터미널 */
+pre[data-type="terminal"], pre.con {
   color: white;
   background-color: #0a0a0a;
   border: 0;
@@ -398,7 +398,7 @@ pre, code {
 
 /* 노트 등의 박스, 그냥 박스 */
 div.sidebarblock, aside[data-type="sidebar"], div[data-type="tip"], div[data-type="note"], div[data-type="warning"], div[data-type="caution"], 
-div.packt_infobox, div.packt_tip, p.callout, 
+div.packt_infobox, div.packt_tip, p.callout, div.note, 
 div.FormalParaRenderingStyle1, aside.ArticleNote, 
 :not(aside)>div.sidebar, p.notes, 
 
