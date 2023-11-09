@@ -220,8 +220,8 @@ aside.FootnoteSection>div.Heading {
   font-weight: bold;
 }
 
-/* 코드블록 */
-samp, div.listingblock, pre[data-type="programlisting"], pre[data-type="example"],
+/* 코드블록(1행에 매닝과 오라일리 중복 있음-_- */
+samp, div.listingblock, pre[data-type="programlisting"], :not(div[class$="-codeSnippetContainer"])>pre[data-type="example"],
 p.source-code, 
 div.LineGroup, 
 
