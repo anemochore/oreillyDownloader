@@ -96,12 +96,14 @@ figure.opener {
   float: left;
 }
 
-/* nsp, awp 인덱스 */
+/* 팩트, nsp, awp 인덱스 */
+p.Index-Section-Head,
 p.indexletter,
 p.indexmain1 {
   margin-top: 2em;
 }
 
+p.Index-Level-1, p.Index-Level-2,
 p.index1, p.index2, p.index3,
 p.indexmain, p.indexsub {
   font-size: 0.7em;
