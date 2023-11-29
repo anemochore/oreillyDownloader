@@ -96,26 +96,21 @@ figure.opener {
   float: left;
 }
 
-/* 팩트, nsp, awp 인덱스 */
+/* 팩트, 매닝, nsp, awp 인덱스 */
 p.Index-Section-Head,
+p.grouptitlesix,
 p.indexletter,
 p.indexmain1 {
   margin-top: 2em;
 }
 
 p.Index-Level-1, p.Index-Level-2,
+p.level1ix, p.level2ix, p.level3ix, 
 p.index1, p.index2, p.index3,
 p.indexmain, p.indexsub {
   font-size: 0.7em;
 }
 
-p.p3>em, kbd {
-  margin: auto 0.25em;
-}
-
-p.source-code>strong, pre>strong, th>strong {  /* p>em.italic { */
-  background-color: initial;
-}
 
 /* awp 목차 */
 p.toc-part, p:not([class^="toc-bm"])+p[class^="toc-bm"] {
@@ -140,6 +135,16 @@ section[data-type="front-mat"]>p.noindent2mk {
 section[data-type="front-mat"]>p.noindent1mk {
   margin-bottom: 0;
 }
+
+
+p.p3>em, kbd {
+  margin: auto 0.25em;
+}
+
+p.source-code>strong, pre>strong, th>strong {  /* p>em.italic { */
+  background-color: initial;
+}
+
 
 /* 본문 수식 */
 [data-type="inline_eq"], mjx-math, math,  /* order: inline, not firefox, firefox */
