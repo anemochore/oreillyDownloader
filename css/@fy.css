@@ -500,7 +500,7 @@ p.fm-sidebar-title, span.fm-callout-head {
 }
 
 /* 오라일리 팁 등 박스 안 제목, 매닝 박스 안 제목, nsp 박스 안 제목 */
-div[data-type]>h1, div[data-type]>h6, 
+div[data-type]>h6, 
 p.fm-sidebar-title, span.fm-callout-head, 
 section.note>h2, aside span.GlossaryTermCustom {
   font-size: 0.975em;  /* 다른 박스 안 제목(h5)에 준해서 */
