@@ -482,11 +482,12 @@ div.fm-sidebar-block>p.fm-sidebar-text:last-of-type {
 h1, h2, h3, h4, h5, h6, 
 p.callout-heading, header[class$="-title"],
 
-p[class^="ChapterTitle"], p[class^="Heading"] {
+p[class^="ChapterTitle"], p[class^="Heading"],
+
+p.fm-head2 {
   line-height: 125%;
   margin-top: 2.4em;
   margin-bottom: 1.2em;
-  font-weight: normal;
 }
 
 /* 4~6단계 제목. 박스 안 제목(대부분 h6) */
@@ -535,8 +536,6 @@ h1, h2, h3 {
 /* 번호 없는 매닝 4단계... */
 p.fm-head2 {
   font-weight: bold;
-  color: rgba(20, 20, 100);
-  margin-top: 2em;
 }
 
 h1, 
@@ -581,13 +580,17 @@ h3,
 
 p[class^="Heading2"] {
   font-size: 1.3em;
+  padding-left: 0.75em;
 }
 
 h4, 
 
 
-p[class^="Heading3"] {
+p[class^="Heading3"],
+
+p.fm-head2 {
   font-size: 1.05em;
+  padding-left: 1em;
 }
 
 h5, 
@@ -595,6 +598,7 @@ h5,
 
 p[class^="Heading4"] {
   font-size: 0.975em;
+  padding-left: 1.1em;
 }
 
 h6, 
@@ -604,6 +608,7 @@ p[class^="Heading5"],
 
 p.fm-sidebar-title, span.fm-callout-head {
   font-size: 0.9em;
+  padding-left: 1.15em;
 }
 
 
