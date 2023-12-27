@@ -239,6 +239,11 @@ div[class$="-codeSnippetContainer"], :not(div[class$="-codeSnippetContainer"])>p
   padding-left: 4px;
   font-size: 10pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
+  
+  page-break-inside: avoid;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 p.source-code {
@@ -389,12 +394,11 @@ table code, li code {
   background-color: #ccddff;
   border: 0;
   padding-left: initial;
-  font-size: 0.925em;
+
+  font-size: 9pt;
   font-weight: normal;
   font-style: normal;
-}
 
-pre, code {
   font-family: "Sarasa Fixed K", d2coding, monospace;
   page-break-inside: avoid;
   white-space: pre;
