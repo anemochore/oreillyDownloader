@@ -475,10 +475,11 @@ div[data-type="warning"], div[data-type="caution"] {
 div.fm-sidebar-block>p.fm-sidebar-text {
   margin-top: 0;
   margin-bottom: 0;
+  line-height: 1.5;
 }
 
 div.fm-sidebar-block>p.fm-sidebar-text:last-of-type {
-  margin-bottom: 2.5em;
+  margin-bottom: 2em;
 }
 
 
