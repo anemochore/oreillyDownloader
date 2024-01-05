@@ -244,6 +244,7 @@ div[class$="-codeSnippetContainer"], :not(div[class$="-codeSnippetContainer"])>p
   white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
+  line-height: 1.25;
 }
 
 p.source-code {
@@ -251,7 +252,7 @@ p.source-code {
 }
 
 
-/* 오라일리 코드블록 안/아래 원번호 */
+/* 오라일리 코드블록 추가: 안/아래 원번호 */
 pre a.co, dl.calloutlist>dt>a {
   /*
   text-decoration: none;
@@ -266,25 +267,25 @@ a.co img {
   vertical-align: baseline;
 }
 
-/* 매닝, nsp 코드블록 안/아래 원번호 */
+/* 매닝, nsp 코드블록 추가: 안/아래 원번호 */
 span[class^="fm-combinumeral"],
 code>span[class^="CodeAnnotation"] {
   background-color: yellow;
   font-family: d2coding, monospace !important;
 }
 
-/* 오라일리, 매닝 코드블록 아래 설명 */
+/* 오라일리, 매닝 코드블록 추가: 아래 설명 */
 dl.calloutlist,
 p[class^="fm-code-annotation"], p.co-fm-toc {
   font-size: 0.9em;
 }
 
-/* 오라일리 코드블록 아래 설명 */
+/* 오라일리 코드블록 추가: 아래 설명 */
 dl.calloutlist dd {
   margin-top: -2.25em;
 }
 
-/* nsp 코드블록 내 리터럴 */
+/* nsp 코드블록 추가: 코드 내 리터럴 */
 span.LiteralGray {
   color: gray;
 }
@@ -338,17 +339,17 @@ p.fm-code-listing-caption+div[class$="-codeSnippetContainer"]>pre.programlisting
   margin-top: 0;
 }
 
-/* nsp 코드블록 파일명(위) */
+/* nsp 코드블록 추가: 파일명(위) */
 p.CodeLabel {
   margin-bottom: 0;
 }
 
-/* nsp 코드블록(위에 파일명 있을 때) */
+/* nsp 코드블록 추가: 위에 파일명 있을 때 */
 p.CodeLabel+pre[data-type="example"] {
   margin-top: 0;
 }
 
-/* nsp 코드블록(아래에 캡션 있을 때) */
+/* nsp 코드블록 추가: 아래에 캡션 있을 때 */
 pre[data-type="example"]+p.CodeListingCaption {
   margin-top: -1em;
 }
@@ -378,6 +379,7 @@ pre[data-type="terminal"], pre.con {
   border: 0;
   padding-left: 16px;
   font-size: 10pt;
+  line-height: 1.25;
 }
 
 
