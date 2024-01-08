@@ -383,13 +383,13 @@ pre[data-type="terminal"], pre.con {
 }
 
 
-/* 본문 코드 */
+/* 본문코드 */
 p>code, samp, 
 kbd, 
 strong.source-inline, 
 span.EmphasisFontCategoryNonProportional, span.inlinecode, 
 
-span[class^="fm-code-in-text"],
+span[class^="fm-code-in-"],
 
 table code, li code {
   color: #000;
