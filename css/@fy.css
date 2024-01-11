@@ -227,8 +227,8 @@ aside.FootnoteSection>div.Heading {
   font-weight: bold;
 }
 
-/* 코드블록(1행에 매닝과 오라일리 중복 있음-_- */
-samp, div.listingblock, pre[data-type="programlisting"], :not(div[class$="-codeSnippetContainer"])>pre[data-type="example"],
+/* 코드블록(1행에 매닝과 오라일리 중복 있음 <- TODO) */
+samp, div.listingblock, div[class$="-codeSnippetContainer"], :not(div[class$="-codeSnippetContainer"])>pre[data-type="example"],
 p.source-code, 
 div.LineGroup, 
 
@@ -493,8 +493,8 @@ p[class^="ChapterTitle"], p[class^="Heading"],
 
 p.fm-head2 {
   line-height: 125%;
-  margin-top: 2.4em;
-  margin-bottom: 1.2em;
+  margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 /* 4~6단계 제목. 박스 안 제목(대부분 h6) */
@@ -508,7 +508,7 @@ p.fm-sidebar-title, span.fm-callout-head {
 }
 
 /* 오라일리 팁 등 박스 안 제목, 매닝 박스 안 제목, nsp 박스 안 제목 */
-div[data-type]>h6, 
+aside[data-type="sidebar"]>div>h1, div[data-type="tip"]>h1, div[data-type="note"]>h1, div[data-type="warning"]>h1, div[data-type="caution"]>h1, aside[data-type="sidebar"]>div>h6, div[data-type="tip"]>h6, div[data-type="note"]>h6, div[data-type="warning"]>h6, div[data-type="caution"]>h6, 
 p.fm-sidebar-title, span.fm-callout-head, 
 section.note>h2, aside span.GlossaryTermCustom {
   font-size: 0.975em;  /* 다른 박스 안 제목(h5)에 준해서 */
@@ -545,6 +545,7 @@ p.fm-head2 {
   font-weight: bold;
 }
 
+/* 1단계 제목 */
 h1, 
 header[class$="-title"],
 
@@ -552,7 +553,7 @@ p[class^="ChapterTitle"] {
   font-size: 2.1em;
   margin-top: 1.25em;
   margin-bottom: 1em;
-  page-break-before: always;
+  /* page-break-before: always; */
 }
 
 h1.h1num {
@@ -571,49 +572,36 @@ h1:first-child {
   page-break-before: avoid;
 }
 
+/* 2단계 제목 */
 div.sect1>h1, div.preface>div:not(.sect1)>h1 {
   font-size: 1.6em;
 }
 
-h2, 
-
-
-div.SubTitle, p[class^="Heading1"] {
+/* 3단계 제목 */
+h2, div.SubTitle, p[class^="Heading1"] {
   font-size: 1.425em;
 }
 
-h3, 
-
-
-p[class^="Heading2"] {
+/* 4단계 제목 */
+h3, p[class^="Heading2"] {
   font-size: 1.3em;
   padding-left: 0.75em;
 }
 
-h4, 
-
-
-p[class^="Heading3"],
-
-p.fm-head2 {
+/* 5단계 제목 */
+h4, p[class^="Heading3"], p.fm-head2 {
   font-size: 1.05em;
   padding-left: 1em;
 }
 
-h5, 
-
-
-p[class^="Heading4"] {
+/* 6단계 제목 */
+h5, p[class^="Heading4"] {
   font-size: 0.975em;
   padding-left: 1.1em;
 }
 
-h6, 
-
-
-p[class^="Heading5"], 
-
-p.fm-sidebar-title, span.fm-callout-head {
+/* 7단계(?) 또는 박스 안 제목 */
+h6, p[class^="Heading5"], p.fm-sidebar-title, span.fm-callout-head {
   font-size: 0.9em;
   padding-left: 1.15em;
 }
