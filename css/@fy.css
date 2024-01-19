@@ -65,19 +65,22 @@ em.EmphasisTypeItalic, :not(blockquote)>p[id]>i,
 i[class^="fm-italics"]:not([class^="timesitalic"]), 
 i[class^="calibre"],
 
-a[href^="#glo"]>em, 
+a[href^="#glo"]>em, li em, 
 span.RunInHead {
   background-color: lightgreen;
 }
 
-/* 강조 취소(nsp 캡션, nsp 표, aw 박스) */
-p[class^="figcap"]>em, p[class^="tabcap"]>strong, 
-p[class^="noindent-tab"]>strong, 
+/* 강조 취소(nsp 캡션, 표, 박스 등, aw 박스) */
+p[class^="figcap"]>em, p[class^="tabcap"]>strong, p[class^="noindent-tab"]>strong, div.note>p>strong, div.note>p>em, 
 div.side>p>em {
   font-style: normal;
   background-color: initial;
 }
 
+/* 강조색만 취소(nsp 인용. 강조는 살림) */
+div.bq em {
+  background-color: initial;
+}
 
 /* 판권지 */
 section[file="copyright-page01_html"],
@@ -100,7 +103,7 @@ figure.opener, h1:first-child+div[class^="image"] {
 }
 
 /* nsp 가운데-_- */
-p.center {
+p[class^="center"] {
   text-align: center;
 }
 
@@ -666,7 +669,9 @@ div.packt_quote,
 
 
 
-p[class^="fm-quote"] {
+p[class^="fm-quote"],
+
+div.bq {
   font-size: 0.9em;
   color: #666666;
   margin: 0;
