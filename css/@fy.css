@@ -303,8 +303,6 @@ p.codelink {
   display: none;
 }
 
-
-
 /* 캡션(아래) */
 div.title, caption.title, figcaption, table caption, div[data-type="example"]>h5, div[data-type="equation"]>h5, div.figure>h6, 
 .packt_figref, 
@@ -316,7 +314,7 @@ figcaption>p, p[class$="caption"], p.equationcaption,
 p.CodeListingCaption {
   margin-top: 0;
   font-size: 0.875em;
-  font-style: italic;
+  font-style: normal;
   font-weight: normal;
   color: royalblue;
 }
@@ -333,7 +331,7 @@ table caption,
 
 p.fm-table-caption, 
 
-figcaption.TableTitle {
+figcaption.TableTitle>p, p[class^="tabcap"] {
   margin-bottom: 0
 }
 
@@ -347,9 +345,9 @@ p.fm-code-listing-caption+div[class$="-codeSnippetContainer"]>pre.programlisting
   margin-top: 0;
 }
 
-/* nsp 표 캡션 추가: 이탤릭 취소 */
-p[class^="tabcap"] {
-  font-style: normal;
+/* nsp 새(-_-) 포맷 그림 캡션 추가: 이탤릭 구분을 위해 */
+p[class^="figcap"]>em {
+  font-style: italic;
 }
 
 /* nsp 코드블록 추가: 파일명(위) */
@@ -404,7 +402,7 @@ span.EmphasisFontCategoryNonProportional, span.inlinecode,
 
 span[class^="fm-code-in-"],
 
-table code, li code {
+table code, li code, figcaption code {
   color: #000;
   background-color: #ccddff;
   border: 0;
