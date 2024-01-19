@@ -65,11 +65,14 @@ em.EmphasisTypeItalic, :not(blockquote)>p[id]>i,
 i[class^="fm-italics"]:not([class^="timesitalic"]), 
 i[class^="calibre"],
 
+a[href^="#glo"]>em, 
 span.RunInHead {
   background-color: lightgreen;
 }
 
-/* addison-wesley only (박스 안 강조 취소) */
+/* 강조 취소(nsp 캡션, nsp 표, aw 박스) */
+p[class^="figcap"]>em, p[class^="tabcap"]>strong, 
+p[class^="noindent-tab"]>strong, 
 div.side>p>em {
   font-style: normal;
   background-color: initial;
@@ -84,16 +87,21 @@ section[file="copyright-page01_html"],
 
 div[title2="Copyright"], 
 
-section.front-mat>p[class^="Copyright"], 
+section.front-mat>p[class^="Copyright"], div.front-mat>p[class^="copy"], 
 p.copy {
   font-size: 0.67em;
 }
 
 /* nsp 챕터 시작부 */
-figure.opener {
+figure.opener, h1:first-child+div[class^="image"] {
   width: 20%;
   margin: 32px 0;
   float: left;
+}
+
+/* nsp 가운데-_- */
+p.center {
+  text-align: center;
 }
 
 /* 팩트, 매닝, nsp, awp 인덱스 */
@@ -339,6 +347,11 @@ p.fm-code-listing-caption+div[class$="-codeSnippetContainer"]>pre.programlisting
   margin-top: 0;
 }
 
+/* nsp 표 캡션 추가: 이탤릭 취소 */
+p[class^="tabcap"] {
+  font-style: normal;
+}
+
 /* nsp 코드블록 추가: 파일명(위) */
 p.CodeLabel {
   margin-bottom: 0;
@@ -417,7 +430,7 @@ div.FormalParaRenderingStyle1, aside.ArticleNote,
 
 div.fm-sidebar-block, p.fm-callout, 
 section.feature, section.feature1,
-
+div[class^="box"], 
 div.side {
   max-width: 90%;
   font-size: 90%;
@@ -510,9 +523,11 @@ p.fm-sidebar-title, span.fm-callout-head {
 /* 오라일리 팁 등 박스 안 제목, 매닝 박스 안 제목, nsp 박스 안 제목 */
 aside[data-type="sidebar"]>div>h1, div[data-type="tip"]>h1, div[data-type="note"]>h1, div[data-type="warning"]>h1, div[data-type="caution"]>h1, aside[data-type="sidebar"]>div>h6, div[data-type="tip"]>h6, div[data-type="note"]>h6, div[data-type="warning"]>h6, div[data-type="caution"]>h6, 
 p.fm-sidebar-title, span.fm-callout-head, 
-section.note>h2, aside span.GlossaryTermCustom {
+section.note>h2, aside span.GlossaryTermCustom, p.boxtitle-c>strong {
   font-size: 0.975em;  /* 다른 박스 안 제목(h5)에 준해서 */
   font-weight: bold;
+  font-style: normal;
+  background-color: initial;
   margin: 1em 0 0.5em 0;
 }
 
@@ -628,7 +643,9 @@ div.imageblock, figure,
 
 
 
-div.figure>p.figure1, p.fm-figure, p.equation {
+div.figure>p.figure1, p.fm-figure, p.equation,
+
+div[class^="image"]>img {
   /* text-align: center; */
   margin: 1em 0 0 0;
 }
