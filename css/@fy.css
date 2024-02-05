@@ -258,6 +258,7 @@ pre.programlisting:not(.con) {
   line-height: 1.25;
 }
 
+/* 폴백 */
 code {
   font-family: "Sarasa Fixed K", d2coding, monospace;
 }
