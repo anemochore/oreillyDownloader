@@ -84,7 +84,7 @@ div.bq em {
 
 /* 판권지 */
 section[file="copyright-page01_html"],
-
+div.front-mat:has(p.hidden),
 
 
 
@@ -108,14 +108,15 @@ p[class^="center"] {
 }
 
 /* 팩트, 매닝, nsp, awp 인덱스 */
-p.Index-Section-Head,
+p.Index-Section-Head, p.index-head,
 p.grouptitlesix,
 p.indexletter,
 p.indexmain1 {
   margin-top: 2em;
+  font-weight: bold;
 }
 
-p.Index-Level-1, p.Index-Level-2,
+p[class^="Index-Level-"], div[title2="Index"]>p:not([style]), 
 p.level1ix, p.level2ix, p.level3ix, 
 p.index1, p.index2, p.index3,
 p.indexmain, p.indexsub {
@@ -670,7 +671,7 @@ p.CDPAlignCenter>img {
 
 /* 인용 */
 blockquote,
-div.packt_quote,
+div.packt_quote, p.author-quote, 
 
 
 
