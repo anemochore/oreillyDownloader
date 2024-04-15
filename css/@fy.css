@@ -318,7 +318,7 @@ div.title, caption.title, figcaption, table caption, div[data-type="example"]>h5
 div.CaptionContent, 
 p[class^="figcap"], p[class^="tabcap"], div[data-type="example"] span.exam, p.tnum, p.ttitle, span.eqnum, 
 
-figcaption>p, p[class$="caption"], p.equationcaption,
+figcaption>p, p[class$="caption"], p[class$="captions"],
 
 p.CodeListingCaption {
   margin-top: 0;
