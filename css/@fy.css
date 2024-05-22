@@ -240,7 +240,7 @@ aside.FootnoteSection>div.Heading {
 }
 
 /* 코드블록(1행에 매닝과 오라일리 중복 있음 <- TODO) */
-samp, div.listingblock, div[class$="-codeSnippetContainer"]:not([data-testid]), :not(div[class$="-codeSnippetContainer"])>pre[data-type="example"], pre[data-type="programlisting"], 
+samp, div.listingblock, div[class$="-codeSnippetContainer"]:not([data-testid]), pre[data-type="example"], pre[data-type="programlisting"], 
 p.source-code, 
 div.LineGroup, 
 
