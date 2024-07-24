@@ -1,0 +1,186 @@
+@import "common.less";
+
+/* start of mixins */
+/* 챕터(파트): 이런 건 setting.js를 참고하자. */
+section:not([data-type^="sect"]) {
+  .chapter();
+}
+
+/* 1단계 제목 */
+h1 {
+  .h1();
+}
+
+/* 2단계 제목 */
+div.sect1>h1, div.preface>div:not(.sect1)>h1 {
+  .h2();
+}
+
+/* 3단계 제목 */
+h2 {
+  .h3();
+}
+
+/* 4단계 제목 */
+h3 {
+  .h4();
+}
+
+/* 5단계 제목 */
+h4 {
+  .h5();
+}
+
+/* 6단계 제목 */
+h5 {
+  .h6();
+}
+
+
+/* 강조 */
+p>em, p>strong {
+  .em();
+}
+
+/* 강조 취소(코드) */
+/*
+.em_cancel {
+  .em_cancel();
+}
+*/
+
+
+/* 코드블록 */
+pre[data-type="programlisting"] {
+  .code-block();
+}
+
+/* 터미널 */
+pre[data-type="programlisting"]:not([data-code-language]) {
+  .terminal();
+}
+
+/* 코드블록 안/아래 원번호 */
+pre a.co, dl.calloutlist>dt>a {
+  .code-number();
+  border-bottom: 1px dashed #bbb;
+}
+
+a.co img {
+  vertical-align: baseline;
+}
+
+/* 코드블록 아래 설명 */
+dl.calloutlist {
+  .code-number-desc();
+  display: grid;
+  grid-template-columns: max-content auto;
+
+  p {
+    margin: 0;
+  }
+
+  dt {
+    width: 16px;
+    margin: 0;
+  }
+
+  dd {
+    margin: 0 0 0 0.5rem;
+  }
+}
+
+/* 본문코드 */
+p>code {
+  .inline-code();
+}
+
+
+/* 캡션(아래) */
+div.figure>h6 {
+  .caption_down();
+}
+
+/* 캡션(위) */
+table caption {
+  .caption_up();
+}
+
+
+/* 박스의 제목 */
+aside[data-type="sidebar"]>div>h1, div[data-type="tip"]>h6, div[data-type="note"]>h6, div[data-type="warning"]>h6 {
+  .box-title();
+}
+
+/* 일반 박스 */
+aside[data-type="sidebar"] {
+  .box();
+}
+
+/* 종류가 있는 박스(팁) */
+div[data-type="tip"] {
+  .typed-box_tip();
+}
+
+/* 종류가 있는 박스(노트) */
+div[data-type="note"] {
+  .typed-box_note();
+}
+
+/* 종류가 있는 박스(주의) */
+div[data-type="warning"] {
+  .typed-box_caution();
+}
+
+
+/* 인용 */
+blockquote {
+  .blockquote();
+}
+
+/* 인용 출처 */
+blockquote>p[data-type="attribution"] {
+  .byline();
+}
+
+
+/* 본문 수식 */
+[data-type="inline_eq"], mjx-math, math {
+  //order: inline, not firefox, firefox
+  //todo: above are legacy selectors. check later.
+  .inline-eq();
+}
+
+
+/* 판권지 */
+section[file="copyright-page01_html"] {
+  .copyrights();
+}
+
+
+/* 찾아보기 */
+div[data-type="index"] {
+  .index();
+
+  /* 찾아보기 1단계 */
+  div>ul>li>span /*, p.Index-Level-1, p:not([style]):not([class]) */ {
+    font-size: 100%;
+  }
+
+  /* 찾아보기 2단계 */
+  ul>li>ul>li /*, p.Index-Level-2, p.index-2 */ {
+    font-size: 90%;
+  }
+}
+
+
+/* 각주 영역 */
+div[data-type="footnotes"] {
+  .footnote-area();
+}
+
+/* 각주 텍스트 */
+p[data-type="footnote"] {
+  .footnote-text();
+}
+/* end of mixins */

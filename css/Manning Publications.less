@@ -1,0 +1,208 @@
+@import "common.less";
+
+/* start of mixins */
+/* 챕터(파트): 이런 건 setting.js를 참고하자. */
+body>div[data-type] {
+  .chapter();
+}
+
+/* 1단계 제목 */
+h1 {
+  .h1();
+}
+
+/* 2단계 제목 */
+h2.sect1, h2[class^="fm-head"] {
+  .h2();
+}
+
+/* 3단계 제목 */
+h3.sect2, h3[class^="fm-head"] {
+  .h3();
+}
+
+/* 4단계 제목 */
+h4.sect3 {
+  .h4();
+}
+
+/* 5단계 제목 */
+h5.sect4 {
+  .h5();
+}
+
+/* 6단계 제목 */
+h6.sect5 {
+  .h6();
+}
+
+
+/* 강조 */
+i[class^="fm-italics"]:not([class^="timesitalic"]) {
+  .em();
+}
+
+/* 강조 취소(코드) */
+/*
+.em_cancel() {
+  .em_cancel();
+}
+*/
+
+
+/* 코드블록 */
+pre.programlisting:not(.con) {
+  .code-block();
+}
+
+/* 위에 캡션 있는 코드블록은 상단 여백 없앰 */
+p.fm-code-listing-caption+div[data-type="example"]>pre.programlisting:not(.con) {
+  margin-top: 0;
+}
+
+/* 터미널 */
+/*
+.terminal() {
+  .terminal();
+}
+*/
+
+/* 코드블록 안/아래 원번호 */
+span[class^="fm-combinumeral"] {
+  .code-number();
+}
+
+/* 코드블록 아래 설명 */
+p[class^="fm-code-annotation"] /*, p.co-fm-toc */ {
+  .code-number-desc();
+  margin: 0;
+}
+
+/* 본문코드 */
+span[class^="fm-code-in-"] {
+  .inline-code();
+}
+
+
+/* 캡션(아래) */
+p.fm-figure-caption /*, figcaption>p, p.figurecaption */ {
+  .caption_down();
+}
+
+/* 캡션(위) */
+p.fm-code-listing-caption, p.fm-table-caption {
+  .caption_up();
+}
+
+
+/* 박스의 제목 */
+p.fm-sidebar-title {
+  .box-title();
+}
+
+/* 일반 박스 */
+div.fm-sidebar-block, p.fm-callout {
+  .box();
+
+  p.fm-sidebar-text:has(br:only-child) {
+    display: none;
+  }
+}
+
+/* 종류가 있는 박스(팁) */
+/*
+.typed-box_tip() {
+  .typed-box_tip();
+}
+*/
+
+/* 종류가 있는 박스(노트) */
+/*
+.typed-box_note() {
+  .typed-box_note();
+}
+*/
+
+/* 종류가 있는 박스(주의) */
+/*
+.typed-box_caution() {
+  .typed-box_caution();
+}
+*/
+
+
+/* 인용 */
+blockquote {
+  .blockquote();
+}
+
+/* 인용 출처 */
+blockquote>p[data-type="attribution"] {
+  .byline();
+}
+
+
+/* 판권지 */
+div[title2="Copyright"] {
+  .copyrights();
+}
+
+/* 찾아보기 */
+todo {
+  .index();
+}
+
+
+/* 각주 영역 */
+div[data-type="footnotes"] {
+  .footnote-area();
+}
+
+/* 각주 텍스트 */
+p[data-type="footnote"] {
+  .footnote-text();
+}
+/* end of mixins */
+
+
+/* 목차 */
+div[title2="contents"] {
+  p {
+    margin: 0;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &.tocchapters, &.tocparts {
+      font-weight: bold;
+      margin-top: 1rem;
+    }
+
+    &.fm-head-2toc {
+      font-size: 90%;
+      padding-left: 1rem;
+    }
+  }
+}
+
+/* 챕터 시작부 */
+p.co-summary-head {
+  border-top: 2px solid purple;
+  border-right: 2px solid purple;
+  border-left: 2px solid purple;
+  margin: 10px 15px 0 15px;
+  padding: 1rem;
+
+  &+ul[class] {
+    border-right: 2px solid purple;
+    border-left: 2px solid purple;
+    border-bottom: 2px solid purple;
+    margin: 0 15px 10px 15px;
+    padding-bottom: 1rem;
+  }
+}

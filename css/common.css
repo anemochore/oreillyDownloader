@@ -1,0 +1,126 @@
+/* order
+1. O'Reilly Media, Inc.
+2. Packt Publishing
+3. Apress
+4. Academic Press
+5. McGraw-Hill
+6. Manning Publications
+7. Wiley
+8. nsp
+9. addison-wesley
+*/
+/* start of native tags */
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+}
+body {
+  color: #272727;
+  font-family: Georgia, Palatino, "Palatino Linotype", Times, "Times New Roman", serif;
+  line-height: 1.7;
+  padding: 1rem;
+  margin: auto auto auto 2rem;
+  max-width: 42rem;
+  background: #ffffff;
+}
+p {
+  margin: 1rem 0;
+}
+code {
+  font-family: "Sarasa Fixed K", d2coding, monospace;
+}
+h1,
+h2,
+h3 {
+  break-after: avoid;
+}
+h4,
+h5,
+h6 {
+  font-weight: bold;
+}
+ul,
+ol {
+  margin: 1rem 0;
+  padding: 0 0 0 2rem;
+}
+li p:last-child {
+  margin-bottom: 0;
+}
+ul ul,
+ol ol {
+  margin: 0.3rem 0;
+}
+dl {
+  margin-bottom: 1rem;
+}
+dt {
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+dd {
+  margin: 0 0 0.8rem 2rem;
+}
+dd:last-child {
+  margin-bottom: 0;
+}
+img {
+  max-width: 75%;
+  height: auto;
+  border: 0;
+  vertical-align: middle;
+}
+table {
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-spacing: 0;
+  border-collapse: collapse;
+  min-width: 40%;
+}
+table p {
+  margin: 0.25rem 0.5rem;
+}
+table th {
+  background-color: #eee;
+  padding-right: 0.25rem 1rem;
+  text-align: start;
+}
+table td {
+  vertical-align: top;
+  text-align: start;
+}
+/* end of native tags */
+/* start of mixins */
+/* 챕터(파트): 이런 건 setting.js를 참고하자. */
+/* 1단계 제목 */
+/* 2단계 제목 */
+/* 3단계 제목 */
+/* 4단계 제목 */
+/* 5단계 제목 */
+/* 6단계 제목 */
+/* 강조 */
+/* 강조 취소(코드) */
+/* 코드(베이스) */
+/* 코드블록 */
+/* 터미널 */
+/* 코드블록 안/아래 원번호 */
+/* 코드블록 아래 설명 */
+/* 본문코드 */
+/* 캡션(베이스) */
+/* 캡션(아래) */
+/* 캡션(위) */
+/* 박스의 제목 */
+/* 일반 박스 */
+/* 종류가 있는 박스(베이스). 일반 박스가 베이스. 오라일리와 팩트만 사용. */
+/* 종류가 있는 박스(팁) */
+/* 종류가 있는 박스(노트) */
+/* 종류가 있는 박스(주의) */
+/* 인용 */
+/* 인용 출처 */
+/* 문단 수식 */
+/* 본문 수식 */
+/* 판권지 */
+/* 찾아보기 */
+/* 각주 영역 */
+/* 각주 텍스트 */
+/* end of mixins */

@@ -61,6 +61,7 @@ dd:last-child {
 p>em, p>strong, 
 table em, table strong, article em, article strong, div>strong, span>strong, 
 
+
 em.EmphasisTypeItalic, :not(blockquote)>p[id]>i, 
 i[class^="fm-italics"]:not([class^="timesitalic"]), 
 i[class^="calibre"],

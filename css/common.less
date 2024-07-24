@@ -1,0 +1,358 @@
+/* order
+1. O'Reilly Media, Inc.
+2. Packt Publishing
+3. Apress
+4. Academic Press
+5. McGraw-Hill
+6. Manning Publications
+7. Wiley
+8. nsp
+9. addison-wesley
+*/
+
+
+/* start of native tags */
+html {
+  font-size: 100%;
+  overflow-y: scroll;
+}
+
+body {
+  color: #272727;
+  font-family: Georgia, Palatino, "Palatino Linotype", Times, "Times New Roman", serif;
+  line-height: 1.7;
+  padding: 1rem;
+  margin: auto auto auto 2rem;
+  max-width: 42rem;
+  background: #ffffff;
+}
+
+p {
+  margin: 1rem 0;
+}
+
+code {
+  font-family: "Sarasa Fixed K", d2coding, monospace;
+}
+
+h1, h2, h3 {
+  break-after: avoid;
+}
+
+h4, h5, h6 {
+  font-weight: bold;
+}
+
+ul, ol {
+  margin: 1rem 0;
+  padding: 0 0 0 2rem;
+}
+
+li p:last-child {
+  margin-bottom: 0;
+}
+
+ul ul, ol ol {
+  margin: .3rem 0;
+}
+
+dl {
+  margin-bottom: 1rem;
+}
+
+dt {
+  font-weight: bold;
+  margin-bottom: .8rem;
+}
+
+dd {
+  margin: 0 0 .8rem 2rem;
+}
+
+dd:last-child {
+  margin-bottom: 0;
+}
+
+img {
+  max-width: 75%;
+  height: auto;
+  border: 0;
+  vertical-align: middle;
+}
+
+table {
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-spacing: 0;
+  border-collapse: collapse;
+  min-width: 40%;
+}
+
+table p {
+  margin: 0.25rem 0.5rem;
+}
+
+table th {
+  background-color: #eee;
+  padding-right: 0.25rem 1rem;
+  text-align: start;
+}
+
+table td {
+  vertical-align: top;
+  text-align: start;
+}
+/* end of native tags */
+
+
+/* start of mixins */
+/* 챕터(파트): 이런 건 setting.js를 참고하자. */
+.chapter() {
+  border-top: 16px solid blue;
+  margin-top: 5rem;
+}
+
+/* 1단계 제목 */
+.h1() {
+  font-size: 2.1rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1rem;
+  break-before: page;
+
+  &:first-child {
+    break-before: avoid;
+  }
+}
+
+/* 2단계 제목 */
+.h2() {
+  font-size: 1.75rem;
+}
+
+/* 3단계 제목 */
+.h3() {
+  font-size: 1.375rem;
+}
+
+/* 4단계 제목 */
+.h4() {
+  font-size: 1.275rem;
+  padding-left: 0.75rem;
+}
+
+/* 5단계 제목 */
+.h5() {
+  font-size: 1.05rem;
+  padding-left: 1rem;
+}
+
+/* 6단계 제목 */
+.h6() {
+  font-size: 0.975rem;
+  padding-left: 1.1rem;
+}
+
+
+/* 강조 */
+.em() {
+  background-color: lightgreen;
+}
+
+/* 강조 취소(코드) */
+.em_cancel() {
+  background-color: initial;
+}
+
+
+/* 코드(베이스) */
+.code() {
+  font-size: 10pt;
+  font-family: "Sarasa Fixed K", d2coding, monospace;
+
+  line-height: 1.25;
+  white-space: pre;
+  overflow-wrap: break-word;
+}
+
+/* 코드블록 */
+.code-block() {
+  .code();
+  background-color: whitesmoke;
+  border-left: 8px solid lightgray;
+  padding-left: 4px;
+}
+
+/* 터미널 */
+.terminal() {
+  .code();
+  color: white;
+  background-color: purple;
+  border-left: 8px solid lightgray;
+  padding-left: 4px;
+}
+
+/* 코드블록 안/아래 원번호 */
+.code-number() {
+  background-color: yellow;
+  font-family: d2coding, monospace !important;
+}
+
+/* 코드블록 아래 설명 */
+.code-number-desc() {
+  font-size: 0.9rem;
+}
+
+/* 본문코드 */
+.inline-code() {
+  .code();
+  font-size: 9.5pt;
+  font-weight: normal;
+  font-style: normal;
+
+  color: #000;
+  background-color: #ccddff;
+  border: 0;
+  padding-left: initial;
+}
+
+
+/* 캡션(베이스) */
+.caption() {
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: normal;
+  color: royalblue;
+}
+
+/* 캡션(아래) */
+.caption_down() {
+  .caption();
+  margin-top: 0;
+}
+
+/* 캡션(위) */
+.caption_up() {
+  .caption();
+  margin-bottom: 0;
+}
+
+
+/* 박스의 제목 */
+.box-title() {
+  .h6();
+  font-weight: bold;
+  //background-color: initial;
+  margin: 1rem 0 0.5rem 0;
+}
+
+/* 일반 박스 */
+.box() {
+  max-width: 90%;
+  font-size: 90%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  border: 1px solid silver;
+  padding: 0.5rem;
+}
+
+/* 종류가 있는 박스(베이스). 일반 박스가 베이스. 오라일리와 팩트만 사용. */
+.typed-box() {
+  .box();
+  padding-left: 80px;
+}
+
+/* 종류가 있는 박스(팁) */
+.typed-box_tip() {
+  .typed-box();
+  background-image: url("@tip.jpg");
+}
+
+/* 종류가 있는 박스(노트) */
+.typed-box_note() {
+  .typed-box();
+  background-image: url("@note.jpg");
+}
+
+/* 종류가 있는 박스(주의) */
+.typed-box_caution() {
+  .typed-box();
+  background-image: url("@warning.jpg");
+}
+
+
+/* 인용 */
+.blockquote () {
+  font-size: 0.9rem;
+  color: #666666;
+  margin: 0 2rem 1.5rem 2rem;
+
+  position: relative;
+  border-left: 3px solid #DA8596;
+  padding: 0 1.5rem 0 1rem;
+
+  &::before{
+    content:'\201C';
+
+    font-size: 60px;
+
+    position: absolute;
+    left: 10px;
+    top: 0;
+    margin-top: -30px;
+  }
+
+  p {
+    position: relative;
+    padding-left: 30px;
+  }
+}
+
+/* 인용 출처 */
+.byline() {
+  display: block;
+  font-size: 0.8rem;
+  color: #DA8596;
+  text-align: right;
+}
+
+
+/* 문단 수식 */
+//todo
+
+/* 본문 수식 */
+.inline-eq() {
+  background-color: Lavender;
+}
+
+
+/* 판권지 */
+.copyrights() {
+  font-size: 70%;
+}
+
+
+/* 찾아보기 */
+.index() {
+  font-size: 95%;
+}
+
+
+/* 각주 영역 */
+.footnote-area() {
+  border-top: 4px solid coral;
+  border-bottom: 4px solid coral;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+}
+
+/* 각주 텍스트 */
+.footnote-text() {
+  font-size: 90%;
+  color: #666666;
+  padding-left: 0.5rem;
+  margin-bottom: 0;
+}
+/* end of mixins */
