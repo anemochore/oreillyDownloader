@@ -61,8 +61,12 @@ dd {
 dd:last-child {
   margin-bottom: 0;
 }
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
 img {
-  max-width: 75%;
+  max-width: 90%;
   height: auto;
   border: 0;
   vertical-align: middle;
@@ -123,7 +127,7 @@ table td {
 /* end of mixins */
 /* start of mixins */
 /* 챕터(파트): 이런 건 setting.js를 참고하자. */
-section:not([data-type^="sect"]) {
+body > div[id] {
   border-top: 16px solid blue;
   margin-top: 5rem;
 }
@@ -137,40 +141,42 @@ h1 {
 h1:first-child {
   break-before: avoid;
 }
+h1.chapterNumber {
+  display: none;
+}
 /* 2단계 제목 */
-div.sect1 > h1,
-div.preface > div:not(.sect1) > h1 {
+h2 {
   font-size: 1.75rem;
 }
 /* 3단계 제목 */
-h2 {
+h3 {
   font-size: 1.375rem;
 }
 /* 4단계 제목 */
-h3 {
+h4 {
   font-size: 1.275rem;
   font-weight: bold;
   padding: 0 0.75rem;
 }
 /* 5단계 제목 */
-h4 {
+h5 {
   font-size: 1.05rem;
   font-weight: bold;
   padding: 0 1rem;
 }
 /* 6단계 제목 */
-h5 {
+h6 {
   font-size: 0.975rem;
   font-weight: bold;
   padding: 0 1.1rem;
 }
 /* 강조 */
 p > em,
-p > strong {
+:not(p.Table-Column-Heading--PACKT-) > strong.keyword {
   background-color: lightgreen;
 }
 /* 코드블록 */
-pre[data-type="programlisting"] {
+pre.code {
   font-size: 10pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -181,7 +187,7 @@ pre[data-type="programlisting"] {
   padding-left: 4px;
 }
 /* 터미널 */
-pre[data-type="programlisting"]:not([data-code-language]) {
+pre.con {
   font-size: 10pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -192,34 +198,8 @@ pre[data-type="programlisting"]:not([data-code-language]) {
   border-left: 8px solid lightgray;
   padding-left: 4px;
 }
-/* 코드블록 안/아래 원번호 */
-pre a.co,
-dl.calloutlist > dt > a {
-  background-color: yellow;
-  font-family: d2coding, monospace !important;
-  border-bottom: 1px dashed #bbb;
-}
-a.co img {
-  vertical-align: baseline;
-}
-/* 코드블록 아래 설명 */
-dl.calloutlist {
-  font-size: 0.9rem;
-  display: grid;
-  grid-template-columns: max-content auto;
-}
-dl.calloutlist p {
-  margin: 0;
-}
-dl.calloutlist dt {
-  width: 16px;
-  margin: 0;
-}
-dl.calloutlist dd {
-  margin: 0 0 0 0.5rem;
-}
 /* 본문코드 */
-p > code {
+code.Code-In-Text--PACKT- {
   font-size: 10pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -234,44 +214,37 @@ p > code {
   padding-left: 0;
 }
 /* 캡션(아래) */
-div.figure > h6 {
+p.packt_figref {
   font-size: 0.875rem;
   font-style: normal;
   font-weight: normal;
   color: royalblue;
   margin-top: 0;
 }
-/* 캡션(위) */
-table caption {
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: normal;
-  color: royalblue;
+figure,
+table {
   margin-bottom: 0;
 }
+/* 캡션(위): todo */
+/*
+p.fm-code-listing-caption, p.fm-table-caption {
+  .caption_up();
+}
+*/
 /* 박스의 제목 */
-aside[data-type="sidebar"] > div > h1,
-div[data-type="tip"] > h6,
-div[data-type="note"] > h6,
-div[data-type="warning"] > h6 {
-  font-size: 0.975rem;
-  font-weight: bold;
-  padding: 0 1.1rem;
-  margin: 1rem 0 0.5rem 0;
+/*
+p.fm-sidebar-title, span.fm-callout-head {
+  .box-title();
 }
+*/
 /* 일반 박스 */
-aside[data-type="sidebar"] {
-  max-width: 90%;
-  font-size: 90%;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  background-position: left top;
-  background-repeat: no-repeat;
-  border: 1px solid silver;
-  padding: 0.5rem;
+/*
+div.side {
+  .box();
 }
+*/
 /* 종류가 있는 박스(팁) */
-div[data-type="tip"] {
+div.packt_tip {
   max-width: 90%;
   font-size: 90%;
   margin-top: 32px;
@@ -284,7 +257,7 @@ div[data-type="tip"] {
   background-image: url("@tip.jpg");
 }
 /* 종류가 있는 박스(노트) */
-div[data-type="note"] {
+div.note {
   max-width: 90%;
   font-size: 90%;
   margin-top: 32px;
@@ -296,59 +269,46 @@ div[data-type="note"] {
   padding-left: 80px;
   background-image: url("@note.jpg");
 }
+div.note::before {
+  content: "[NOTE]";
+}
 /* 종류가 있는 박스(주의) */
-div[data-type="warning"] {
-  max-width: 90%;
-  font-size: 90%;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  background-position: left top;
-  background-repeat: no-repeat;
-  border: 1px solid silver;
-  padding: 0.5rem;
-  padding-left: 80px;
-  background-image: url("@warning.jpg");
+/*
+.typed-box_caution() {
+  .typed-box_caution();
 }
+*/
 /* 인용 */
+/*
 blockquote {
-  font-size: 0.9rem;
-  color: #666666;
-  margin: 0 2rem 1.5rem 2rem;
-  position: relative;
-  border-left: 3px solid #DA8596;
-  padding: 0 1.5rem 0 1rem;
+  .blockquote();
 }
-blockquote::before {
-  content: '\201C';
-  font-size: 60px;
-  position: absolute;
-  left: 10px;
-  top: 0;
-  margin-top: -30px;
-}
-blockquote p {
-  position: relative;
-  padding-left: 30px;
-}
+*/
 /* 인용 출처 */
-blockquote > p[data-type="attribution"] {
-  display: block;
-  font-size: 0.8rem;
-  color: #DA8596;
-  text-align: right;
+/*
+blockquote>p[data-type="attribution"] {
+  .byline();
+}
+*/
+/* 문단수식 */
+img[data-type="equation"] {
+  border: 1px dotted Lavender;
+  width: auto;
 }
 /* 본문수식 */
-[data-type="inline_eq"],
-mjx-math,
-math {
+img:not([data-type]) {
   background-color: Lavender;
+  border: 1px dotted Lavender;
+  width: auto;
 }
 /* 판권지 */
-section[file="copyright-page01_html"] {
-  font-size: 70%;
+/*
+section[title2="Copyright Page"] {
+  .copyrights();
 }
+*/
 /* 찾아보기 */
-div[data-type="index"] {
+div[title2="Index"] {
   font-size: 95%;
   /* 찾아보기 헤딩 */
   /* 찾아보기 1단계 */
@@ -358,38 +318,23 @@ div[data-type="index"] {
   /* 찾아보기 1단계 */
   /* 찾아보기 2단계 */
 }
-div[data-type="index"] p,
-div[data-type="index"] ul,
-div[data-type="index"] h3 {
+div[title2="Index"] p,
+div[title2="Index"] ul,
+div[title2="Index"] h3 {
   margin: 0;
 }
-div[data-type="index"] h3 {
+div[title2="Index"] p.Index-Section-Head {
   font-size: 1.375rem;
   margin-top: 1rem;
   font-weight: 700;
 }
-div[data-type="index"] div > ul > li > span {
+div[title2="Index"] p.Index-Level-1 {
   font-size: 100%;
 }
-div[data-type="index"] ul > li > ul > li {
+div[title2="Index"] p.Index-Level-2 {
   font-size: 90%;
   padding-left: 1rem;
-  padding-left: 0;
 }
 /* 각주 */
-div[data-type="footnotes"] {
-  border-top: 4px solid coral;
-  border-bottom: 4px solid coral;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding-bottom: 1rem;
-  /* 각주 텍스트 */
-  /* 각주 텍스트 */
-}
-div[data-type="footnotes"] p[data-type="footnote"] {
-  font-size: 85%;
-  color: #666666;
-  padding-left: 0.5rem;
-  margin-bottom: 0;
-}
+/* 각주 텍스트 */
 /* end of mixins */

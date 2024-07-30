@@ -22,7 +22,7 @@ h3.sect2, h3[class^="fm-head"] {
 }
 
 /* 4단계 제목 */
-h4.sect3 {
+h4.sect3, p.fm-head2 {
   .h4();
 }
 
@@ -42,14 +42,6 @@ i[class^="fm-italics"]:not([class^="timesitalic"]) {
   .em();
 }
 
-/* 강조 취소(코드) */
-/*
-.em_cancel() {
-  .em_cancel();
-}
-*/
-
-
 /* 코드블록 */
 pre.programlisting:not(.con) {
   .code-block();
@@ -59,13 +51,6 @@ pre.programlisting:not(.con) {
 p.fm-code-listing-caption+div[data-type="example"]>pre.programlisting:not(.con) {
   margin-top: 0;
 }
-
-/* 터미널 */
-/*
-.terminal() {
-  .terminal();
-}
-*/
 
 /* 코드블록 안/아래 원번호 */
 span[class^="fm-combinumeral"] {
@@ -89,6 +74,10 @@ p.fm-figure-caption /*, figcaption>p, p.figurecaption */ {
   .caption_down();
 }
 
+p.fm-figure {
+  margin-bottom: 0;
+}
+
 /* 캡션(위) */
 p.fm-code-listing-caption, p.fm-table-caption {
   .caption_up();
@@ -96,7 +85,7 @@ p.fm-code-listing-caption, p.fm-table-caption {
 
 
 /* 박스의 제목 */
-p.fm-sidebar-title {
+p.fm-sidebar-title, span.fm-callout-head {
   .box-title();
 }
 
@@ -132,14 +121,17 @@ div.fm-sidebar-block, p.fm-callout {
 
 
 /* 인용 */
-blockquote {
+p.fm-quote {
   .blockquote();
+  padding-left: 3rem;
 }
 
 /* 인용 출처 */
+/*
 blockquote>p[data-type="attribution"] {
   .byline();
 }
+*/
 
 
 /* 판권지 */
@@ -147,48 +139,65 @@ div[title2="Copyright"] {
   .copyrights();
 }
 
-/* 찾아보기 */
-todo {
-  .index();
-}
-
-
-/* 각주 영역 */
-div[data-type="footnotes"] {
-  .footnote-area();
-}
-
-/* 각주 텍스트 */
-p[data-type="footnote"] {
-  .footnote-text();
-}
-/* end of mixins */
-
 
 /* 목차 */
 div[title2="contents"] {
-  p {
-    margin: 0;
+  .contents();
 
-    a {
-      text-decoration: none;
+  /* 목차 1단계 */
+  p.tocchapters, p.tocparts {
+    .contents-l1();
+  }
 
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+  /* 목차 2단계 */
+  p.fm-head-1toc {
+    .contents-l2();
+  }
 
-    &.tocchapters, &.tocparts {
-      font-weight: bold;
-      margin-top: 1rem;
-    }
-
-    &.fm-head-2toc {
-      font-size: 90%;
-      padding-left: 1rem;
-    }
+  /* 목차 3단계 */
+  p.fm-head-2toc {
+    .contents-l3();
   }
 }
+
+
+/* 찾아보기 */
+div[title2="index"] {
+  .index();
+
+  /* 찾아보기 헤딩 */
+  p.grouptitlesix {
+    .index-h();
+  }
+
+  /* 찾아보기 1단계 */
+  p.level1ix {
+    .index-l1();
+  }
+
+  /* 찾아보기 2단계 */
+  p.level2ix {
+    .index-l2();
+  }
+
+  /* 찾아보기 3단계 */
+  p.level3ix {
+    .index-l3();
+  }
+}
+
+
+/* 각주 */
+div[data-type="footnotes"] {
+  .footnote-area();
+
+  /* 각주 텍스트 */
+  p[data-type="footnote"] {
+    .footnote-text();
+  }
+}
+/* end of mixins */
+
 
 /* 챕터 시작부 */
 p.co-summary-head {

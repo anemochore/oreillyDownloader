@@ -42,13 +42,6 @@ p>em, p>strong {
   .em();
 }
 
-/* 강조 취소(코드) */
-/*
-.em_cancel {
-  .em_cancel();
-}
-*/
-
 
 /* 코드블록 */
 pre[data-type="programlisting"] {
@@ -144,7 +137,7 @@ blockquote>p[data-type="attribution"] {
 }
 
 
-/* 본문 수식 */
+/* 본문수식 */
 [data-type="inline_eq"], mjx-math, math {
   //order: inline, not firefox, firefox
   //todo: above are legacy selectors. check later.
@@ -162,25 +155,31 @@ section[file="copyright-page01_html"] {
 div[data-type="index"] {
   .index();
 
+  /* 찾아보기 헤딩 */
+  h3 {
+    .index-h();
+  }
+
   /* 찾아보기 1단계 */
   div>ul>li>span /*, p.Index-Level-1, p:not([style]):not([class]) */ {
-    font-size: 100%;
+    .index-l1();
   }
 
   /* 찾아보기 2단계 */
   ul>li>ul>li /*, p.Index-Level-2, p.index-2 */ {
-    font-size: 90%;
+    .index-l2();
+    padding-left: 0;
   }
 }
 
 
-/* 각주 영역 */
+/* 각주 */
 div[data-type="footnotes"] {
   .footnote-area();
-}
 
-/* 각주 텍스트 */
-p[data-type="footnote"] {
-  .footnote-text();
+  /* 각주 텍스트 */
+  p[data-type="footnote"] {
+    .footnote-text();
+  }
 }
 /* end of mixins */

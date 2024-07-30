@@ -1,14 +1,3 @@
-/* order
-1. O'Reilly Media, Inc.
-2. Packt Publishing
-3. Apress
-4. Academic Press
-5. McGraw-Hill
-6. Manning Publications
-7. Wiley
-8. nsp
-9. addison-wesley
-*/
 /* start of native tags */
 html {
   font-size: 100%;
@@ -21,23 +10,32 @@ body {
   padding: 1rem;
   margin: auto auto auto 2rem;
   max-width: 42rem;
-  background: #ffffff;
+  background-color: #ffffff;
+}
+:target {
+  animation: fade 1s ease-in-out 0s;
+}
+@keyframes fade {
+  from {
+    background-color: pink;
+    box-shadow: 0 0 5px 10px palevioletred;
+  }
+  to {
+    background-color: revert;
+    box-shadow: revert;
+  }
 }
 p {
   margin: 1rem 0;
 }
-code {
+code,
+samp {
   font-family: "Sarasa Fixed K", d2coding, monospace;
 }
 h1,
 h2,
 h3 {
   break-after: avoid;
-}
-h4,
-h5,
-h6 {
-  font-weight: bold;
 }
 ul,
 ol {
@@ -64,8 +62,12 @@ dd {
 dd:last-child {
   margin-bottom: 0;
 }
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
 img {
-  max-width: 75%;
+  max-width: 90%;
   height: auto;
   border: 0;
   vertical-align: middle;
@@ -99,7 +101,7 @@ table td {
 /* 5단계 제목 */
 /* 6단계 제목 */
 /* 강조 */
-/* 강조 취소(코드) */
+/* 강조 취소 */
 /* 코드(베이스) */
 /* 코드블록 */
 /* 터미널 */
@@ -116,11 +118,11 @@ table td {
 /* 종류가 있는 박스(노트) */
 /* 종류가 있는 박스(주의) */
 /* 인용 */
-/* 인용 출처 */
-/* 문단 수식 */
-/* 본문 수식 */
+/* 인용 출처나 서명 */
+/* 문단수식 */
+/* 본문수식 */
 /* 판권지 */
+/* 목차 */
 /* 찾아보기 */
-/* 각주 영역 */
-/* 각주 텍스트 */
+/* 각주 */
 /* end of mixins */

@@ -1,0 +1,182 @@
+@import "common.less";
+
+/* start of mixins */
+/* 챕터(파트): 이런 건 setting.js를 참고하자. */
+body>div[id] /*, body>section */ {
+  .chapter();
+}
+
+/* 1단계 제목 */
+h1 {
+  .h1();
+}
+
+h1.chapterNumber {
+  display: none;
+}
+
+/* 2단계 제목 */
+h2 {
+  .h2();
+}
+
+/* 3단계 제목 */
+h3 {
+  .h3();
+}
+
+/* 4단계 제목 */
+h4 {
+  .h4();
+}
+
+/* 5단계 제목 */
+h5 {
+  .h5();
+}
+
+/* 6단계 제목 */
+h6 {
+  .h6();
+}
+
+
+/* 강조 */
+p>em, :not(p.Table-Column-Heading--PACKT-)>strong.keyword {
+  .em();
+}
+
+
+/* 코드블록 */
+pre.code {
+  .code-block();
+}
+
+/* 터미널 */
+pre.con {
+  .terminal();
+}
+
+/* 본문코드 */
+code.Code-In-Text--PACKT- {
+  .inline-code();
+}
+
+
+/* 캡션(아래) */
+p.packt_figref {
+  .caption_down();
+}
+
+figure, table {
+  margin-bottom: 0;
+}
+
+/* 캡션(위): todo */
+/*
+p.fm-code-listing-caption, p.fm-table-caption {
+  .caption_up();
+}
+*/
+
+
+/* 박스의 제목 */
+/*
+p.fm-sidebar-title, span.fm-callout-head {
+  .box-title();
+}
+*/
+
+/* 일반 박스 */
+/*
+div.side {
+  .box();
+}
+*/
+
+/* 종류가 있는 박스(팁) */
+div.packt_tip {
+  .typed-box_tip();
+}
+
+/* 종류가 있는 박스(노트) */
+div.note {
+  .typed-box_note();
+}
+
+/* 종류가 있는 박스(주의) */
+/*
+.typed-box_caution() {
+  .typed-box_caution();
+}
+*/
+
+
+/* 인용 */
+/*
+blockquote {
+  .blockquote();
+}
+*/
+
+/* 인용 출처 */
+/*
+blockquote>p[data-type="attribution"] {
+  .byline();
+}
+*/
+
+
+/* 문단수식 */
+img[data-type="equation"] {
+  .eq-block();
+  width: auto;
+}
+
+/* 본문수식 */
+img:not([data-type]) {
+  .inline-eq();
+  .eq-block();  //img라 테두리 넣기 위해
+  width: auto;
+}
+
+
+/* 판권지 */
+/*
+section[title2="Copyright Page"] {
+  .copyrights();
+}
+*/
+
+
+/* 찾아보기 */
+div[title2="Index"] {
+  .index();
+
+  /* 찾아보기 헤딩 */
+  p.Index-Section-Head {
+    .index-h();
+  }
+
+  /* 찾아보기 1단계 */
+  p.Index-Level-1 {
+    .index-l1();
+  }
+
+  /* 찾아보기 2단계 */
+  p.Index-Level-2 {
+    .index-l2();
+  }
+}
+
+
+/* 각주 */
+//.footnote-area() {
+  //.footnote-area();
+
+  /* 각주 텍스트 */
+  //.footnote-text() {
+    //.footnote-text();
+  //}
+//}
+/* end of mixins */

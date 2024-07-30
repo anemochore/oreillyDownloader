@@ -1,0 +1,182 @@
+@import "common.less";
+
+/* start of mixins */
+/* 챕터(파트): 이런 건 setting.js를 참고하자. */
+section[data-type] {
+  .chapter();
+}
+
+/* 1단계 제목 */
+h1.sect1 {
+  .h1();
+}
+
+/* 2단계 제목 */
+h2.sect2 {
+  .h2();
+}
+
+/* 3단계 제목 */
+h3.sect3 {
+  .h3();
+}
+
+/* 4단계 제목 */
+h4.sect4 {
+  .h4();
+}
+
+/* 5단계 제목 */
+h5.sect5 {
+  .h5();
+}
+
+/* 6단계 제목 */
+h6.sect6 {
+  .h6();
+}
+
+
+/* 강조 */
+p>em {
+  .em();
+}
+
+/* 강조 취소(캡션, 박스, 서명, 목차, 하이퍼링크) */
+figcaption>p>strong, figcaption>p>em, div.side>p>em, p.right>em, section[title2="Contents"] strong, p>em:has(a) {
+  font-style: normal;
+  font-weight: normal;
+  background-color: revert;
+}
+
+
+/* 코드블록 */
+pre[data-type="example"] {
+  .code-block();
+}
+
+/* Click here to view code image 제거 */
+p.codelink {
+  display: none;
+}
+
+/* 본문코드 */
+code {
+  .inline-code();
+}
+
+/* 제목에 쓰인 코드의 크기 지정 취소 */
+h1>code, h2>code, h3>code {
+  font-size: revert;
+}
+
+
+/* 캡션(아래) */
+figcaption>p {
+  .caption_down();
+}
+
+/* 캡션(위): todo */
+/*
+p.fm-code-listing-caption, p.fm-table-caption {
+  .caption_up();
+}
+*/
+
+
+/* 박스의 제목 */
+/*
+p.fm-sidebar-title, span.fm-callout-head {
+  .box-title();
+}
+*/
+
+/* 일반 박스 */
+div.side {
+  .box();
+}
+
+/* 종류가 있는 박스(팁) */
+/*
+.typed-box_tip() {
+  .typed-box_tip();
+}
+*/
+
+/* 종류가 있는 박스(노트) */
+/*
+.typed-box_note() {
+  .typed-box_note();
+}
+*/
+
+/* 종류가 있는 박스(주의) */
+/*
+.typed-box_caution() {
+  .typed-box_caution();
+}
+*/
+
+
+/* 인용 */
+/*
+blockquote {
+  .blockquote();
+}
+*/
+
+/* 인용 출처 */
+p.right {
+  .byline();
+}
+
+
+/* 판권지 */
+section[title2="Copyright Page"] {
+  .copyrights();
+}
+
+
+/* 목차 */
+section[title2="Contents"] {
+  .contents();
+
+  /* 목차 1단계 */
+  p.toc-chap, p.toc-part {
+    .contents-l1();
+  }
+}
+
+
+/* 찾아보기 */
+section[title2="Index"] {
+  .index();
+
+  /* 찾아보기 헤딩 */
+  p.indexmain1 {
+    .index-h();
+  }
+
+  /* 찾아보기 1단계 */
+  p.indexmain {
+    .index-l1();
+  }
+
+  /* 찾아보기 2단계 */
+  p.indexsub {
+    .index-l2();
+  }
+}
+
+
+/* 각주. todo: util.js에서 전처리가 필요한데 일단 패스 */
+p.footnote {
+  .footnote-area();
+  border-width: 2px;
+  margin-top: 0;
+  padding-bottom: 0;
+
+  /* 각주 텍스트 */
+  .footnote-text();
+}
+/* end of mixins */
