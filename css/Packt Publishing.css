@@ -309,11 +309,26 @@ div.note {
 }
 */
 /* 인용 */
-/*
-blockquote {
-  .blockquote();
+p.author-quote {
+  font-size: 0.9rem;
+  color: #666666;
+  margin: 0 2rem 1.5rem 2rem;
+  position: relative;
+  border-left: 3px solid #DA8596;
+  padding: 0 1.5rem 0 2.25rem;
 }
-*/
+p.author-quote::before {
+  content: '\201C';
+  font-size: 60px;
+  position: absolute;
+  left: 10px;
+  top: 0;
+  margin-top: -30px;
+}
+p.author-quote p {
+  position: relative;
+  padding-left: 2rem;
+}
 /* 인용 출처 */
 /*
 blockquote>p[data-type="attribution"] {
