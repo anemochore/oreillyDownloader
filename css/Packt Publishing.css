@@ -28,7 +28,8 @@ body {
 p {
   margin: 1rem 0;
 }
-code {
+code,
+samp {
   font-family: "Sarasa Fixed K", d2coding, monospace;
 }
 h1,
@@ -117,13 +118,14 @@ table td {
 /* 종류가 있는 박스(노트) */
 /* 종류가 있는 박스(주의) */
 /* 인용 */
-/* 인용 출처 */
+/* 인용 출처나 서명 */
 /* 문단수식 */
 /* 본문수식 */
 /* 판권지 */
 /* 목차 */
 /* 찾아보기 */
 /* 각주 */
+/* dt, dd 한 줄에 */
 /* end of mixins */
 /* start of mixins */
 /* 챕터(파트): 이런 건 setting.js를 참고하자. */
@@ -172,11 +174,21 @@ h6 {
 }
 /* 강조 */
 p > em,
-:not(p.Table-Column-Heading--PACKT-) > strong.keyword {
+:not(p.Table-Column-Heading--PACKT-) > strong.keyword,
+:not(pre) > strong.bold,
+:not(pre) > em.italic {
   background-color: lightgreen;
 }
+/* 강조 취소(배경색만) */
+th strong.bold {
+  font-style: normal;
+  font-weight: normal;
+  background-color: revert;
+  font-weight: bold;
+}
 /* 코드블록 */
-pre.code {
+pre.code,
+pre.source-code {
   font-size: 10pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -187,7 +199,8 @@ pre.code {
   padding-left: 4px;
 }
 /* 터미널 */
-pre.con {
+pre.con,
+pre.console {
   font-size: 10pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -199,22 +212,24 @@ pre.con {
   padding-left: 4px;
 }
 /* 본문코드 */
-code.Code-In-Text--PACKT- {
+code.Code-In-Text--PACKT-,
+strong.source-inline {
   font-size: 10pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
   overflow-wrap: break-word;
   font-size: 9.5pt;
-  font-weight: normal;
   font-style: normal;
   color: #000;
   background-color: #ccddff;
   border: 0;
   padding-left: 0;
+  font-weight: normal;
 }
 /* 캡션(아래) */
-p.packt_figref {
+p.packt_figref,
+p[class$="-Caption"] {
   font-size: 0.875rem;
   font-style: normal;
   font-weight: normal;
@@ -232,17 +247,35 @@ p.fm-code-listing-caption, p.fm-table-caption {
 }
 */
 /* 박스의 제목 */
-/*
-p.fm-sidebar-title, span.fm-callout-head {
-  .box-title();
+p.callout-heading {
+  max-width: 90%;
+  font-size: 90%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  border: 1px solid silver;
+  font-size: 0.975rem;
+  font-weight: bold;
+  padding: 0 1.1rem;
+  margin: 1rem 0 0.5rem 0;
+  margin-bottom: 0;
+  padding: 0.5rem;
 }
-*/
 /* 일반 박스 */
-/*
-div.side {
-  .box();
+p.callout {
+  max-width: 90%;
+  font-size: 90%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  border: 1px solid silver;
+  padding: 0.5rem;
 }
-*/
+p.callout-heading + p.callout {
+  margin-top: 0;
+}
 /* 종류가 있는 박스(팁) */
 div.packt_tip {
   max-width: 90%;
@@ -268,9 +301,6 @@ div.note {
   padding: 0.5rem;
   padding-left: 80px;
   background-image: url("@note.jpg");
-}
-div.note::before {
-  content: "[NOTE]";
 }
 /* 종류가 있는 박스(주의) */
 /*
@@ -323,15 +353,18 @@ div[title2="Index"] ul,
 div[title2="Index"] h3 {
   margin: 0;
 }
-div[title2="Index"] p.Index-Section-Head {
+div[title2="Index"] p.Index-Section-Head,
+div[title2="Index"] p.index-head {
   font-size: 1.375rem;
   margin-top: 1rem;
   font-weight: 700;
 }
-div[title2="Index"] p.Index-Level-1 {
+div[title2="Index"] p.Index-Level-1,
+div[title2="Index"] p:not([class]) {
   font-size: 100%;
 }
-div[title2="Index"] p.Index-Level-2 {
+div[title2="Index"] p.Index-Level-2,
+div[title2="Index"] p.index-2 {
   font-size: 90%;
   padding-left: 1rem;
 }

@@ -427,4 +427,24 @@ table td {
     margin-bottom: 0;
   }
 }
+
+
+/* dt, dd 한 줄에 */
+.oneline-dl() {
+  display: grid;
+  grid-template-columns: max-content auto;
+
+  p {
+    margin: 0;
+  }
+
+  dt {
+    width: 16px;
+    margin: 0;
+  }
+
+  dd {
+    margin: 0 0 0 1rem;
+  }
+}
 /* end of mixins */

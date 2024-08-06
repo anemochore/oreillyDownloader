@@ -42,29 +42,36 @@ h6 {
 
 
 /* 강조 */
-p>em, :not(p.Table-Column-Heading--PACKT-)>strong.keyword {
+p>em, :not(p.Table-Column-Heading--PACKT-)>strong.keyword, :not(pre)>strong.bold, :not(pre)>em.italic {
   .em();
+}
+
+/* 강조 취소(배경색만) */
+th strong.bold {
+  .em_cancel();
+  font-weight: bold;
 }
 
 
 /* 코드블록 */
-pre.code {
+pre.code, pre.source-code {
   .code-block();
 }
 
 /* 터미널 */
-pre.con {
+pre.con, pre.console {
   .terminal();
 }
 
 /* 본문코드 */
-code.Code-In-Text--PACKT- {
+code.Code-In-Text--PACKT-, strong.source-inline {
   .inline-code();
+  font-weight: normal;
 }
 
 
 /* 캡션(아래) */
-p.packt_figref {
+p.packt_figref, p[class$="-Caption"] {
   .caption_down();
 }
 
@@ -81,18 +88,22 @@ p.fm-code-listing-caption, p.fm-table-caption {
 
 
 /* 박스의 제목 */
-/*
-p.fm-sidebar-title, span.fm-callout-head {
+p.callout-heading {
+  .box();
   .box-title();
+  margin-bottom: 0;
+  padding: 0.5rem;
 }
-*/
 
 /* 일반 박스 */
-/*
-div.side {
+p.callout {
   .box();
 }
-*/
+
+p.callout-heading+p.callout {
+  margin-top: 0;
+}
+
 
 /* 종류가 있는 박스(팁) */
 div.packt_tip {
@@ -154,17 +165,17 @@ div[title2="Index"] {
   .index();
 
   /* 찾아보기 헤딩 */
-  p.Index-Section-Head {
+  p.Index-Section-Head, p.index-head {
     .index-h();
   }
 
   /* 찾아보기 1단계 */
-  p.Index-Level-1 {
+  p.Index-Level-1, p:not([class]) {
     .index-l1();
   }
 
   /* 찾아보기 2단계 */
-  p.Index-Level-2 {
+  p.Index-Level-2, p.index-2 {
     .index-l2();
   }
 }

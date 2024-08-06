@@ -129,7 +129,7 @@ table td {
 /* end of mixins */
 /* start of mixins */
 /* 챕터(파트): 이런 건 setting.js를 참고하자. */
-section:not([data-type^="sect"]) {
+body > div[data-type] {
   border-top: 16px solid blue;
   margin-top: 5rem;
 }
@@ -144,39 +144,26 @@ h1:first-child {
   break-before: avoid;
 }
 /* 2단계 제목 */
-div.sect1 > h1,
-div.preface > div:not(.sect1) > h1 {
+h2 {
   font-size: 1.75rem;
 }
 /* 3단계 제목 */
-h2 {
+h3 {
   font-size: 1.375rem;
 }
 /* 4단계 제목 */
-h3 {
+h4 {
   font-size: 1.275rem;
   font-weight: bold;
   padding: 0 0.75rem;
 }
-/* 5단계 제목 */
-h4 {
-  font-size: 1.05rem;
-  font-weight: bold;
-  padding: 0 1rem;
-}
-/* 6단계 제목 */
-h5 {
-  font-size: 0.975rem;
-  font-weight: bold;
-  padding: 0 1.1rem;
-}
 /* 강조 */
-p > em,
-p > strong {
+span.emph {
   background-color: lightgreen;
+  font-weight: bold;
 }
 /* 코드블록 */
-pre[data-type="programlisting"] {
+table.processedcode {
   font-size: 10pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -185,47 +172,18 @@ pre[data-type="programlisting"] {
   background-color: whitesmoke;
   border-left: 8px solid lightgray;
   padding-left: 4px;
+  border: 0;
+  width: 100%;
 }
-/* 터미널 */
-pre[data-type="programlisting"]:not([data-code-language]) {
-  font-size: 10pt;
-  font-family: "Sarasa Fixed K", d2coding, monospace;
-  line-height: 1.25;
-  white-space: pre;
-  overflow-wrap: break-word;
-  color: white;
-  background-color: purple;
-  border-left: 8px solid lightgray;
-  padding-left: 4px;
+/* 코드블록 내 행수 등 */
+td.codeinfo {
+  background-color: lightgreen;
 }
-/* 코드블록 안/아래 원번호 */
-pre a.co,
-dl.calloutlist > dt > a {
-  background-color: yellow;
-  font-family: d2coding, monospace !important;
-  border-bottom: 1px dashed #bbb;
-}
-a.co img {
-  vertical-align: baseline;
-}
-/* 코드블록 아래 설명 */
-dl.calloutlist {
-  font-size: 0.9rem;
-  display: grid;
-  grid-template-columns: max-content auto;
-}
-dl.calloutlist p {
-  margin: 0;
-}
-dl.calloutlist dt {
-  width: 16px;
-  margin: 0;
-}
-dl.calloutlist dd {
-  margin: 0 0 0 0.5rem;
+td.codeinfo span.codeprefix {
+  color: green;
 }
 /* 본문코드 */
-p > code {
+span.cf {
   font-size: 10pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -239,16 +197,19 @@ p > code {
   border: 0;
   padding-left: 0;
 }
-/* 캡션(아래) */
-div.figure > h6 {
-  font-size: 0.875rem;
-  font-style: normal;
-  font-weight: normal;
-  color: royalblue;
-  margin-top: 0;
+span.cf.ic,
+span.cf.dir,
+span.cf.filename {
+  font-weight: bold;
 }
+/* 캡션(아래) */
+/*
+.caption_down() {
+  .caption_down();
+}
+*/
 /* 캡션(위) */
-table caption {
+div.livecodelozenge {
   font-size: 0.875rem;
   font-style: normal;
   font-weight: normal;
@@ -256,28 +217,20 @@ table caption {
   margin-bottom: 0;
 }
 /* 박스의 제목 */
-aside[data-type="sidebar"] > div > h1,
-div[data-type="tip"] > h6,
-div[data-type="note"] > h6,
-div[data-type="warning"] > h6 {
+table:has(img[data-type]) thead p {
   font-size: 0.975rem;
   font-weight: bold;
   padding: 0 1.1rem;
   margin: 1rem 0 0.5rem 0;
 }
 /* 일반 박스 */
-aside[data-type="sidebar"] {
-  max-width: 90%;
-  font-size: 90%;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  background-position: left top;
-  background-repeat: no-repeat;
-  border: 1px solid silver;
-  padding: 0.5rem;
+/*
+.box() {
+  .box();
 }
+*/
 /* 종류가 있는 박스(팁) */
-div[data-type="tip"] {
+table:has(img[data-type="tip"]) {
   max-width: 90%;
   font-size: 90%;
   margin-top: 32px;
@@ -288,9 +241,13 @@ div[data-type="tip"] {
   padding: 0.5rem;
   padding-left: 80px;
   background-image: url("@tip.jpg");
+  background-position: left 44px;
+}
+table:has(img[data-type="tip"]) > thead {
+  height: 44px;
 }
 /* 종류가 있는 박스(노트) */
-div[data-type="note"] {
+table:has(img[data-type="note"]) {
   max-width: 90%;
   font-size: 90%;
   margin-top: 32px;
@@ -301,9 +258,13 @@ div[data-type="note"] {
   padding: 0.5rem;
   padding-left: 80px;
   background-image: url("@note.jpg");
+  background-position: left 44px;
+}
+table:has(img[data-type="note"]) > thead {
+  height: 44px;
 }
 /* 종류가 있는 박스(주의) */
-div[data-type="warning"] {
+table:has(img[data-type="warning"]) {
   max-width: 90%;
   font-size: 90%;
   margin-top: 32px;
@@ -314,75 +275,31 @@ div[data-type="warning"] {
   padding: 0.5rem;
   padding-left: 80px;
   background-image: url("@warning.jpg");
+  background-position: left 44px;
+}
+table:has(img[data-type="warning"]) > thead {
+  height: 44px;
+}
+/* 원서 박스 그림 무시 */
+img[data-type="tip"],
+img[data-type="note"],
+img[data-type="warning"] {
+  display: none;
 }
 /* 인용 */
-blockquote {
-  font-size: 0.9rem;
-  color: #666666;
-  margin: 0 2rem 1.5rem 2rem;
-  position: relative;
-  border-left: 3px solid #DA8596;
-  padding: 0 1.5rem 0 1rem;
+/*
+.blockquote() {
+  .blockquote();
 }
-blockquote::before {
-  content: '\201C';
-  font-size: 60px;
-  position: absolute;
-  left: 10px;
-  top: 0;
-  margin-top: -30px;
-}
-blockquote p {
-  position: relative;
-  padding-left: 2rem;
-}
+*/
 /* 인용 출처 */
-blockquote > p[data-type="attribution"] {
-  display: block;
-  font-size: 0.8rem;
-  text-align: right;
+/*
+.byline() {
+  .byline();
 }
-/* 본문수식 */
-[data-type="inline_eq"],
-mjx-math,
-math {
-  background-color: Lavender;
-}
-/* 판권지 */
-section[file="copyright-page01_html"] {
-  font-size: 70%;
-}
-/* 찾아보기 */
-div[data-type="index"] {
-  font-size: 95%;
-  /* 찾아보기 헤딩 */
-  /* 찾아보기 1단계 */
-  /* 찾아보기 2단계 */
-  /* 찾아보기 3단계 */
-  /* 찾아보기 헤딩 */
-  /* 찾아보기 1단계 */
-  /* 찾아보기 2단계 */
-}
-div[data-type="index"] p,
-div[data-type="index"] ul,
-div[data-type="index"] h3 {
-  margin: 0;
-}
-div[data-type="index"] h3 {
-  font-size: 1.375rem;
-  margin-top: 1rem;
-  font-weight: 700;
-}
-div[data-type="index"] div > ul > li > span {
-  font-size: 100%;
-}
-div[data-type="index"] ul > li > ul > li {
-  font-size: 90%;
-  padding-left: 1rem;
-  padding-left: 0;
-}
+*/
 /* 각주 */
-div[data-type="footnotes"] {
+div.footnotes {
   border-top: 4px solid coral;
   border-bottom: 4px solid coral;
   margin-top: 2rem;
@@ -391,10 +308,22 @@ div[data-type="footnotes"] {
   /* 각주 텍스트 */
   /* 각주 텍스트 */
 }
-div[data-type="footnotes"] p[data-type="footnote"] {
+div.footnotes dl {
   font-size: 85%;
   color: #666666;
   padding-left: 0.5rem;
   margin-bottom: 0;
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+div.footnotes dl p {
+  margin: 0;
+}
+div.footnotes dl dt {
+  width: 16px;
+  margin: 0;
+}
+div.footnotes dl dd {
+  margin: 0 0 0 1rem;
 }
 /* end of mixins */

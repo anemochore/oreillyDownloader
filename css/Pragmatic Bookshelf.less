@@ -1,0 +1,149 @@
+@import "common.less";
+
+/* start of mixins */
+/* 챕터(파트): 이런 건 setting.js를 참고하자. */
+body>div[data-type] {
+  .chapter();
+}
+
+/* 1단계 제목 */
+h1 {
+  .h1();
+}
+
+/* 2단계 제목 */
+h2 {
+  .h2();
+}
+
+/* 3단계 제목 */
+h3 {
+  .h3();
+}
+
+/* 4단계 제목 */
+h4 {
+  .h4();
+}
+
+
+/* 강조 */
+span.emph {
+  .em();
+  font-weight: bold;
+}
+
+/* 코드블록 */
+table.processedcode {
+  .code-block();
+  border: 0;
+  width: 100%;
+}
+
+/* 코드블록 내 행수 등 */
+td.codeinfo {
+  background-color: lightgreen;
+
+  span.codeprefix {
+    color: green;
+  }
+}
+
+
+
+/* 본문코드 */
+span.cf {
+  .inline-code();
+
+  &.ic, &.dir, &.filename {
+    font-weight: bold;
+  }
+}
+
+
+/* 캡션(아래) */
+/*
+.caption_down() {
+  .caption_down();
+}
+*/
+
+/* 캡션(위) */
+div.livecodelozenge {
+  .caption_up();
+}
+
+
+/* 박스의 제목 */
+table:has(img[data-type]) thead p {
+  .box-title();
+}
+
+/* 일반 박스 */
+/*
+.box() {
+  .box();
+}
+*/
+
+/* 종류가 있는 박스(팁) */
+table:has(img[data-type="tip"]) {
+  .typed-box_tip();
+  background-position: left 44px;
+
+  &>thead {
+    height: 44px;
+  }
+}
+
+/* 종류가 있는 박스(노트) */
+table:has(img[data-type="note"]) {
+  .typed-box_note();
+  background-position: left 44px;
+
+  &>thead {
+    height: 44px;
+  }
+}
+
+/* 종류가 있는 박스(주의) */
+table:has(img[data-type="warning"]) {
+  .typed-box_caution();
+  background-position: left 44px;
+  &>thead {
+    height: 44px;
+  }
+}
+
+/* 원서 박스 그림 무시 */
+img[data-type="tip"], img[data-type="note"], img[data-type="warning"] {
+  display: none;
+}
+
+
+/* 인용 */
+/*
+.blockquote() {
+  .blockquote();
+}
+*/
+
+/* 인용 출처 */
+/*
+.byline() {
+  .byline();
+}
+*/
+
+
+/* 각주 */
+div.footnotes {
+  .footnote-area();
+
+  /* 각주 텍스트 */
+  dl {
+    .footnote-text();
+    .oneline-dl();
+  }
+}
+/* end of mixins */
