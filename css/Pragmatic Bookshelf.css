@@ -144,7 +144,8 @@ h1:first-child {
   break-before: avoid;
 }
 /* 2단계 제목 */
-h2 {
+h2,
+table.arr-recipe > tbody > tr {
   font-size: 1.75rem;
 }
 /* 3단계 제목 */
