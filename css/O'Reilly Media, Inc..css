@@ -171,7 +171,7 @@ h5 {
   padding: 0 1.1rem;
 }
 /* 강조 */
-p > em,
+:not(blockquote) > p > em,
 p > strong {
   background-color: lightgreen;
 }
@@ -222,7 +222,7 @@ dl.calloutlist dt {
   margin: 0;
 }
 dl.calloutlist dd {
-  margin: 0 0 0 0.5rem;
+  margin: 0 0 0 1rem;
 }
 /* 본문코드 */
 p > code {
@@ -322,7 +322,7 @@ blockquote {
   margin: 0 2rem 1.5rem 2rem;
   position: relative;
   border-left: 3px solid #DA8596;
-  padding: 0 1.5rem 0 1rem;
+  padding: 0 1.5rem 0 2.25rem;
 }
 blockquote::before {
   content: '\201C';
