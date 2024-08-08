@@ -47,7 +47,7 @@ p>em, :not(p.Table-Column-Heading--PACKT-)>strong.keyword, :not(pre)>strong.bold
 }
 
 /* 강조 취소(배경색만) */
-th strong.bold {
+thead strong.bold {
   .em_cancel();
   font-weight: bold;
 }
@@ -59,7 +59,7 @@ pre.code, pre.source-code {
 }
 
 /* 터미널 */
-pre.con, pre.console {
+pre.con, pre.console, pre[data-type="terminal"] {
   .terminal();
 }
 

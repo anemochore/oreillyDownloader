@@ -32,6 +32,9 @@ code,
 samp {
   font-family: "Sarasa Fixed K", d2coding, monospace;
 }
+pre {
+  margin: 0;
+}
 h1,
 h2,
 h3 {
@@ -52,14 +55,14 @@ ol ol {
 dl {
   margin-bottom: 1rem;
 }
-dt {
+dl dt {
   font-weight: bold;
   margin-bottom: 0.8rem;
 }
-dd {
+dl dd {
   margin: 0 0 0.8rem 2rem;
 }
-dd:last-child {
+dl dd:last-child {
   margin-bottom: 0;
 }
 figure {
@@ -82,9 +85,10 @@ table {
 table p {
   margin: 0.25rem 0.5rem;
 }
-table th {
+table th,
+table thead {
   background-color: #eee;
-  padding-right: 0.25rem 1rem;
+  padding-right: 1rem;
   text-align: start;
 }
 table td {
@@ -172,6 +176,7 @@ h5 {
 }
 /* 강조 */
 :not(blockquote) > p > em,
+:not(blockquote) > p > span > em,
 p > strong {
   background-color: lightgreen;
 }
@@ -187,7 +192,8 @@ pre[data-type="programlisting"] {
   padding-left: 4px;
 }
 /* 터미널 */
-pre[data-type="programlisting"]:not([data-code-language]) {
+pre[data-type="programlisting"]:not([data-code-language]),
+pre[data-type="terminal"] {
   font-size: 10pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -245,21 +251,27 @@ div.figure > h6 {
   font-style: normal;
   font-weight: normal;
   color: royalblue;
+  padding: 0;
   margin-top: 0;
 }
 /* 캡션(위) */
-table caption {
+table caption,
+div[data-type="example"] > h5 {
   font-size: 0.875rem;
   font-style: normal;
   font-weight: normal;
   color: royalblue;
+  padding: 0;
   margin-bottom: 0;
 }
 /* 박스의 제목 */
 aside[data-type="sidebar"] > div > h1,
 div[data-type="tip"] > h6,
 div[data-type="note"] > h6,
-div[data-type="warning"] > h6 {
+div[data-type="warning"] > h6,
+div[data-type="tip"] > h1,
+div[data-type="note"] > h1,
+div[data-type="warning"] > h1 {
   font-size: 0.975rem;
   font-weight: bold;
   padding: 0 1.1rem;
@@ -322,7 +334,7 @@ blockquote {
   margin: 0 2rem 1.5rem 2rem;
   position: relative;
   border-left: 3px solid #DA8596;
-  padding: 0 1.5rem 0 2.25rem;
+  padding: 0 1.5rem 0 2.5rem;
 }
 blockquote::before {
   content: '\201C';
@@ -331,10 +343,6 @@ blockquote::before {
   left: 10px;
   top: 0;
   margin-top: -30px;
-}
-blockquote p {
-  position: relative;
-  padding-left: 2rem;
 }
 /* 인용 출처 */
 blockquote > p[data-type="attribution"] {

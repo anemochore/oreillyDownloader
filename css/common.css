@@ -32,6 +32,9 @@ code,
 samp {
   font-family: "Sarasa Fixed K", d2coding, monospace;
 }
+pre {
+  margin: 0;
+}
 h1,
 h2,
 h3 {
@@ -52,14 +55,14 @@ ol ol {
 dl {
   margin-bottom: 1rem;
 }
-dt {
+dl dt {
   font-weight: bold;
   margin-bottom: 0.8rem;
 }
-dd {
+dl dd {
   margin: 0 0 0.8rem 2rem;
 }
-dd:last-child {
+dl dd:last-child {
   margin-bottom: 0;
 }
 figure {
@@ -82,9 +85,10 @@ table {
 table p {
   margin: 0.25rem 0.5rem;
 }
-table th {
+table th,
+table thead {
   background-color: #eee;
-  padding-right: 0.25rem 1rem;
+  padding-right: 1rem;
   text-align: start;
 }
 table td {

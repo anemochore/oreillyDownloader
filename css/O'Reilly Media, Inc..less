@@ -38,18 +38,19 @@ h5 {
 
 
 /* 강조 */
-:not(blockquote)>p>em, p>strong {
+:not(blockquote)>p>em, :not(blockquote)>p>span>em, p>strong {
   .em();
 }
 
 
 /* 코드블록 */
+//터미널 스타일이 다음에 나오니 터미널 배제하는 건 고려하지 않아도 됨
 pre[data-type="programlisting"] {
   .code-block();
 }
 
 /* 터미널 */
-pre[data-type="programlisting"]:not([data-code-language]) {
+pre[data-type="programlisting"]:not([data-code-language]), pre[data-type="terminal"] {
   .terminal();
 }
 
@@ -81,13 +82,13 @@ div.figure>h6 {
 }
 
 /* 캡션(위) */
-table caption {
+table caption, div[data-type="example"]>h5 {
   .caption_up();
 }
 
 
 /* 박스의 제목 */
-aside[data-type="sidebar"]>div>h1, div[data-type="tip"]>h6, div[data-type="note"]>h6, div[data-type="warning"]>h6 {
+aside[data-type="sidebar"]>div>h1, div[data-type="tip"]>h6, div[data-type="note"]>h6, div[data-type="warning"]>h6, div[data-type="tip"]>h1, div[data-type="note"]>h1, div[data-type="warning"]>h1 {
   .box-title();
 }
 

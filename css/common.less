@@ -37,6 +37,10 @@ code, samp {
   font-family: "Sarasa Fixed K", d2coding, monospace;
 }
 
+pre {
+  margin: 0;
+}
+
 h1, h2, h3 {
   break-after: avoid;
 }
@@ -56,19 +60,19 @@ ul ul, ol ol {
 
 dl {
   margin-bottom: 1rem;
-}
 
-dt {
-  font-weight: bold;
-  margin-bottom: .8rem;
-}
+  dt {
+    font-weight: bold;
+    margin-bottom: .8rem;
+  }
 
-dd {
-  margin: 0 0 .8rem 2rem;
-}
+  dd {
+    margin: 0 0 .8rem 2rem;
+  }
 
-dd:last-child {
-  margin-bottom: 0;
+  dd:last-child {
+    margin-bottom: 0;
+  }
 }
 
 figure {
@@ -89,21 +93,21 @@ table {
   border-spacing: 0;
   border-collapse: collapse;
   min-width: 40%;
-}
 
-table p {
-  margin: 0.25rem 0.5rem;
-}
+  p {
+    margin: 0.25rem 0.5rem;
+  }
 
-table th {
-  background-color: #eee;
-  padding-right: 0.25rem 1rem;
-  text-align: start;
-}
+  th, thead {
+    background-color: #eee;
+    padding-right: 1rem;
+    text-align: start;
+  }
 
-table td {
-  vertical-align: top;
-  text-align: start;
+ td {
+    vertical-align: top;
+    text-align: start;
+  }
 }
 /* end of native tags */
 
@@ -230,6 +234,7 @@ table td {
   font-style: normal;
   font-weight: normal;
   color: royalblue;
+  padding: 0;
 }
 
 /* 캡션(아래) */
@@ -296,7 +301,7 @@ table td {
 
   position: relative;
   border-left: 3px solid #DA8596;
-  padding: 0 1.5rem 0 2.25rem;
+  padding: 0 1.5rem 0 2.5rem;
 
   &::before{
     content:'\201C';
@@ -307,11 +312,6 @@ table td {
     left: 10px;
     top: 0;
     margin-top: -30px;
-  }
-
-  p {
-    position: relative;
-    padding-left: 2rem;
   }
 }
 

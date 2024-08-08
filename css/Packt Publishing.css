@@ -32,6 +32,9 @@ code,
 samp {
   font-family: "Sarasa Fixed K", d2coding, monospace;
 }
+pre {
+  margin: 0;
+}
 h1,
 h2,
 h3 {
@@ -52,14 +55,14 @@ ol ol {
 dl {
   margin-bottom: 1rem;
 }
-dt {
+dl dt {
   font-weight: bold;
   margin-bottom: 0.8rem;
 }
-dd {
+dl dd {
   margin: 0 0 0.8rem 2rem;
 }
-dd:last-child {
+dl dd:last-child {
   margin-bottom: 0;
 }
 figure {
@@ -82,9 +85,10 @@ table {
 table p {
   margin: 0.25rem 0.5rem;
 }
-table th {
+table th,
+table thead {
   background-color: #eee;
-  padding-right: 0.25rem 1rem;
+  padding-right: 1rem;
   text-align: start;
 }
 table td {
@@ -180,7 +184,7 @@ p > em,
   background-color: lightgreen;
 }
 /* 강조 취소(배경색만) */
-th strong.bold {
+thead strong.bold {
   font-style: normal;
   font-weight: normal;
   background-color: revert;
@@ -200,7 +204,8 @@ pre.source-code {
 }
 /* 터미널 */
 pre.con,
-pre.console {
+pre.console,
+pre[data-type="terminal"] {
   font-size: 10pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -234,6 +239,7 @@ p[class$="-Caption"] {
   font-style: normal;
   font-weight: normal;
   color: royalblue;
+  padding: 0;
   margin-top: 0;
 }
 figure,
@@ -315,7 +321,7 @@ p.author-quote {
   margin: 0 2rem 1.5rem 2rem;
   position: relative;
   border-left: 3px solid #DA8596;
-  padding: 0 1.5rem 0 2.25rem;
+  padding: 0 1.5rem 0 2.5rem;
 }
 p.author-quote::before {
   content: '\201C';
@@ -324,10 +330,6 @@ p.author-quote::before {
   left: 10px;
   top: 0;
   margin-top: -30px;
-}
-p.author-quote p {
-  position: relative;
-  padding-left: 2rem;
 }
 /* 인용 출처 */
 /*
