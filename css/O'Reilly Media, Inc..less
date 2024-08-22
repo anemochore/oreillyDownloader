@@ -123,11 +123,13 @@ blockquote>p[data-type="attribution"] {
   .byline();
 }
 
+/* 문단수식 */
+[data-type="equation"] {
+  .eq-block();
+}
 
 /* 본문수식 */
-[data-type="inline_eq"], mjx-math, math {
-  //order: inline, not firefox, firefox
-  //todo: above are legacy selectors. check later.
+[data-type="inline_eq"], mjx-math, :not([data-type="equation"])>math {
   .inline-eq();
 }
 

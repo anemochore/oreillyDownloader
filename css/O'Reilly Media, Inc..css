@@ -350,11 +350,16 @@ blockquote > p[data-type="attribution"] {
   font-size: 0.8rem;
   text-align: right;
 }
+/* 문단수식 */
+[data-type="equation"] {
+  border: 1px dotted #C7B6DC;
+  background-color: Lavender;
+}
 /* 본문수식 */
 [data-type="inline_eq"],
 mjx-math,
-math {
-  background-color: Lavender;
+:not([data-type="equation"]) > math {
+  background-color: #C7B6DC;
 }
 /* 판권지 */
 section[file="copyright-page01_html"] {
