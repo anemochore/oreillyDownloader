@@ -2,7 +2,7 @@
 
 /* start of mixins */
 /* 챕터(파트): 이런 건 setting.js를 참고하자. */
-section[data-type] /*, div[id][class] */ {
+section[data-type], div[id][class] {
   .chapter();
 }
 
@@ -38,8 +38,18 @@ h6[id] {
 
 
 /* 강조 */
-em, p:not(.indexletter)>b {
+em {
   .em();
+}
+
+/* 강조 취소 */
+p.indexletter>b, p.notep>em, p.figcap>em {
+  .em_cancel();
+}
+
+/* 강조 취소2(인용 안 강조) */
+div.bq em {
+  background-color: d2f8dc;
 }
 
 
@@ -75,12 +85,12 @@ var {
 
 
 /* 캡션(아래) */
-p.CodeListingCaption, figcaption:not(.TableTitle)>p {
+p.CodeListingCaption, figcaption:not(.TableTitle)>p, p.figcap {
   .caption_down();
 }
 
 /* 캡션(위) */
-p.CodeLabel, figcaption.TableTitle>p {
+p.CodeLabel, figcaption.TableTitle>p, p.tabcap {
   .caption_up();
 }
 
@@ -90,11 +100,11 @@ p.CodeLabel+pre {
 
 
 /* 일반 박스 */
-aside[data-type="sidebar"] {
+aside[data-type="sidebar"], div.note, div[class^="box"] {
   .box();
 
   /* 박스의 제목 */
-  h2 {
+  h2, p.notet, p.boxtitle-c {
     .box-title();
   }
 
@@ -105,7 +115,7 @@ aside[data-type="sidebar"] {
 
 
 /* 인용 */
-blockquote {
+blockquote, div.bq {
   .blockquote();
 }
 
@@ -134,8 +144,19 @@ img:not([data-type]) {
 
 
 /* 판권지 */
-section[title2="Copyright"] {
+section[title2="Copyright"], div[id="copy_xhtml"] {
   .copyrights();
+}
+
+
+/* 목차 */
+div[id="toc_xhtml"] {
+  .contents();
+
+  /* 목차 1단계 */
+  p[class^="toc"] {
+    .contents-l1();
+  }
 }
 
 
@@ -159,6 +180,26 @@ section[title2="Index"] {
   }
 }
 
+/* 찾아보기(how ai works) */
+div[id="index_xhtml"] {
+  .index();
+
+  /* 찾아보기 헤딩 */
+  h2 {
+    .index-h();
+  }
+
+  /* 찾아보기 1단계 */
+  p.indexmain {
+    .index-l1();
+  }
+
+  /* 찾아보기 2단계 */
+  p.indexsub {
+    .index-l2();
+  }
+}
+
 
 /* 각주 */
 //.footnote-area() {
@@ -173,8 +214,24 @@ section[title2="Index"] {
 
 
 /* nsp 챕터 시작부 */
-figure.opener /*, h1:first-child+div[class^="image"] */ {
+figure.opener, h1:first-child+div[class^="image"] {
   width: 20%;
   margin: 16px 32px 16px 0;
   float: left;
+}
+
+/* 가운데(how ai works) */
+p[class^="center"] {
+  text-align: center;
+}
+
+/* 용어집 등(how ai works) */
+div[id="glossary_xhtml"], div[id="resources_xhtml"] {
+  p.glossary1, p.noindentt, p.noindent {
+    margin-bottom: 0;
+  }
+
+  p.glossary, p.noindent2 {
+    margin-top: 0;
+  }
 }
