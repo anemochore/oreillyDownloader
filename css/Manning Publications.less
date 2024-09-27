@@ -22,12 +22,12 @@ h3.sect2, h3[class^="fm-head"] {
 }
 
 /* 4단계 제목 */
-h4.sect3, p.fm-head2 {
+h4.sect3 {
   .h4();
 }
 
 /* 5단계 제목 */
-h5.sect4 {
+h5.sect4, p.fm-head2 {
   .h5();
 }
 
@@ -38,12 +38,17 @@ h6.sect5 {
 
 
 /* 강조 */
-i[class^="fm-italics"]:not([class^="timesitalic"]) {
+em, i[class^="fm-italics"]:not([class^="timesitalic"]) {
   .em();
 }
 
+/* 강조 취소 */
+div[title2="contents"] em {
+  .em_cancel();
+}
+
 /* 코드블록 */
-pre.programlisting:not(.con) {
+pre.programlisting:not(.con), pre.code-area {
   .code-block();
 }
 
@@ -58,19 +63,25 @@ span[class^="fm-combinumeral"] {
 }
 
 /* 코드블록 아래 설명 */
-p[class^="fm-code-annotation"] /*, p.co-fm-toc */ {
+p[class^="fm-code-annotation"], div.code-annotations-overlay-container /*, p.co-fm-toc */ {
   .code-number-desc();
-  margin: 0;
+  margin: 0 0 0.5rem 0;
+
+  br {
+    margin-top: 0.5rem;
+    content: " ";
+    display: block;
+  }
 }
 
 /* 본문코드 */
-span[class^="fm-code-in-"] {
+span[class^="fm-code-in-"], code {
   .inline-code();
 }
 
 
 /* 캡션(아래) */
-p.fm-figure-caption /*, figcaption>p, p.figurecaption */ {
+p.fm-figure-caption, figcaption>p, p.figurecaption, img+h5 {
   .caption_down();
 }
 
@@ -79,18 +90,18 @@ p.fm-figure {
 }
 
 /* 캡션(위) */
-p.fm-code-listing-caption, p.fm-table-caption {
+p.fm-code-listing-caption, p.fm-table-caption, div[class*="-container"]>h5 {
   .caption_up();
 }
 
 
 /* 박스의 제목 */
-p.fm-sidebar-title, span.fm-callout-head {
+p.fm-sidebar-title, span.fm-callout-head, span.print-book-callout-head, h5[class*="callout-container"] {
   .box-title();
 }
 
 /* 일반 박스 */
-div.fm-sidebar-block, p.fm-callout {
+div.fm-sidebar-block, p.fm-callout, div.print-book-callout, div.callout-container {
   .box();
 
   p.fm-sidebar-text:has(br:only-child) {
@@ -135,7 +146,7 @@ blockquote>p[data-type="attribution"] {
 
 
 /* 판권지 */
-div[title2="Copyright"] {
+div[title2="copyright"], div[title2="Copyright"] {
   .copyrights();
 }
 
@@ -144,18 +155,26 @@ div[title2="Copyright"] {
 div[title2="contents"] {
   .contents();
 
+  strong, em {
+    font-style: normal;
+  }
+
   /* 목차 1단계 */
-  p.tocchapters, p.tocparts {
+  p.tocchapters, p.tocparts, p[style="font-size: 110%;"], p:not([style]):has(strong>a>em) {
     .contents-l1();
+
+    em {
+      font-weight: bold;
+    }
   }
 
   /* 목차 2단계 */
-  p.fm-head-1toc {
+  p.fm-head-1toc, p[style^="margin-left: 2em;"] {
     .contents-l2();
   }
 
   /* 목차 3단계 */
-  p.fm-head-2toc {
+  p.fm-head-2toc, p[style^="margin-left: 4em;"] {
     .contents-l3();
   }
 }
@@ -166,17 +185,17 @@ div[title2="index"] {
   .index();
 
   /* 찾아보기 헤딩 */
-  p.grouptitlesix {
+  p.grouptitlesix, p[style="font-size: 110%;"] {
     .index-h();
   }
 
   /* 찾아보기 1단계 */
-  p.level1ix {
+  p.level1ix, p[style="margin-left: 0em;"] {
     .index-l1();
   }
 
   /* 찾아보기 2단계 */
-  p.level2ix {
+  p.level2ix, p[style="margin-left: 1em;"] {
     .index-l2();
   }
 
@@ -213,5 +232,38 @@ p.co-summary-head {
     border-bottom: 2px solid purple;
     margin: 0 15px 10px 15px;
     padding-bottom: 1rem;
+  }
+}
+
+/* 챕터 시작부(later ver. ex: Idiomatic Rust) */
+div.introduction-summary {
+  border: 2px solid purple;
+  margin: 10px 15px 10px 15px;
+  padding: 1rem 0 0 1rem;
+
+  h3 {
+    .fontSize100();
+    .em_cancel();
+    margin: 0;
+  }
+
+  ul {
+    padding-left: 1rem;
+  }
+}
+
+/* 테이블 안 텍스트(later ver) */
+table th:not(:has(p)), td:not(:has(p)) {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #ddd;
+}
+
+/* 잘못된?? 목록 */
+ol+ol.faux-ol-li {
+  margin-top: -1rem;
+  padding-left: 1rem;
+
+  ul {
+    margin: 0;
   }
 }

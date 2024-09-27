@@ -1,7 +1,11 @@
 /* start of native tags */
 html {
-  font-size: 100%;
+  .fontSize100();
   overflow-y: scroll;
+}
+
+.fontSize100() {
+  font-size: 100%;
 }
 
 body {
@@ -11,7 +15,7 @@ body {
   padding: 1rem;
   margin: auto auto auto 2rem;
   max-width: 42rem;
-  background-color: #ffffff;
+  background-color: #ffffff;  
 }
 
 :target {
@@ -212,6 +216,7 @@ table {
 /* 코드블록 아래 설명 */
 .code-number-desc() {
   font-size: 0.9rem;
+  color: darkblue;
 }
 
 /* 본문코드 */
@@ -351,21 +356,23 @@ table {
 
   /* 목차 1단계 */
   .contents-l1() {
-    font-size: 100%;
-    margin-top: 1rem;
+    font-size: 110%;
+    font-weight: bold;
+    margin-top: 1em;
   }
 
   /* 목차 2단계 */
   .contents-l2() {
     font-size: 90%;
-    margin-top: 0.5rem;
+    margin-left: 2em;
+    margin-top: 0.5em;
   }
 
   /* 목차 3단계 */
   .contents-l3() {
-    font-size: 90%;
-    padding-left: 1.5rem;
-    margin-top: 0.1rem;
+    font-size: 80%;
+    margin-left: 4em;
+    margin-top: 0.1em;
   }
 
   a {
@@ -382,15 +389,19 @@ table {
 .index() {
   font-size: 95%;
 
+  a {
+    text-decoration: none;
+  }
+
   p, ul, h3 {
     margin: 0;
   }
 
   /* 찾아보기 헤딩 */
   .index-h() {
-    .h3();
-    margin-top: 1rem;
+    font-size: 110%;
     font-weight: 700;
+    margin-top: 1rem;
   }
 
   /* 찾아보기 1단계 */
@@ -401,13 +412,13 @@ table {
   /* 찾아보기 2단계 */
   .index-l2() {
     font-size: 90%;
-    padding-left: 1rem;
+    margin-left: 1em;
   }
 
   /* 찾아보기 3단계 */
   .index-l3() {
-    font-size: 90%;
-    padding-left: 2rem;
+    font-size: 85%;
+    margin-left: 2em;
   }
 }
 
