@@ -32,6 +32,9 @@ code,
 samp {
   font-family: "Sarasa Fixed K", d2coding, monospace;
 }
+pre {
+  margin: 0;
+}
 h1,
 h2,
 h3 {
@@ -52,14 +55,14 @@ ol ol {
 dl {
   margin-bottom: 1rem;
 }
-dt {
+dl dt {
   font-weight: bold;
   margin-bottom: 0.8rem;
 }
-dd {
+dl dd {
   margin: 0 0 0.8rem 2rem;
 }
-dd:last-child {
+dl dd:last-child {
   margin-bottom: 0;
 }
 figure {
@@ -82,9 +85,10 @@ table {
 table p {
   margin: 0.25rem 0.5rem;
 }
-table th {
+table th,
+table thead {
   background-color: #eee;
-  padding-right: 0.25rem 1rem;
+  padding-right: 1rem;
   text-align: start;
 }
 table td {
@@ -125,6 +129,7 @@ table td {
 /* 목차 */
 /* 찾아보기 */
 /* 각주 */
+/* 각주 텍스트 */
 /* dt, dd 한 줄에 */
 /* end of mixins */
 /* start of mixins */
@@ -136,6 +141,7 @@ body > div[data-type] {
 /* 1단계 제목 */
 h1 {
   font-size: 2.1rem;
+  font-weight: bold;
   margin-top: 1.25rem;
   margin-bottom: 1rem;
   break-before: page;
@@ -145,12 +151,17 @@ h1:first-child {
 }
 /* 2단계 제목 */
 h2,
-table.arr-recipe > tbody > tr {
+table.arr-recipe:has(tr[title2]) {
   font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 0.83rem;
+  margin-bottom: 0.83rem;
+  border: 0;
 }
 /* 3단계 제목 */
 h3 {
   font-size: 1.375rem;
+  font-weight: bold;
 }
 /* 4단계 제목 */
 h4 {
@@ -176,9 +187,13 @@ table.processedcode {
   border: 0;
   width: 100%;
 }
+table.processedcode + table.processedcode {
+  margin-top: -1rem;
+}
 /* 코드블록 내 행수 등 */
 td.codeinfo {
   background-color: lightgreen;
+  width: 8px;
 }
 td.codeinfo span.codeprefix {
   color: green;
@@ -215,6 +230,7 @@ div.livecodelozenge {
   font-style: normal;
   font-weight: normal;
   color: royalblue;
+  padding: 0;
   margin-bottom: 0;
 }
 /* 박스의 제목 */
@@ -230,8 +246,8 @@ table:has(img[data-type]) thead p {
   .box();
 }
 */
-/* 종류가 있는 박스(팁) */
-table:has(img[data-type="tip"]) {
+/* 종류가 있는 박스(체계가 오라일리와 다르게 네 가지: 중요, 정보, 팁, 경고) */
+table:has(img[id]) {
   max-width: 90%;
   font-size: 90%;
   margin-top: 32px;
@@ -242,50 +258,10 @@ table:has(img[data-type="tip"]) {
   padding: 0.5rem;
   padding-left: 80px;
   background-image: url("@tip.jpg");
-  background-position: left 44px;
+  background-image: none;
 }
-table:has(img[data-type="tip"]) > thead {
+table:has(img[id]) > thead {
   height: 44px;
-}
-/* 종류가 있는 박스(노트) */
-table:has(img[data-type="note"]) {
-  max-width: 90%;
-  font-size: 90%;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  background-position: left top;
-  background-repeat: no-repeat;
-  border: 1px solid silver;
-  padding: 0.5rem;
-  padding-left: 80px;
-  background-image: url("@note.jpg");
-  background-position: left 44px;
-}
-table:has(img[data-type="note"]) > thead {
-  height: 44px;
-}
-/* 종류가 있는 박스(주의) */
-table:has(img[data-type="warning"]) {
-  max-width: 90%;
-  font-size: 90%;
-  margin-top: 32px;
-  margin-bottom: 32px;
-  background-position: left top;
-  background-repeat: no-repeat;
-  border: 1px solid silver;
-  padding: 0.5rem;
-  padding-left: 80px;
-  background-image: url("@warning.jpg");
-  background-position: left 44px;
-}
-table:has(img[data-type="warning"]) > thead {
-  height: 44px;
-}
-/* 원서 박스 그림 무시 */
-img[data-type="tip"],
-img[data-type="note"],
-img[data-type="warning"] {
-  display: none;
 }
 /* 인용 */
 /*
@@ -301,12 +277,10 @@ img[data-type="warning"] {
 */
 /* 각주 */
 div.footnotes {
-  border-top: 4px solid coral;
-  border-bottom: 4px solid coral;
+  border: 4px solid coral;
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  /* 각주 텍스트 */
   /* 각주 텍스트 */
 }
 div.footnotes dl {

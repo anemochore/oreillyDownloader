@@ -12,8 +12,9 @@ h1 {
 }
 
 /* 2단계 제목 */
-h2, table.arr-recipe>tbody>tr {
+h2, table.arr-recipe:has(tr[title2]) {
   .h2();
+  border: 0;
 }
 
 /* 3단계 제목 */
@@ -38,11 +39,16 @@ table.processedcode {
   .code-block();
   border: 0;
   width: 100%;
+
+  &+table.processedcode {
+    margin-top: -1rem;
+  }
 }
 
 /* 코드블록 내 행수 등 */
 td.codeinfo {
   background-color: lightgreen;
+  width: 8px;
 
   span.codeprefix {
     color: green;
@@ -86,38 +92,14 @@ table:has(img[data-type]) thead p {
 }
 */
 
-/* 종류가 있는 박스(팁) */
-table:has(img[data-type="tip"]) {
+/* 종류가 있는 박스(체계가 오라일리와 다르게 네 가지: 중요, 정보, 팁, 경고) */
+table:has(img[id]) {
   .typed-box_tip();
-  background-position: left 44px;
+  background-image: none;
 
   &>thead {
     height: 44px;
   }
-}
-
-/* 종류가 있는 박스(노트) */
-table:has(img[data-type="note"]) {
-  .typed-box_note();
-  background-position: left 44px;
-
-  &>thead {
-    height: 44px;
-  }
-}
-
-/* 종류가 있는 박스(주의) */
-table:has(img[data-type="warning"]) {
-  .typed-box_caution();
-  background-position: left 44px;
-  &>thead {
-    height: 44px;
-  }
-}
-
-/* 원서 박스 그림 무시 */
-img[data-type="tip"], img[data-type="note"], img[data-type="warning"] {
-  display: none;
 }
 
 

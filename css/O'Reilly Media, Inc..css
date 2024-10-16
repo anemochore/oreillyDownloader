@@ -129,6 +129,7 @@ table td {
 /* 목차 */
 /* 찾아보기 */
 /* 각주 */
+/* 각주 텍스트 */
 /* dt, dd 한 줄에 */
 /* end of mixins */
 /* start of mixins */
@@ -138,23 +139,28 @@ section:not([data-type^="sect"]) {
   margin-top: 5rem;
 }
 /* 1단계 제목 */
-h1 {
+div:not(.sect1) > h1 {
   font-size: 2.1rem;
+  font-weight: bold;
   margin-top: 1.25rem;
   margin-bottom: 1rem;
   break-before: page;
 }
-h1:first-child {
+div:not(.sect1) > h1:first-child {
   break-before: avoid;
 }
 /* 2단계 제목 */
 div.sect1 > h1,
 div.preface > div:not(.sect1) > h1 {
   font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 0.83rem;
+  margin-bottom: 0.83rem;
 }
 /* 3단계 제목 */
 h2 {
   font-size: 1.375rem;
+  font-weight: bold;
 }
 /* 4단계 제목 */
 h3 {
@@ -217,6 +223,7 @@ a.co img {
 /* 코드블록 아래 설명 */
 dl.calloutlist {
   font-size: 0.9rem;
+  color: darkblue;
   display: grid;
   grid-template-columns: max-content auto;
 }
@@ -376,32 +383,33 @@ div[data-type="index"] {
   /* 찾아보기 1단계 */
   /* 찾아보기 2단계 */
 }
+div[data-type="index"] a {
+  text-decoration: none;
+}
 div[data-type="index"] p,
 div[data-type="index"] ul,
 div[data-type="index"] h3 {
   margin: 0;
 }
 div[data-type="index"] h3 {
-  font-size: 1.375rem;
-  margin-top: 1rem;
+  font-size: 110%;
   font-weight: 700;
+  margin-top: 1rem;
 }
 div[data-type="index"] div > ul > li > span {
   font-size: 100%;
 }
 div[data-type="index"] ul > li > ul > li {
   font-size: 90%;
-  padding-left: 1rem;
+  margin-left: 1em;
   padding-left: 0;
 }
 /* 각주 */
 div[data-type="footnotes"] {
-  border-top: 4px solid coral;
-  border-bottom: 4px solid coral;
+  border: 4px solid coral;
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  /* 각주 텍스트 */
   /* 각주 텍스트 */
 }
 div[data-type="footnotes"] p[data-type="footnote"] {
