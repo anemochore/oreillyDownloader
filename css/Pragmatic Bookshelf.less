@@ -12,9 +12,10 @@ h1 {
 }
 
 /* 2단계 제목 */
-h2, table.arr-recipe:has(tr[title2]) {
+:not(div[data-type="front-mat"]>div)>h2, table.arr-recipe:has(tr[title2]) {
   .h2();
   border: 0;
+  margin-top: 2rem;
 }
 
 /* 3단계 제목 */

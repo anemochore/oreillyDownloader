@@ -150,13 +150,14 @@ h1:first-child {
   break-before: avoid;
 }
 /* 2단계 제목 */
-h2,
+:not(div[data-type="front-mat"]>div) > h2,
 table.arr-recipe:has(tr[title2]) {
   font-size: 1.75rem;
   font-weight: bold;
   margin-top: 0.83rem;
   margin-bottom: 0.83rem;
   border: 0;
+  margin-top: 2rem;
 }
 /* 3단계 제목 */
 h3 {
