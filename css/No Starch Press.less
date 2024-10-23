@@ -2,7 +2,7 @@
 
 /* start of mixins */
 /* 챕터(파트): 이런 건 setting.js를 참고하자. */
-section[data-type], div[id][class] {
+section[data-type], div[id][class]:not([class^="image"]):not([class^="exe"]) {
   .chapter();
 }
 
@@ -38,17 +38,17 @@ h6[id] {
 
 
 /* 강조 */
-em {
+:not(p.hang)>em, p[class*="indent"]>strong:not(:has(a)), li strong {
   .em();
 }
 
 /* 강조 취소 */
-p.indexletter>b, p.notep>em, p.figcap>em {
+p.indexletter>b, p.notep>em, p.figcap>em, em:has(a) {
   .em_cancel();
 }
 
 /* 강조 취소2(인용 안 강조) */
-div.bq em {
+div.bq em, div.blockquote em {
   background-color: d2f8dc;
 }
 
@@ -73,7 +73,7 @@ span[class^="CodeAnnotation"] {
 }
 
 /* 본문코드 */
-:not(pre[data-type="example"])>code {
+:not(pre[data-type="example"])>code, span.literal {
   .inline-code();
 }
 
@@ -85,7 +85,7 @@ var {
 
 
 /* 캡션(아래) */
-p.CodeListingCaption, figcaption:not(.TableTitle)>p, p.figcap {
+p.CodeListingCaption, figcaption:not(.TableTitle)>p, p.figcap, p.caption {
   .caption_down();
 }
 
@@ -100,11 +100,11 @@ p.CodeLabel+pre {
 
 
 /* 일반 박스 */
-aside[data-type="sidebar"], div.note, div[class^="box"] {
+aside[data-type="sidebar"], div.note, div[class^="box"], div.exe {
   .box();
 
   /* 박스의 제목 */
-  h2, p.notet, p.boxtitle-c {
+  h2, p.notet, p.boxtitle-c, p.box-title, p.exe-title {
     .box-title();
   }
 
@@ -115,23 +115,28 @@ aside[data-type="sidebar"], div.note, div[class^="box"] {
 
 
 /* 인용 */
-blockquote, div.bq {
+blockquote, div.bq, p.bq, div.blockquote {
   .blockquote();
+
+  /* 강조 살짝-_- 취소(인용 안 강조) */
+  em {
+    background-color: d2f8dc;
+  }
 }
 
 /* 인용 출처 */
-p.right {
+p.att {
   .byline();
+  padding-right: 1.5rem;
 }
 
 
 /* 문단수식 */
-/*
-img[data-type="equation"] {
+p.hang {
   .eq-block();
-  width: auto;
+  margin: 0 1rem 0 1rem;
+  padding: 0 1rem 0 1rem;
 }
-*/
 
 /* 본문수식 */
 /*
@@ -156,6 +161,26 @@ div[id="toc_xhtml"] {
   /* 목차 1단계 */
   p[class^="toc"] {
     .contents-l1();
+  }
+}
+
+/* 자세한-_- 목차 */
+div[id="toc1_xhtml"] {
+  .contents();
+
+  /* 목차 1단계 */
+  p[class^="toc1"] {
+    .contents-l1();
+  }
+
+  /* 목차 2단계 */
+  p[class="toc-a"] {
+    .contents-l2();
+  }
+
+  /* 목차 3단계 */
+  p[class="toc-b"] {
+    .contents-l3();
   }
 }
 
@@ -221,7 +246,7 @@ figure.opener, h1:first-child+div[class^="image"] {
 }
 
 /* 가운데(how ai works) */
-p[class^="center"] {
+p[class^="center"], div.cover {
   text-align: center;
 }
 
@@ -234,4 +259,9 @@ div[id="glossary_xhtml"], div[id="resources_xhtml"] {
   p.glossary, p.noindent2 {
     margin-top: 0;
   }
+}
+
+/* 코드가 그림인 경우가 있어 너비 100%로 복원 */
+div[class^="image"]>img {
+  max-width: 100%;
 }

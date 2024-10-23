@@ -129,18 +129,20 @@ table td {
 /* 목차 */
 /* 찾아보기 */
 /* 각주 */
+/* 각주 텍스트 */
 /* dt, dd 한 줄에 */
 /* end of mixins */
 /* start of mixins */
 /* 챕터(파트): 이런 건 setting.js를 참고하자. */
 section[data-type],
-div[id][class] {
+div[id][class]:not([class^="image"]):not([class^="exe"]) {
   border-top: 16px solid blue;
   margin-top: 5rem;
 }
 /* 1단계 제목 */
 h1[class] {
   font-size: 2.1rem;
+  font-weight: bold;
   margin-top: 1.25rem;
   margin-bottom: 1rem;
   break-before: page;
@@ -151,10 +153,14 @@ h1[class]:first-child {
 /* 2단계 제목 */
 h2[id] {
   font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 0.83rem;
+  margin-bottom: 0.83rem;
 }
 /* 3단계 제목 */
 h3[id] {
   font-size: 1.375rem;
+  font-weight: bold;
 }
 /* 4단계 제목 */
 h4[id] {
@@ -175,24 +181,28 @@ h6[id] {
   padding: 0 1.1rem;
 }
 /* 강조 */
-em {
+:not(p.hang) > em,
+p[class*="indent"] > strong:not(:has(a)),
+li strong {
   background-color: lightgreen;
 }
 /* 강조 취소 */
 p.indexletter > b,
 p.notep > em,
-p.figcap > em {
+p.figcap > em,
+em:has(a) {
   font-style: normal;
   font-weight: normal;
-  background-color: revert;
+  background-color: revert !important;
 }
 /* 강조 취소2(인용 안 강조) */
-div.bq em {
+div.bq em,
+div.blockquote em {
   background-color: d2f8dc;
 }
 /* 코드블록 */
 pre[data-type="example"] {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
@@ -215,13 +225,14 @@ span[class^="CodeAnnotation"] {
   font-family: revert !important;
 }
 /* 본문코드 */
-:not(pre[data-type="example"]) > code {
-  font-size: 10pt;
+:not(pre[data-type="example"]) > code,
+span.literal {
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
   overflow-wrap: break-word;
-  font-size: 9.5pt;
+  font-size: 10pt;
   font-weight: normal;
   font-style: normal;
   color: #000;
@@ -231,12 +242,12 @@ span[class^="CodeAnnotation"] {
 }
 /* 본문코드+이탤릭 */
 var {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
   overflow-wrap: break-word;
-  font-size: 9.5pt;
+  font-size: 10pt;
   font-weight: normal;
   font-style: normal;
   color: #000;
@@ -248,7 +259,8 @@ var {
 /* 캡션(아래) */
 p.CodeListingCaption,
 figcaption:not(.TableTitle) > p,
-p.figcap {
+p.figcap,
+p.caption {
   font-size: 0.875rem;
   font-style: normal;
   font-weight: normal;
@@ -273,7 +285,8 @@ p.CodeLabel + pre {
 /* 일반 박스 */
 aside[data-type="sidebar"],
 div.note,
-div[class^="box"] {
+div[class^="box"],
+div.exe {
   max-width: 90%;
   font-size: 90%;
   margin-top: 32px;
@@ -287,12 +300,23 @@ div[class^="box"] {
 aside[data-type="sidebar"] h2,
 div.note h2,
 div[class^="box"] h2,
+div.exe h2,
 aside[data-type="sidebar"] p.notet,
 div.note p.notet,
 div[class^="box"] p.notet,
+div.exe p.notet,
 aside[data-type="sidebar"] p.boxtitle-c,
 div.note p.boxtitle-c,
-div[class^="box"] p.boxtitle-c {
+div[class^="box"] p.boxtitle-c,
+div.exe p.boxtitle-c,
+aside[data-type="sidebar"] p.box-title,
+div.note p.box-title,
+div[class^="box"] p.box-title,
+div.exe p.box-title,
+aside[data-type="sidebar"] p.exe-title,
+div.note p.exe-title,
+div[class^="box"] p.exe-title,
+div.exe p.exe-title {
   font-size: 0.975rem;
   font-weight: bold;
   padding: 0 1.1rem;
@@ -300,21 +324,27 @@ div[class^="box"] p.boxtitle-c {
 }
 aside[data-type="sidebar"] div.hr,
 div.note div.hr,
-div[class^="box"] div.hr {
+div[class^="box"] div.hr,
+div.exe div.hr {
   display: none;
 }
 /* 인용 */
 blockquote,
-div.bq {
+div.bq,
+p.bq,
+div.blockquote {
   font-size: 0.9rem;
   color: #666666;
   margin: 0 2rem 1.5rem 2rem;
   position: relative;
   border-left: 3px solid #DA8596;
   padding: 0 1.5rem 0 2.5rem;
+  /* 강조 살짝-_- 취소(인용 안 강조) */
 }
 blockquote::before,
-div.bq::before {
+div.bq::before,
+p.bq::before,
+div.blockquote::before {
   content: '\201C';
   font-size: 60px;
   position: absolute;
@@ -322,19 +352,26 @@ div.bq::before {
   top: 0;
   margin-top: -30px;
 }
+blockquote em,
+div.bq em,
+p.bq em,
+div.blockquote em {
+  background-color: d2f8dc;
+}
 /* 인용 출처 */
-p.right {
+p.att {
   display: block;
   font-size: 0.8rem;
   text-align: right;
+  padding-right: 1.5rem;
 }
 /* 문단수식 */
-/*
-img[data-type="equation"] {
-  .eq-block();
-  width: auto;
+p.hang {
+  border: 1px dotted #C7B6DC;
+  background-color: Lavender;
+  margin: 0 1rem 0 1rem;
+  padding: 0 1rem 0 1rem;
 }
-*/
 /* 본문수식 */
 /*
 img:not([data-type]) {
@@ -366,8 +403,43 @@ div[id="toc_xhtml"] a:hover {
   text-decoration: underline;
 }
 div[id="toc_xhtml"] p[class^="toc"] {
-  font-size: 100%;
-  margin-top: 1rem;
+  font-size: 110%;
+  font-weight: bold;
+  margin-top: 1em;
+}
+/* 자세한-_- 목차 */
+div[id="toc1_xhtml"] {
+  font-size: 95%;
+  /* 목차 1단계 */
+  /* 목차 2단계 */
+  /* 목차 3단계 */
+  /* 목차 1단계 */
+  /* 목차 2단계 */
+  /* 목차 3단계 */
+}
+div[id="toc1_xhtml"] p {
+  margin: 0;
+}
+div[id="toc1_xhtml"] a {
+  text-decoration: none;
+}
+div[id="toc1_xhtml"] a:hover {
+  text-decoration: underline;
+}
+div[id="toc1_xhtml"] p[class^="toc1"] {
+  font-size: 110%;
+  font-weight: bold;
+  margin-top: 1em;
+}
+div[id="toc1_xhtml"] p[class="toc-a"] {
+  font-size: 90%;
+  margin-left: 2em;
+  margin-top: 0.5em;
+}
+div[id="toc1_xhtml"] p[class="toc-b"] {
+  font-size: 80%;
+  margin-left: 4em;
+  margin-top: 0.1em;
 }
 /* 찾아보기 */
 section[title2="Index"] {
@@ -380,6 +452,9 @@ section[title2="Index"] {
   /* 찾아보기 1단계 */
   /* 찾아보기 2단계 */
 }
+section[title2="Index"] a {
+  text-decoration: none;
+}
 section[title2="Index"] p,
 section[title2="Index"] ul,
 section[title2="Index"] h3 {
@@ -387,9 +462,9 @@ section[title2="Index"] h3 {
 }
 section[title2="Index"] p.indexletter,
 section[title2="Index"] p.indexmain {
-  font-size: 1.375rem;
-  margin-top: 1rem;
+  font-size: 110%;
   font-weight: 700;
+  margin-top: 1rem;
 }
 section[title2="Index"] p.Index1,
 section[title2="Index"] p.indexsub {
@@ -398,7 +473,7 @@ section[title2="Index"] p.indexsub {
 section[title2="Index"] p.Index2,
 section[title2="Index"] p.indexsubsub {
   font-size: 90%;
-  padding-left: 1rem;
+  margin-left: 1em;
 }
 /* 찾아보기(how ai works) */
 div[id="index_xhtml"] {
@@ -411,22 +486,25 @@ div[id="index_xhtml"] {
   /* 찾아보기 1단계 */
   /* 찾아보기 2단계 */
 }
+div[id="index_xhtml"] a {
+  text-decoration: none;
+}
 div[id="index_xhtml"] p,
 div[id="index_xhtml"] ul,
 div[id="index_xhtml"] h3 {
   margin: 0;
 }
 div[id="index_xhtml"] h2 {
-  font-size: 1.375rem;
-  margin-top: 1rem;
+  font-size: 110%;
   font-weight: 700;
+  margin-top: 1rem;
 }
 div[id="index_xhtml"] p.indexmain {
   font-size: 100%;
 }
 div[id="index_xhtml"] p.indexsub {
   font-size: 90%;
-  padding-left: 1rem;
+  margin-left: 1em;
 }
 /* 각주 */
 /* 각주 텍스트 */
@@ -439,7 +517,8 @@ h1:first-child + div[class^="image"] {
   float: left;
 }
 /* 가운데(how ai works) */
-p[class^="center"] {
+p[class^="center"],
+div.cover {
   text-align: center;
 }
 /* 용어집 등(how ai works) */
@@ -456,4 +535,8 @@ div[id="resources_xhtml"] p.glossary,
 div[id="glossary_xhtml"] p.noindent2,
 div[id="resources_xhtml"] p.noindent2 {
   margin-top: 0;
+}
+/* 코드가 그림인 경우가 있어 너비 100%로 복원 */
+div[class^="image"] > img {
+  max-width: 100%;
 }
