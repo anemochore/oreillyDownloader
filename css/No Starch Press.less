@@ -73,7 +73,7 @@ span[class^="CodeAnnotation"] {
 }
 
 /* 본문코드 */
-:not(pre[data-type="example"])>code, span.literal {
+:not(pre[data-type="example"])>code, span[class^="literal"] {
   .inline-code();
 }
 
@@ -81,6 +81,12 @@ span[class^="CodeAnnotation"] {
 var {
   .inline-code();
   font-style: italic;
+}
+
+/* 강조(?) 코드 블록(?) */
+span[class^="codestrong"] {
+  .code-block();
+  font-weight: bold;
 }
 
 

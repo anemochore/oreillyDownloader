@@ -226,7 +226,7 @@ span[class^="CodeAnnotation"] {
 }
 /* 본문코드 */
 :not(pre[data-type="example"]) > code,
-span.literal {
+span[class^="literal"] {
   font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -255,6 +255,18 @@ var {
   border: 0;
   padding-left: 0;
   font-style: italic;
+}
+/* 강조(?) 코드 블록(?) */
+span[class^="codestrong"] {
+  font-size: 10.5pt;
+  font-family: "Sarasa Fixed K", d2coding, monospace;
+  line-height: 1.25;
+  white-space: pre;
+  overflow-wrap: break-word;
+  background-color: whitesmoke;
+  border-left: 8px solid lightgray;
+  padding-left: 4px;
+  font-weight: bold;
 }
 /* 캡션(아래) */
 p.CodeListingCaption,
