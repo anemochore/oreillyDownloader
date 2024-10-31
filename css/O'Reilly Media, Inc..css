@@ -186,9 +186,15 @@ h5 {
 p > strong {
   background-color: lightgreen;
 }
+/* 강조 취소 */
+em.hyperlink {
+  font-style: normal;
+  font-weight: normal;
+  background-color: revert !important;
+}
 /* 코드블록 */
 pre[data-type="programlisting"] {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
@@ -200,7 +206,7 @@ pre[data-type="programlisting"] {
 /* 터미널 */
 pre[data-type="programlisting"]:not([data-code-language]),
 pre[data-type="terminal"] {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
@@ -239,12 +245,12 @@ dl.calloutlist dd {
 }
 /* 본문코드 */
 p > code {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
   overflow-wrap: break-word;
-  font-size: 9.5pt;
+  font-size: 10pt;
   font-weight: normal;
   font-style: normal;
   color: #000;
@@ -410,12 +416,15 @@ div[data-type="footnotes"] {
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  /* 각주 텍스트 */
 }
-div[data-type="footnotes"] p[data-type="footnote"] {
+/* 각주 텍스트(가령 표 아래에도 올 수 있음) */
+p[data-type="footnote"] {
   font-size: 85%;
   color: #666666;
   padding-left: 0.5rem;
   margin-bottom: 0;
 }
 /* end of mixins */
+tbody + tbody:has(tr.footnotes) {
+  border-top: 1px solid #ddd;
+}

@@ -42,6 +42,11 @@ h5 {
   .em();
 }
 
+/* 강조 취소 */
+em.hyperlink {
+  .em_cancel()
+}
+
 
 /* 코드블록 */
 //터미널 스타일이 다음에 나오니 터미널 배제하는 건 고려하지 않아도 됨
@@ -165,10 +170,14 @@ div[data-type="index"] {
 /* 각주 */
 div[data-type="footnotes"] {
   .footnote-area();
+}
 
-  /* 각주 텍스트 */
-  p[data-type="footnote"] {
-    .footnote-text();
-  }
+/* 각주 텍스트(가령 표 아래에도 올 수 있음) */
+p[data-type="footnote"] {
+  .footnote-text();
 }
 /* end of mixins */
+
+tbody+tbody:has(tr.footnotes) {
+  border-top: 1px solid #ddd;
+}
