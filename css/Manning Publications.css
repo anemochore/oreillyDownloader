@@ -337,11 +337,11 @@ p.fm-quote::before {
   margin-top: -30px;
 }
 /* 인용 출처 */
-/*
-blockquote>p[data-type="attribution"] {
-  .byline();
+p.fm-quote-source {
+  display: block;
+  font-size: 0.8rem;
+  text-align: right;
 }
-*/
 /* 판권지 */
 div[title2="copyright"],
 div[title2="Copyright"] {
