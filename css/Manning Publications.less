@@ -16,18 +16,18 @@ h2.sect1, h2[class^="fm-head"] {
   .h2();
 }
 
-/* 3단계 제목 */
-h3.sect2, h3[class^="fm-head"] {
+/* 3단계 제목(연습문제도) */
+h3.sect2, h3[class^="fm-head"], p.fm-exercise-head {
   .h3();
 }
 
 /* 4단계 제목 */
-h4.sect3 {
+h4.sect3, h4[class^="fm-head"] {
   .h4();
 }
 
-/* 5단계 제목 */
-h5.sect4, p.fm-head2 {
+/* 5단계 제목(p가??) */
+h5.sect4 {
   .h5();
 }
 
@@ -209,11 +209,11 @@ div[title2="index"] {
 /* 각주 */
 div[data-type="footnotes"] {
   .footnote-area();
+}
 
-  /* 각주 텍스트 */
-  p[data-type="footnote"] {
-    .footnote-text();
-  }
+/* 각주 텍스트, 표 아래 각주도 포함 */
+p[data-type="footnote"], p.fm-footnote {
+  .footnote-text();
 }
 /* end of mixins */
 
@@ -265,5 +265,18 @@ ol+ol.faux-ol-li {
 
   ul {
     margin: 0;
+  }
+}
+
+/* 연습문제 */
+p.body-dialog {
+  text-indent: -2.5rem;
+  padding-left: 2.5rem;
+
+  span.bluebold {
+    color: blue;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-right: 0.25rem;
   }
 }

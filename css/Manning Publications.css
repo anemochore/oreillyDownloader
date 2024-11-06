@@ -129,6 +129,7 @@ table td {
 /* 목차 */
 /* 찾아보기 */
 /* 각주 */
+/* 각주 텍스트 */
 /* dt, dd 한 줄에 */
 /* end of mixins */
 /* start of mixins */
@@ -140,6 +141,7 @@ body > div[data-type] {
 /* 1단계 제목 */
 h1 {
   font-size: 2.1rem;
+  font-weight: bold;
   margin-top: 1.25rem;
   margin-bottom: 1rem;
   break-before: page;
@@ -151,21 +153,26 @@ h1:first-child {
 h2.sect1,
 h2[class^="fm-head"] {
   font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 0.83rem;
+  margin-bottom: 0.83rem;
 }
-/* 3단계 제목 */
+/* 3단계 제목(연습문제도) */
 h3.sect2,
-h3[class^="fm-head"] {
+h3[class^="fm-head"],
+p.fm-exercise-head {
   font-size: 1.375rem;
+  font-weight: bold;
 }
 /* 4단계 제목 */
-h4.sect3 {
+h4.sect3,
+h4[class^="fm-head"] {
   font-size: 1.275rem;
   font-weight: bold;
   padding: 0 0.75rem;
 }
-/* 5단계 제목 */
-h5.sect4,
-p.fm-head2 {
+/* 5단계 제목(p가??) */
+h5.sect4 {
   font-size: 1.05rem;
   font-weight: bold;
   padding: 0 1rem;
@@ -185,12 +192,12 @@ i[class^="fm-italics"]:not([class^="timesitalic"]) {
 div[title2="contents"] em {
   font-style: normal;
   font-weight: normal;
-  background-color: revert;
+  background-color: revert !important;
 }
 /* 코드블록 */
 pre.programlisting:not(.con),
 pre.code-area {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
@@ -224,12 +231,12 @@ div.code-annotations-overlay-container br {
 /* 본문코드 */
 span[class^="fm-code-in-"],
 code {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
   overflow-wrap: break-word;
-  font-size: 9.5pt;
+  font-size: 10pt;
   font-weight: normal;
   font-style: normal;
   color: #000;
@@ -430,16 +437,16 @@ div[title2="index"] p.level3ix {
 }
 /* 각주 */
 div[data-type="footnotes"] {
-  border-top: 4px solid coral;
-  border-bottom: 4px solid coral;
+  border: 4px solid coral;
   margin-top: 2rem;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
-  /* 각주 텍스트 */
-  /* 각주 텍스트 */
 }
-div[data-type="footnotes"] p[data-type="footnote"] {
+/* 각주 텍스트, 표 아래 각주도 포함 */
+p[data-type="footnote"],
+p.fm-footnote {
   font-size: 85%;
+  font-family: sans-serif;
   color: #666666;
   padding-left: 0.5rem;
   margin-bottom: 0;
@@ -470,7 +477,7 @@ div.introduction-summary h3 {
   font-size: 100%;
   font-style: normal;
   font-weight: normal;
-  background-color: revert;
+  background-color: revert !important;
   margin: 0;
 }
 div.introduction-summary ul {
@@ -489,4 +496,15 @@ ol + ol.faux-ol-li {
 }
 ol + ol.faux-ol-li ul {
   margin: 0;
+}
+/* 연습문제 */
+p.body-dialog {
+  text-indent: -2.5rem;
+  padding-left: 2.5rem;
+}
+p.body-dialog span.bluebold {
+  color: blue;
+  font-weight: bold;
+  font-family: sans-serif;
+  margin-right: 0.25rem;
 }
