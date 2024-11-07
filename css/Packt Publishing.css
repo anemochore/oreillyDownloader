@@ -129,6 +129,7 @@ table td {
 /* 목차 */
 /* 찾아보기 */
 /* 각주 */
+/* 각주 텍스트 */
 /* dt, dd 한 줄에 */
 /* end of mixins */
 /* start of mixins */
@@ -140,6 +141,7 @@ body > div[id] {
 /* 1단계 제목 */
 h1 {
   font-size: 2.1rem;
+  font-weight: bold;
   margin-top: 1.25rem;
   margin-bottom: 1rem;
   break-before: page;
@@ -153,10 +155,14 @@ h1.chapterNumber {
 /* 2단계 제목 */
 h2 {
   font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 0.83rem;
+  margin-bottom: 0.83rem;
 }
 /* 3단계 제목 */
 h3 {
   font-size: 1.375rem;
+  font-weight: bold;
 }
 /* 4단계 제목 */
 h4 {
@@ -177,23 +183,24 @@ h6 {
   padding: 0 1.1rem;
 }
 /* 강조 */
-p > em,
+:not(th) > p > em,
 :not(p.Table-Column-Heading--PACKT-) > strong.keyword,
 :not(pre) > strong.bold,
 :not(pre) > em.italic {
   background-color: lightgreen;
 }
 /* 강조 취소(배경색만) */
-thead strong.bold {
+thead strong.bold,
+th strong.bold {
   font-style: normal;
   font-weight: normal;
-  background-color: revert;
+  background-color: revert !important;
   font-weight: bold;
 }
 /* 코드블록 */
 pre.code,
 pre.source-code {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
@@ -206,7 +213,7 @@ pre.source-code {
 pre.con,
 pre.console,
 pre[data-type="terminal"] {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
@@ -219,12 +226,12 @@ pre[data-type="terminal"] {
 /* 본문코드 */
 code.Code-In-Text--PACKT-,
 strong.source-inline {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
   overflow-wrap: break-word;
-  font-size: 9.5pt;
+  font-size: 10pt;
   font-style: normal;
   color: #000;
   background-color: #ccddff;
@@ -339,21 +346,23 @@ blockquote>p[data-type="attribution"] {
 */
 /* 문단수식 */
 img[data-type="equation"] {
-  border: 1px dotted Lavender;
+  border: 1px dotted #C7B6DC;
+  background-color: Lavender;
+  padding: 0.5rem;
   width: auto;
 }
 /* 본문수식 */
 img:not([data-type]) {
+  background-color: #C7B6DC;
+  border: 1px dotted #C7B6DC;
   background-color: Lavender;
-  border: 1px dotted Lavender;
+  padding: 0.5rem;
   width: auto;
 }
-/* 판권지 */
-/*
-section[title2="Copyright Page"] {
-  .copyrights();
+/* 판권지...는 불가하고 그 속의 일부-_- 텍스트 */
+p.hidden {
+  font-size: 70%;
 }
-*/
 /* 찾아보기 */
 div[title2="Index"] {
   font-size: 95%;
@@ -365,6 +374,9 @@ div[title2="Index"] {
   /* 찾아보기 1단계 */
   /* 찾아보기 2단계 */
 }
+div[title2="Index"] a {
+  text-decoration: none;
+}
 div[title2="Index"] p,
 div[title2="Index"] ul,
 div[title2="Index"] h3 {
@@ -372,9 +384,9 @@ div[title2="Index"] h3 {
 }
 div[title2="Index"] p.Index-Section-Head,
 div[title2="Index"] p.index-head {
-  font-size: 1.375rem;
-  margin-top: 1rem;
+  font-size: 110%;
   font-weight: 700;
+  margin-top: 1rem;
 }
 div[title2="Index"] p.Index-Level-1,
 div[title2="Index"] p:not([class]) {
@@ -383,7 +395,7 @@ div[title2="Index"] p:not([class]) {
 div[title2="Index"] p.Index-Level-2,
 div[title2="Index"] p.index-2 {
   font-size: 90%;
-  padding-left: 1rem;
+  margin-left: 1em;
 }
 /* 각주 */
 /* 각주 텍스트 */

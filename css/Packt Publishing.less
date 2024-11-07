@@ -42,14 +42,16 @@ h6 {
 
 
 /* 강조 */
-p>em, :not(p.Table-Column-Heading--PACKT-)>strong.keyword, :not(pre)>strong.bold, :not(pre)>em.italic {
+:not(th)>p>em, :not(p.Table-Column-Heading--PACKT-)>strong.keyword, :not(pre)>strong.bold, :not(pre)>em.italic {
   .em();
 }
 
 /* 강조 취소(배경색만) */
-thead strong.bold {
-  .em_cancel();
-  font-weight: bold;
+thead, th {
+  strong.bold {
+    .em_cancel();
+    font-weight: bold;
+  }
 }
 
 
@@ -150,12 +152,10 @@ img:not([data-type]) {
 }
 
 
-/* 판권지 */
-/*
-section[title2="Copyright Page"] {
+/* 판권지...는 불가하고 그 속의 일부-_- 텍스트 */
+p.hidden {
   .copyrights();
 }
-*/
 
 
 /* 찾아보기 */

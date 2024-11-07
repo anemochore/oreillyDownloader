@@ -306,15 +306,27 @@ table {
 
 
 /* 인용 */
-.blockquote () {
+.blockquote() {
+  .blockquote_common();
+  margin: 0 2rem 1.5rem 2rem;
+  .blockquote_deco();
+}
+
+.blockquote_p_style() {
+  .blockquote_common();
+  margin: 0 2rem;
+}
+
+.blockquote_common() {
   font-size: 0.9rem;
   color: #666666;
-  margin: 0 2rem 1.5rem 2rem;
 
   position: relative;
   border-left: 3px solid #DA8596;
   padding: 0 1.5rem 0 2.5rem;
+}
 
+.blockquote_deco() {
   &::before{
     content:'\201C';
 
@@ -339,6 +351,7 @@ table {
 .eq-block() {
   border: 1px dotted #C7B6DC;
   background-color: Lavender;
+  padding: 0.5rem;
 }
 
 /* 본문수식 */
@@ -365,21 +378,21 @@ table {
   .contents-l1() {
     font-size: 110%;
     font-weight: bold;
-    margin-top: 1em;
+    margin-top: 0.5em;
   }
 
   /* 목차 2단계 */
   .contents-l2() {
     font-size: 90%;
     margin-left: 2em;
-    margin-top: 0.5em;
+    margin-top: 0;
   }
 
   /* 목차 3단계 */
   .contents-l3() {
     font-size: 80%;
     margin-left: 4em;
-    margin-top: 0.1em;
+    margin-top: 0;
   }
 
   a {
@@ -459,7 +472,6 @@ table {
 
   dt {
     width: 16px;
-    margin: 0;
   }
 
   dd {

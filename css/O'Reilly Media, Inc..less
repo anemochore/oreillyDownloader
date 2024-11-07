@@ -2,7 +2,7 @@
 
 /* start of mixins */
 /* 챕터(파트): 이런 건 setting.js를 참고하자. */
-section:not([data-type^="sect"]) {
+section:not([data-type^="sect"]), div[data-type="part"] {
   .chapter();
 }
 
@@ -38,7 +38,7 @@ h5 {
 
 
 /* 강조 */
-:not(blockquote)>p>em, :not(blockquote)>p>span>em, p>strong {
+:not(blockquote)>p>em, :not(blockquote)>p>span>em, p>strong, dt>em {
   .em();
 }
 
@@ -73,6 +73,14 @@ a.co img {
 dl.calloutlist {
   .code-number-desc();
   .oneline-dl();
+
+  dt {
+    padding-top: 6px;
+  }
+
+  dd {
+    margin-left: 0.25rem;
+  }
 }
 
 /* 본문코드 */

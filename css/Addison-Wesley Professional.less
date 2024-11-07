@@ -38,15 +38,15 @@ h6.sect6 {
 
 
 /* 강조 */
-p>em {
-  .em();
+p:not(.right):not(.rightt):not([class^="eq"]):not(.thead):not(.tab-para) {
+  em, strong {
+    .em();
+  }
 }
 
 /* 강조 취소(캡션, 박스, 서명, 목차, 하이퍼링크) */
-figcaption>p>strong, figcaption>p>em, div.side>p>em, p.right>em, section[title2="Contents"] strong, p>em:has(a) {
-  font-style: normal;
-  font-weight: normal;
-  background-color: revert;
+figcaption>p>em, div.side>p>em, p.right>em, section[title2="Contents"] strong, p>em:has(a) {
+  .em_cancel();
 }
 
 
@@ -61,7 +61,7 @@ p.codelink {
 }
 
 /* 본문코드 */
-code {
+:not(pre[data-type="example"])>code {
   .inline-code();
 }
 
@@ -72,17 +72,27 @@ h1>code, h2>code, h3>code {
 
 
 /* 캡션(아래) */
-figcaption>p {
-  .caption_down();
+figcaption {
+  p {
+    .caption_down();
+  }
+
+  p.title-f1 {
+    margin-top: -1rem;
+  }
 }
 
-/* 캡션(위): todo */
-/*
-p.fm-code-listing-caption, p.fm-table-caption {
+/* 캡션(위) */
+figcaption>p.title-t {
   .caption_up();
 }
-*/
 
+
+/* 캡션 번호 */
+figcaption>p>strong {
+  background-color: revert !important;
+  margin-right: 0.5rem;
+}
 
 /* 박스의 제목 */
 /*
@@ -92,7 +102,7 @@ p.fm-sidebar-title, span.fm-callout-head {
 */
 
 /* 일반 박스 */
-div.side {
+div.side, div.box {
   .box();
 }
 
@@ -119,15 +129,25 @@ div.side {
 
 
 /* 인용 */
-/*
-blockquote {
-  .blockquote();
+/* blockquote, */
+p.bqt, p.bq, p.bqb {
+  .blockquote_p_style();
 }
-*/
 
-/* 인용 출처 */
-p.right {
+p.bqt {
+  .blockquote_deco();
+}
+
+/* 인용 출처(또는 그냥 서명) */
+p.right, p.rightt {
   .byline();
+}
+
+
+/* 문단수식 */
+p[class^="eq"] {
+  .eq-block();
+  margin: 0;
 }
 
 
@@ -141,9 +161,28 @@ section[title2="Copyright Page"] {
 section[title2="Contents"] {
   .contents();
 
+  ol {
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding-left: 0 !important;
+    }
+  }
+
   /* 목차 1단계 */
-  p.toc-chap, p.toc-part {
+  p.toc-chap, p.toc-part, p.toc-fm, p.toc-fmt {
     .contents-l1();
+  }
+
+  /* 목차 2단계 */
+  p.toc-sec1 {
+    .contents-l2();
+  }
+
+  /* 목차 3단계 */
+  p.toc-sec2 {
+    .contents-l3();
   }
 }
 
@@ -151,6 +190,10 @@ section[title2="Contents"] {
 /* 찾아보기 */
 section[title2="Index"] {
   .index();
+
+  ul {
+    padding: 0;
+  }
 
   /* 찾아보기 헤딩 */
   p.indexmain1 {

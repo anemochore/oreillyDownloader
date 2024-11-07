@@ -134,7 +134,8 @@ table td {
 /* end of mixins */
 /* start of mixins */
 /* 챕터(파트): 이런 건 setting.js를 참고하자. */
-section:not([data-type^="sect"]) {
+section:not([data-type^="sect"]),
+div[data-type="part"] {
   border-top: 16px solid blue;
   margin-top: 5rem;
 }
@@ -183,7 +184,8 @@ h5 {
 /* 강조 */
 :not(blockquote) > p > em,
 :not(blockquote) > p > span > em,
-p > strong {
+p > strong,
+dt > em {
   background-color: lightgreen;
 }
 /* 강조 취소 */
@@ -238,10 +240,15 @@ dl.calloutlist p {
 }
 dl.calloutlist dt {
   width: 16px;
-  margin: 0;
 }
 dl.calloutlist dd {
   margin: 0 0 0 1rem;
+}
+dl.calloutlist dt {
+  padding-top: 6px;
+}
+dl.calloutlist dd {
+  margin-left: 0.25rem;
 }
 /* 본문코드 */
 p > code {
@@ -344,10 +351,10 @@ div[data-type="warning"] {
 blockquote {
   font-size: 0.9rem;
   color: #666666;
-  margin: 0 2rem 1.5rem 2rem;
   position: relative;
   border-left: 3px solid #DA8596;
   padding: 0 1.5rem 0 2.5rem;
+  margin: 0 2rem 1.5rem 2rem;
 }
 blockquote::before {
   content: '\201C';
@@ -367,6 +374,7 @@ blockquote > p[data-type="attribution"] {
 [data-type="equation"] {
   border: 1px dotted #C7B6DC;
   background-color: Lavender;
+  padding: 0.5rem;
 }
 /* 본문수식 */
 [data-type="inline_eq"],
@@ -420,6 +428,7 @@ div[data-type="footnotes"] {
 /* 각주 텍스트(가령 표 아래에도 올 수 있음) */
 p[data-type="footnote"] {
   font-size: 85%;
+  font-family: sans-serif;
   color: #666666;
   padding-left: 0.5rem;
   margin-bottom: 0;
