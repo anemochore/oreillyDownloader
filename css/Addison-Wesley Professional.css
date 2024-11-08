@@ -43,7 +43,7 @@ h3 {
 ul,
 ol {
   margin: 1rem 0;
-  padding: 0 0 0 2rem;
+  padding: 0 0 0 2.25rem;
 }
 li p:last-child {
   margin-bottom: 0;
@@ -106,6 +106,7 @@ table td {
 /* 6단계 제목 */
 /* 강조 */
 /* 강조 취소 */
+/* 강조 취소(배경색만) */
 /* 코드(베이스) */
 /* 코드블록 */
 /* 터미널 */
@@ -139,49 +140,61 @@ section[data-type] {
   margin-top: 5rem;
 }
 /* 1단계 제목 */
-h1.sect1 {
+h1[class^="h1"],
+h1[class^="h2"],
+h1[class^="chap_"] {
   font-size: 2.1rem;
   font-weight: bold;
-  margin-top: 1.25rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   break-before: page;
 }
-h1.sect1:first-child {
+h1[class^="h1"]:first-child,
+h1[class^="h2"]:first-child,
+h1[class^="chap_"]:first-child {
   break-before: avoid;
 }
+h1[class^="chap_num"] {
+  text-decoration: underline;
+  margin-bottom: 0;
+}
+h1[class^="chap_num"] + h1[class^="chap_title"] {
+  margin-top: 0;
+}
 /* 2단계 제목 */
-h2.sect2 {
+h2[data-type="sect1"] {
   font-size: 1.75rem;
   font-weight: bold;
-  margin-top: 0.83rem;
-  margin-bottom: 0.83rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 /* 3단계 제목 */
-h3.sect3 {
+h3[data-type="sect2"] {
   font-size: 1.375rem;
   font-weight: bold;
 }
 /* 4단계 제목 */
-h4.sect4 {
+h4[data-type="sect3"] {
   font-size: 1.275rem;
+  font-style: italic;
   font-weight: bold;
   padding: 0 0.75rem;
 }
 /* 5단계 제목 */
-h5.sect5 {
+h5[data-type="sect4"] {
   font-size: 1.05rem;
   font-weight: bold;
   padding: 0 1rem;
 }
 /* 6단계 제목 */
-h6.sect6 {
+h5[data-type="sect5"] {
   font-size: 0.975rem;
   font-weight: bold;
   padding: 0 1.1rem;
 }
 /* 강조 */
-p:not(.right):not(.rightt):not([class^="eq"]):not(.thead):not(.tab-para) em,
-p:not(.right):not(.rightt):not([class^="eq"]):not(.thead):not(.tab-para) strong {
+p em,
+p strong {
   background-color: lightgreen;
 }
 /* 강조 취소(캡션, 박스, 서명, 목차, 하이퍼링크) */
@@ -189,13 +202,28 @@ figcaption > p > em,
 div.side > p > em,
 p.right > em,
 section[title2="Contents"] strong,
-p > em:has(a) {
+:not(p.gloss):not(p.ref) > em:has(a),
+p.ex-caption > em,
+p[class^="app"] > em {
   font-style: normal;
   font-weight: normal;
   background-color: revert !important;
 }
+/* 강조 취소(배경색만) */
+p[class^="right"] em,
+p[class^="eq"] em,
+p.thead em,
+p.tab-para em,
+p.dedi em,
+p[class^="right"] strong,
+p[class^="eq"] strong,
+p.thead strong,
+p.tab-para strong,
+p.dedi strong {
+  background-color: revert !important;
+}
 /* 코드블록 */
-pre[data-type="example"] {
+[data-type="example"] {
   font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -205,12 +233,16 @@ pre[data-type="example"] {
   border-left: 8px solid lightgray;
   padding-left: 4px;
 }
+/* 상하 여백이 들어가는 경우(balancing coupling...) */
+div[data-type="example"]:has(pre) {
+  white-space: revert;
+}
 /* Click here to view code image 제거 */
 p.codelink {
   display: none;
 }
 /* 본문코드 */
-:not(pre[data-type="example"]) > code {
+:not([data-type="example"] pre) > code {
   font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -243,7 +275,8 @@ figcaption p.title-f1 {
   margin-top: -1rem;
 }
 /* 캡션(위) */
-figcaption > p.title-t {
+figcaption > p.title-t,
+p.ex-caption {
   font-size: 0.875rem;
   font-style: normal;
   font-weight: normal;
@@ -252,19 +285,22 @@ figcaption > p.title-t {
   margin-bottom: 0;
 }
 /* 캡션 번호 */
-figcaption > p > strong {
+figcaption > p > strong,
+p.ex-caption > strong {
   background-color: revert !important;
   margin-right: 0.5rem;
 }
 /* 박스의 제목 */
-/*
-p.fm-sidebar-title, span.fm-callout-head {
-  .box-title();
+p.note-title {
+  font-size: 0.975rem;
+  font-weight: bold;
+  padding: 0 1.1rem;
+  margin: 1rem 0 0.5rem 0;
 }
-*/
 /* 일반 박스 */
 div.side,
-div.box {
+div.box,
+div.note {
   max-width: 90%;
   font-size: 90%;
   margin-top: 32px;
@@ -282,7 +318,7 @@ div.box {
 */
 /* 종류가 있는 박스(노트) */
 /*
-.typed-box_note() {
+div.note {
   .typed-box_note();
 }
 */
@@ -294,9 +330,8 @@ div.box {
 */
 /* 인용 */
 /* blockquote, */
-p.bqt,
-p.bq,
-p.bqb {
+p[class^="bq"],
+p[class^="app"] {
   font-size: 0.9rem;
   color: #666666;
   position: relative;
@@ -304,13 +339,18 @@ p.bqb {
   padding: 0 1.5rem 0 2.5rem;
   margin: 0 2rem;
 }
-p.bqt::before {
+p.bqt::before,
+p.bq:first-of-type::before,
+p.appt:first-of-type::before {
   content: '\201C';
   font-size: 60px;
   position: absolute;
   left: 10px;
   top: 0;
   margin-top: -30px;
+}
+p.appt {
+  padding-top: 1rem;
 }
 /* 인용 출처(또는 그냥 서명) */
 p.right,
@@ -324,6 +364,7 @@ p[class^="eq"] {
   border: 1px dotted #C7B6DC;
   background-color: Lavender;
   padding: 0.5rem;
+  text-align: center;
   margin: 0;
 }
 /* 판권지 */
@@ -396,7 +437,8 @@ section[title2="Index"] h3 {
 section[title2="Index"] ul {
   padding: 0;
 }
-section[title2="Index"] p.indexmain1 {
+section[title2="Index"] p.indexmain1,
+section[title2="Index"] h2 {
   font-size: 110%;
   font-weight: 700;
   margin-top: 1rem;
@@ -425,3 +467,44 @@ p.footnote {
   margin-bottom: 0;
 }
 /* end of mixins */
+/* 코드 줄번호 */
+span.gray {
+  color: gray;
+}
+/* 용어집 */
+section[data-type="appendix"] p.gloss {
+  text-indent: -2.5rem;
+  padding-left: 2.5rem;
+}
+section[data-type="appendix"] p.gloss em:has(a) {
+  background-color: revert !important;
+}
+section[data-type="appendix"] p.gloss-indent {
+  padding-left: 2.5rem;
+}
+section[data-type="appendix"] ul.sq {
+  padding-left: 3.75rem;
+}
+/* 퀴즈 */
+p[class^="ques"] {
+  text-indent: -1.25rem;
+  padding-left: 1.25rem;
+  margin: 1.5rem 0 0.5rem 0;
+}
+ol.lower-alpha {
+  list-style-type: lower-alpha;
+  margin-top: 0;
+}
+ol.lower-alpha p.alpha {
+  margin: 0;
+}
+/* 퀴즈 정답 */
+section[data-type="appendix"] p[class^="ques"] {
+  padding-left: 2.5rem;
+  margin-top: 0;
+}
+/* 참고문헌 */
+section[data-type="appendix"] p.ref {
+  text-indent: -1.25rem;
+  padding-left: 1.25rem;
+}
