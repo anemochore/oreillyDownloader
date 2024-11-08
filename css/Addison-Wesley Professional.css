@@ -113,6 +113,13 @@ table td {
 /* 코드블록 안/아래 원번호 */
 /* 코드블록 아래 설명 */
 /* 본문코드 */
+/* 제목에 쓰인 코드의 크기 지정 취소 */
+h1 > code,
+h2 > code,
+h3 > code,
+h4 > code {
+  font-size: 90% !important;
+}
 /* 캡션(베이스) */
 /* 캡션(아래) */
 /* 캡션(위) */
@@ -154,11 +161,14 @@ h1[class^="h2"]:first-child,
 h1[class^="chap_"]:first-child {
   break-before: avoid;
 }
-h1[class^="chap_num"] {
-  text-decoration: underline;
+h1:first-of-type {
   margin-bottom: 0;
 }
-h1[class^="chap_num"] + h1[class^="chap_title"] {
+h1:first-of-type span.line,
+h1:first-of-type span.cha {
+  text-decoration: underline;
+}
+h1:first-of-type + h1[class] {
   margin-top: 0;
 }
 /* 2단계 제목 */
@@ -197,11 +207,8 @@ p em,
 p strong {
   background-color: lightgreen;
 }
-/* 강조 취소(캡션, 박스, 서명, 목차, 하이퍼링크) */
+/* 강조 취소(캡션, 서명 등) */
 figcaption > p > em,
-div.side > p > em,
-p.right > em,
-section[title2="Contents"] strong,
 :not(p.gloss):not(p.ref) > em:has(a),
 p.ex-caption > em,
 p[class^="app"] > em {
@@ -210,11 +217,17 @@ p[class^="app"] > em {
   background-color: revert !important;
 }
 /* 강조 취소(배경색만) */
+div[class^="side"] > p em,
+p.toc-chapc em,
+section[title2="Contents"] em,
 p[class^="right"] em,
 p[class^="eq"] em,
 p.thead em,
 p.tab-para em,
 p.dedi em,
+div[class^="side"] > p strong,
+p.toc-chapc strong,
+section[title2="Contents"] strong,
 p[class^="right"] strong,
 p[class^="eq"] strong,
 p.thead strong,
@@ -256,12 +269,6 @@ p.codelink {
   border: 0;
   padding-left: 0;
 }
-/* 제목에 쓰인 코드의 크기 지정 취소 */
-h1 > code,
-h2 > code,
-h3 > code {
-  font-size: revert;
-}
 /* 캡션(아래) */
 figcaption p {
   font-size: 0.875rem;
@@ -298,7 +305,7 @@ p.note-title {
   margin: 1rem 0 0.5rem 0;
 }
 /* 일반 박스 */
-div.side,
+div[class^="side"],
 div.box,
 div.note {
   max-width: 90%;
@@ -405,6 +412,13 @@ section[title2="Contents"] p.toc-fmt {
   font-weight: bold;
   margin-top: 0.5em;
 }
+section[title2="Contents"] p.toc-part {
+  font-size: 120%;
+  margin-top: 1.5rem;
+}
+section[title2="Contents"] p.toc-bm1 {
+  margin-top: 1.5rem;
+}
 section[title2="Contents"] p.toc-sec1 {
   font-size: 90%;
   margin-left: 2em;
@@ -441,7 +455,7 @@ section[title2="Index"] p.indexmain1,
 section[title2="Index"] h2 {
   font-size: 110%;
   font-weight: 700;
-  margin-top: 1rem;
+  margin: 1rem 0 0;
 }
 section[title2="Index"] p.indexmain {
   font-size: 100%;
@@ -464,7 +478,7 @@ p.footnote {
   font-family: sans-serif;
   color: #666666;
   padding-left: 0.5rem;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
 }
 /* end of mixins */
 /* 코드 줄번호 */
@@ -507,4 +521,11 @@ section[data-type="appendix"] p[class^="ques"] {
 section[data-type="appendix"] p.ref {
   text-indent: -1.25rem;
   padding-left: 1.25rem;
+}
+/* 사이 간격 X (beautiful c++) */
+section[data-type="front-mat"] p.noindent1mk {
+  margin-bottom: 0;
+}
+section[data-type="front-mat"] p.noindent2mk {
+  margin-top: 0;
 }

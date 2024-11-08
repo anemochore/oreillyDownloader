@@ -11,11 +11,13 @@ h1[class^="h1"], h1[class^="h2"], h1[class^="chap_"] {
   .h1();
 }
 
-h1[class^="chap_num"] {
-  text-decoration: underline;
+h1:first-of-type {
   margin-bottom: 0;
+  span.line, span.cha {
+    text-decoration: underline;
+  }
 
-  &+h1[class^="chap_title"] {
+  &+h1[class] {
     margin-top: 0;
   }
 }
@@ -53,13 +55,13 @@ p {
   }
 }
 
-/* 강조 취소(캡션, 박스, 서명, 목차, 하이퍼링크) */
-figcaption>p>em, div.side>p>em, p.right>em, section[title2="Contents"] strong, :not(p.gloss):not(p.ref)>em:has(a), p.ex-caption>em, p[class^="app"]>em {
+/* 강조 취소(캡션, 서명 등) */
+figcaption>p>em, :not(p.gloss):not(p.ref)>em:has(a), p.ex-caption>em, p[class^="app"]>em {
   .em_cancel();
 }
 
 /* 강조 취소(배경색만) */
-p[class^="right"], p[class^="eq"], p.thead, p.tab-para, p.dedi {
+div[class^="side"]>p, p.toc-chapc, section[title2="Contents"], p[class^="right"], p[class^="eq"], p.thead, p.tab-para, p.dedi {
   em, strong {
     .em_cancel_bg();
   }
@@ -84,11 +86,6 @@ p.codelink {
 /* 본문코드 */
 :not([data-type="example"] pre)>code {
   .inline-code();
-}
-
-/* 제목에 쓰인 코드의 크기 지정 취소 */
-h1>code, h2>code, h3>code {
-  font-size: revert;
 }
 
 
@@ -120,7 +117,7 @@ p.note-title {
 }
 
 /* 일반 박스 */
-div.side, div.box, div.note {
+div[class^="side"], div.box, div.note {
   .box();
 }
 
@@ -195,6 +192,15 @@ section[title2="Contents"] {
   /* 목차 1단계 */
   p.toc-chap, p.toc-part, p.toc-fm, p.toc-fmt {
     .contents-l1();
+  }
+
+  p.toc-part {
+    font-size: 120%;
+    margin-top: 1.5rem;
+  }
+
+  p.toc-bm1 {
+    margin-top: 1.5rem;
   }
 
   /* 목차 2단계 */
@@ -297,4 +303,15 @@ section[data-type="appendix"] p[class^="ques"] {
 section[data-type="appendix"] p.ref {
   text-indent: -1.25rem;
   padding-left: 1.25rem;
+}
+
+/* 사이 간격 X (beautiful c++) */
+section[data-type="front-mat"] {
+  p.noindent1mk {
+    margin-bottom: 0;
+  }
+
+  p.noindent2mk {
+    margin-top: 0;
+  }
 }
