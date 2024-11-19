@@ -21,6 +21,9 @@ h3.sect2 {
   .h3();
 }
 
+.partNumber, .chapterNumber {
+  .span-no2();
+}
 
 /* 강조 */
 em, :not(b)>i, b:not(:has(i)) {
@@ -28,9 +31,9 @@ em, :not(b)>i, b:not(:has(i)) {
 }
 
 /* 강조 배경색만 취소 */
-section[title2="Dedication"], section[title2="Table of Contents"], div.standFirst {
-  i {
-    background-color: revert;
+section[title2="Dedication"], section[title2="Table of Contents"], section[title2="Title Page"] {
+  i, b {
+    .em_cancel_bg();
   }
 }
 
@@ -104,11 +107,9 @@ blockquote {
 }
 
 /* 인용 출처 */
-/*
-blockquote>p[data-type="attribution"] {
+p.chapterAuthor {
   .byline();
 }
-*/
 
 
 /* 판권지 */
@@ -120,6 +121,11 @@ section[title2="Copyright"] {
 /* 목차 */
 section[title2="Table of Contents"] {
   .contents();
+
+  ol {
+    margin: 0;
+    padding: 0;
+  }
 
   /* 목차 1단계 */
   li.contentsH1 {
@@ -134,6 +140,14 @@ section[title2="Table of Contents"] {
   /* 목차 3단계 */
   li.contentsH3 {
     .contents-l3();
+  }
+
+  li {
+    margin-left: 1rem !important;
+  }
+
+  nav.guideList {
+    display: none;
   }
 }
 

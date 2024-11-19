@@ -43,7 +43,7 @@ h3 {
 ul,
 ol {
   margin: 1rem 0;
-  padding: 0 0 0 2rem;
+  padding: 0 0 0 2.25rem;
 }
 li p:last-child {
   margin-bottom: 0;
@@ -104,14 +104,26 @@ table td {
 /* 4단계 제목 */
 /* 5단계 제목 */
 /* 6단계 제목 */
+/* no2 */
+.span-no2 {
+  color: gray;
+}
 /* 강조 */
 /* 강조 취소 */
+/* 강조 취소(배경색만) */
 /* 코드(베이스) */
 /* 코드블록 */
 /* 터미널 */
 /* 코드블록 안/아래 원번호 */
 /* 코드블록 아래 설명 */
 /* 본문코드 */
+/* 제목에 쓰인 코드의 크기 지정 취소 */
+h1 > code,
+h2 > code,
+h3 > code,
+h4 > code {
+  font-size: 90% !important;
+}
 /* 캡션(베이스) */
 /* 캡션(아래) */
 /* 캡션(위) */
@@ -141,7 +153,8 @@ body > section[data-type] {
 /* 1단계 제목 */
 h1 {
   font-size: 2.1rem;
-  margin-top: 1.25rem;
+  font-weight: bold;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   break-before: page;
 }
@@ -151,10 +164,18 @@ h1:first-child {
 /* 2단계 제목 */
 h2.sect1 {
   font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 /* 3단계 제목 */
 h3.sect2 {
   font-size: 1.375rem;
+  font-weight: bold;
+}
+.partNumber,
+.chapterNumber {
+  color: gray;
 }
 /* 강조 */
 em,
@@ -165,14 +186,17 @@ b:not(:has(i)) {
 /* 강조 배경색만 취소 */
 section[title2="Dedication"] i,
 section[title2="Table of Contents"] i,
-div.standFirst i {
-  background-color: revert;
+section[title2="Title Page"] i,
+section[title2="Dedication"] b,
+section[title2="Table of Contents"] b,
+section[title2="Title Page"] b {
+  background-color: revert !important;
 }
 /* todo!!!  start */
 /* 코드블록 */
 pre.programlisting:not(.con),
 pre.code-area {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
@@ -206,12 +230,12 @@ div.code-annotations-overlay-container br {
 /* 본문코드 */
 span[class^="fm-code-in-"],
 code {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
   overflow-wrap: break-word;
-  font-size: 9.5pt;
+  font-size: 10pt;
   font-weight: normal;
   font-style: normal;
   color: #000;
@@ -271,10 +295,10 @@ aside h4 {
 blockquote {
   font-size: 0.9rem;
   color: #666666;
-  margin: 0 2rem 1.5rem 2rem;
   position: relative;
   border-left: 3px solid #DA8596;
   padding: 0 1.5rem 0 2.5rem;
+  margin: 0 2rem 1.5rem 2rem;
   padding-left: 3rem;
 }
 blockquote::before {
@@ -286,11 +310,11 @@ blockquote::before {
   margin-top: -30px;
 }
 /* 인용 출처 */
-/*
-blockquote>p[data-type="attribution"] {
-  .byline();
+p.chapterAuthor {
+  display: block;
+  font-size: 0.8rem;
+  text-align: right;
 }
-*/
 /* 판권지 */
 section[title2="Copyright"] {
   font-size: 70%;
@@ -314,20 +338,30 @@ section[title2="Table of Contents"] a {
 section[title2="Table of Contents"] a:hover {
   text-decoration: underline;
 }
+section[title2="Table of Contents"] ol {
+  margin: 0;
+  padding: 0;
+}
 section[title2="Table of Contents"] li.contentsH1 {
   font-size: 110%;
   font-weight: bold;
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 section[title2="Table of Contents"] li.contentsH2 {
   font-size: 90%;
   margin-left: 2em;
-  margin-top: 0.5em;
+  margin-top: 0;
 }
 section[title2="Table of Contents"] li.contentsH3 {
   font-size: 80%;
   margin-left: 4em;
-  margin-top: 0.1em;
+  margin-top: 0;
+}
+section[title2="Table of Contents"] li {
+  margin-left: 1rem !important;
+}
+section[title2="Table of Contents"] nav.guideList {
+  display: none;
 }
 /* 찾아보기 */
 div[title2="index"] {
@@ -353,7 +387,7 @@ div[title2="index"] p.grouptitlesix,
 div[title2="index"] p[style="font-size: 110%;"] {
   font-size: 110%;
   font-weight: 700;
-  margin-top: 1rem;
+  margin: 1rem 0 0;
 }
 div[title2="index"] p.level1ix,
 div[title2="index"] p[style="margin-left: 0em;"] {
@@ -374,9 +408,10 @@ ol.notesList {
 }
 ol.notesList li.noteEntry {
   font-size: 85%;
+  font-family: sans-serif;
   color: #666666;
   padding-left: 0.5rem;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
 }
 /* end of mixins */
 /* 챕터 시작부 */
@@ -404,7 +439,7 @@ div.introduction-summary h3 {
   font-size: 100%;
   font-style: normal;
   font-weight: normal;
-  background-color: revert;
+  background-color: revert !important;
   margin: 0;
 }
 div.introduction-summary ul {
