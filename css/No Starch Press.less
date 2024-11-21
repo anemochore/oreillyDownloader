@@ -36,6 +36,10 @@ h6[id] {
   .h6();
 }
 
+/* no2 */
+h1.chapter span.big {
+  .span-no2();
+}
 
 /* 강조 */
 :not(p.hang)>em, p[class*="indent"]>strong:not(:has(a)), li strong {
@@ -43,13 +47,8 @@ h6[id] {
 }
 
 /* 강조 취소 */
-p.indexletter>b, p.notep>em, p.figcap>em, em:has(a) {
+p.indexletter>b, p.notep>em, p.figcap>em, p.caption>strong, em:has(a) {
   .em_cancel();
-}
-
-/* 강조 취소2(인용 안 강조) */
-div.bq em, div.blockquote em {
-  background-color: d2f8dc;
 }
 
 
@@ -83,9 +82,9 @@ var {
   font-style: italic;
 }
 
-/* 강조(?) 코드 블록(?) */
+/* 강조(?) 본문코드 */
 span[class^="codestrong"] {
-  .code-block();
+  .inline-code();
   font-weight: bold;
 }
 
@@ -123,11 +122,6 @@ aside[data-type="sidebar"], div.note, div[class^="box"], div.exe {
 /* 인용 */
 blockquote, div.bq, p.bq, div.blockquote {
   .blockquote();
-
-  /* 강조 살짝-_- 취소(인용 안 강조) */
-  em {
-    background-color: d2f8dc;
-  }
 }
 
 /* 인용 출처 */
