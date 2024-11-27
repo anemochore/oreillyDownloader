@@ -455,6 +455,7 @@ div[data-type="index"] h3 {
   font-size: 110%;
   font-weight: 700;
   margin: 1rem 0 0;
+  font-style: revert;
 }
 div[data-type="index"] div > ul > li > span {
   font-size: 100%;
