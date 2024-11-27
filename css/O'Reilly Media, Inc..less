@@ -38,7 +38,7 @@ h5 {
 
 
 /* 강조 */
-:not(blockquote)>p>em, :not(blockquote)>p>span>em, p>strong, dt>em {
+:not(blockquote)>p>em, :not(blockquote)>p>span>em, p>strong, li>em, dt>em, dd>em, th>em, td>em {
   .em();
 }
 
@@ -49,7 +49,6 @@ em.hyperlink {
 
 
 /* 코드블록 */
-//터미널 스타일이 다음에 나오니 터미널 배제하는 건 고려하지 않아도 됨
 pre[data-type="programlisting"] {
   .code-block();
 }
@@ -57,6 +56,15 @@ pre[data-type="programlisting"] {
 /* 터미널 */
 pre[data-type="programlisting"]:not([data-code-language]), pre[data-type="terminal"] {
   .terminal();
+}
+
+td {
+  pre[data-type="programlisting"], code, p {
+    white-space: revert !important;
+    border-left: 0 !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
 }
 
 /* 코드블록 안/아래 원번호 */
@@ -84,8 +92,13 @@ dl.calloutlist {
 }
 
 /* 본문코드 */
-p>code {
+:not(em)>code {
   .inline-code();
+}
+
+em>code {
+  .inline-code();
+  font-style: revert;
 }
 
 
