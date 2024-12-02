@@ -176,15 +176,18 @@ div[data-type="index"] {
     font-style: revert;
   }
 
-  /* 찾아보기 1단계 */
-  div>ul>li>span /*, p.Index-Level-1, p:not([style]):not([class]) */ {
+  /* 찾아보기 1,2,3단계 */
+  div>ul>li /*, p.Index-Level-1, p:not([style]):not([class]) */ {
     .index-l1();
-  }
 
-  /* 찾아보기 2단계 */
-  ul>li>ul>li /*, p.Index-Level-2, p.index-2 */ {
-    .index-l2();
-    padding-left: 0;
+    &>ul>li {
+      .index-l2();
+      padding-left: 0;
+
+      &>ul>li {
+        .index-l3();
+      }
+    }
   }
 }
 

@@ -440,8 +440,7 @@ div[data-type="index"] {
   /* 찾아보기 2단계 */
   /* 찾아보기 3단계 */
   /* 찾아보기 헤딩 */
-  /* 찾아보기 1단계 */
-  /* 찾아보기 2단계 */
+  /* 찾아보기 1,2,3단계 */
 }
 div[data-type="index"] a {
   text-decoration: none;
@@ -457,13 +456,17 @@ div[data-type="index"] h3 {
   margin: 1rem 0 0;
   font-style: revert;
 }
-div[data-type="index"] div > ul > li > span {
+div[data-type="index"] div > ul > li {
   font-size: 100%;
 }
-div[data-type="index"] ul > li > ul > li {
+div[data-type="index"] div > ul > li > ul > li {
   font-size: 90%;
   margin-left: 1em;
   padding-left: 0;
+}
+div[data-type="index"] div > ul > li > ul > li > ul > li {
+  font-size: 85%;
+  margin-left: 2em;
 }
 /* 각주 */
 div[data-type="footnotes"] {
