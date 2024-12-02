@@ -281,7 +281,7 @@ dl.calloutlist dd {
   margin-left: 0.25rem;
 }
 /* 본문코드 */
-:not(em) > code {
+:not(pre):not(em) > code {
   font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
