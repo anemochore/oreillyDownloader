@@ -441,6 +441,7 @@ div[data-type="index"] {
   /* 찾아보기 3단계 */
   /* 찾아보기 헤딩 */
   /* 찾아보기 1,2,3단계 */
+  /* see */
 }
 div[data-type="index"] a {
   text-decoration: none;
@@ -467,6 +468,10 @@ div[data-type="index"] div > ul > li > ul > li {
 div[data-type="index"] div > ul > li > ul > li > ul > li {
   font-size: 85%;
   margin-left: 2em;
+}
+div[data-type="index"] span[data-gentext="see"] {
+  color: gray;
+  font-style: italic;
 }
 /* 각주 */
 div[data-type="footnotes"] {
