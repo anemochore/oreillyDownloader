@@ -214,8 +214,6 @@ p.notep > em,
 p.figcap > em,
 p.caption > strong,
 em:has(a) {
-  font-style: normal;
-  font-weight: normal;
   background-color: revert !important;
 }
 /* 코드블록 */
