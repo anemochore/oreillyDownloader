@@ -43,7 +43,7 @@ h3 {
 ul,
 ol {
   margin: 1rem 0;
-  padding: 0 0 0 2rem;
+  padding: 0 0 0 2.25rem;
 }
 li p:last-child {
   margin-bottom: 0;
@@ -76,6 +76,7 @@ img {
   vertical-align: middle;
 }
 table {
+  font-size: 90%;
   margin-bottom: 1rem;
   border: 1px solid #ddd;
   border-spacing: 0;
@@ -88,11 +89,15 @@ table p {
 table th,
 table thead {
   background-color: #eee;
-  padding-right: 1rem;
-  text-align: start;
 }
 table td {
   vertical-align: top;
+}
+table th,
+table thead,
+table td {
+  border: 1px dotted #ddd;
+  padding: 0.5rem 1rem;
   text-align: start;
 }
 /* end of native tags */
@@ -104,14 +109,26 @@ table td {
 /* 4단계 제목 */
 /* 5단계 제목 */
 /* 6단계 제목 */
+/* no2 */
+.span-no2 {
+  color: gray;
+}
 /* 강조 */
 /* 강조 취소 */
+/* 강조 취소(배경색만) */
 /* 코드(베이스) */
 /* 코드블록 */
 /* 터미널 */
 /* 코드블록 안/아래 원번호 */
 /* 코드블록 아래 설명 */
 /* 본문코드 */
+/* 제목에 쓰인 코드의 크기 지정 취소 */
+h1 > code,
+h2 > code,
+h3 > code,
+h4 > code {
+  font-size: 90% !important;
+}
 /* 캡션(베이스) */
 /* 캡션(아래) */
 /* 캡션(위) */
@@ -142,7 +159,7 @@ body > div[id] {
 h1 {
   font-size: 2.1rem;
   font-weight: bold;
-  margin-top: 1.25rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   break-before: page;
 }
@@ -156,8 +173,8 @@ h1.chapterNumber {
 h2 {
   font-size: 1.75rem;
   font-weight: bold;
-  margin-top: 0.83rem;
-  margin-bottom: 0.83rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 /* 3단계 제목 */
 h3 {
@@ -167,6 +184,7 @@ h3 {
 /* 4단계 제목 */
 h4 {
   font-size: 1.275rem;
+  font-style: italic;
   font-weight: bold;
   padding: 0 0.75rem;
 }
@@ -182,12 +200,16 @@ h6 {
   font-weight: bold;
   padding: 0 1.1rem;
 }
+/* no2 */
+.chapter-number {
+  color: gray;
+}
 /* 강조 */
 :not(th) > p > em,
 :not(p.Table-Column-Heading--PACKT-) > strong.keyword,
 :not(pre) > strong.bold,
 :not(pre) > em.italic {
-  background-color: lightgreen;
+  background-color: #d2f8dc;
 }
 /* 강조 취소(배경색만) */
 thead strong.bold,
@@ -325,10 +347,10 @@ div.note {
 p.author-quote {
   font-size: 0.9rem;
   color: #666666;
-  margin: 0 2rem 1.5rem 2rem;
   position: relative;
   border-left: 3px solid #DA8596;
   padding: 0 1.5rem 0 2.5rem;
+  margin: 0 2rem 1.5rem 2rem;
 }
 p.author-quote::before {
   content: '\201C';
@@ -349,6 +371,7 @@ img[data-type="equation"] {
   border: 1px dotted #C7B6DC;
   background-color: Lavender;
   padding: 0.5rem;
+  text-align: center;
   width: auto;
 }
 /* 본문수식 */
@@ -357,6 +380,7 @@ img:not([data-type]) {
   border: 1px dotted #C7B6DC;
   background-color: Lavender;
   padding: 0.5rem;
+  text-align: center;
   width: auto;
 }
 /* 판권지...는 불가하고 그 속의 일부-_- 텍스트 */
@@ -386,7 +410,7 @@ div[title2="Index"] p.Index-Section-Head,
 div[title2="Index"] p.index-head {
   font-size: 110%;
   font-weight: 700;
-  margin-top: 1rem;
+  margin: 1rem 0 0;
 }
 div[title2="Index"] p.Index-Level-1,
 div[title2="Index"] p:not([class]) {
