@@ -147,6 +147,7 @@ h4 > code {
 /* 찾아보기 */
 /* 각주 */
 /* 각주 텍스트 */
+/* 각주 번호 */
 /* dt, dd 한 줄에 */
 /* end of mixins */
 /* start of mixins */
@@ -422,5 +423,24 @@ div[title2="Index"] p.index-2 {
   margin-left: 1em;
 }
 /* 각주 */
-/* 각주 텍스트 */
+._idFootnote {
+  border: 4px solid coral;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  /* 각주 텍스트 */
+}
+._idFootnote .Footnote {
+  font-size: 85%;
+  font-family: sans-serif;
+  color: #666666;
+  padding-left: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+/* 각주 번호 */
+._idFootnoteLink {
+  font-size: 85%;
+  font-family: sans-serif;
+  vertical-align: super;
+}
 /* end of mixins */
