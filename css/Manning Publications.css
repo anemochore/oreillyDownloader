@@ -26,7 +26,7 @@ body {
   }
 }
 p {
-  margin: 1rem 0;
+  margin: 1em 0;
 }
 code,
 samp {
@@ -42,25 +42,28 @@ h3 {
 }
 ul,
 ol {
-  margin: 1rem 0;
-  padding: 0 0 0 2rem;
+  margin: 1em 0;
+  padding: 0 0 0 2.25em;
 }
-li p:last-child {
-  margin-bottom: 0;
+p + ul {
+  margin: 0 0 1em 0;
+}
+li p {
+  margin: 0;
 }
 ul ul,
 ol ol {
-  margin: 0.3rem 0;
+  margin: 0.3em 0;
 }
 dl {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 dl dt {
   font-weight: bold;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.8em;
 }
 dl dd {
-  margin: 0 0 0.8rem 2rem;
+  margin: 0 0 0.8em 2em;
 }
 dl dd:last-child {
   margin-bottom: 0;
@@ -76,6 +79,7 @@ img {
   vertical-align: middle;
 }
 table {
+  font-size: 90%;
   margin-bottom: 1rem;
   border: 1px solid #ddd;
   border-spacing: 0;
@@ -88,11 +92,15 @@ table p {
 table th,
 table thead {
   background-color: #eee;
-  padding-right: 1rem;
-  text-align: start;
 }
 table td {
   vertical-align: top;
+}
+table th,
+table thead,
+table td {
+  border: 1px dotted #ddd;
+  padding: 0.5rem 1rem;
   text-align: start;
 }
 /* end of native tags */
@@ -104,14 +112,26 @@ table td {
 /* 4단계 제목 */
 /* 5단계 제목 */
 /* 6단계 제목 */
+/* no2 */
+.span-no2 {
+  color: gray;
+}
 /* 강조 */
 /* 강조 취소 */
+/* 강조 취소(배경색만) */
 /* 코드(베이스) */
 /* 코드블록 */
 /* 터미널 */
 /* 코드블록 안/아래 원번호 */
 /* 코드블록 아래 설명 */
 /* 본문코드 */
+/* 제목에 쓰인 코드의 크기 지정 취소 */
+h1 > code,
+h2 > code,
+h3 > code,
+h4 > code {
+  font-size: 90% !important;
+}
 /* 캡션(베이스) */
 /* 캡션(아래) */
 /* 캡션(위) */
@@ -130,6 +150,7 @@ table td {
 /* 찾아보기 */
 /* 각주 */
 /* 각주 텍스트 */
+/* 각주 번호 */
 /* dt, dd 한 줄에 */
 /* end of mixins */
 /* start of mixins */
@@ -142,7 +163,7 @@ body > div[data-type] {
 h1 {
   font-size: 2.1rem;
   font-weight: bold;
-  margin-top: 1.25rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   break-before: page;
 }
@@ -154,8 +175,8 @@ h2.sect1,
 h2[class^="fm-head"] {
   font-size: 1.75rem;
   font-weight: bold;
-  margin-top: 0.83rem;
-  margin-bottom: 0.83rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
 }
 /* 3단계 제목(연습문제도) */
 h3.sect2,
@@ -168,6 +189,7 @@ p.fm-exercise-head {
 h4.sect3,
 h4[class^="fm-head"] {
   font-size: 1.275rem;
+  font-style: italic;
   font-weight: bold;
   padding: 0 0.75rem;
 }
@@ -186,7 +208,7 @@ h6.sect5 {
 /* 강조 */
 em,
 i[class^="fm-italics"]:not([class^="timesitalic"]) {
-  background-color: lightgreen;
+  background-color: #d2f8dc;
 }
 /* 강조 취소 */
 div[title2="contents"] em {
@@ -322,10 +344,10 @@ div.callout-container p.fm-sidebar-text:has(br:only-child) {
 p.fm-quote {
   font-size: 0.9rem;
   color: #666666;
-  margin: 0 2rem 1.5rem 2rem;
   position: relative;
   border-left: 3px solid #DA8596;
   padding: 0 1.5rem 0 2.5rem;
+  margin: 0 2rem 1.5rem 2rem;
   padding-left: 3rem;
 }
 p.fm-quote::before {
@@ -376,7 +398,7 @@ div[title2="contents"] p[style="font-size: 110%;"],
 div[title2="contents"] p:not([style]):has(strong>a>em) {
   font-size: 110%;
   font-weight: bold;
-  margin-top: 1em;
+  margin-top: 0.5em;
 }
 div[title2="contents"] p.tocchapters em,
 div[title2="contents"] p.tocparts em,
@@ -388,13 +410,13 @@ div[title2="contents"] p.fm-head-1toc,
 div[title2="contents"] p[style^="margin-left: 2em;"] {
   font-size: 90%;
   margin-left: 2em;
-  margin-top: 0.5em;
+  margin-top: 0;
 }
 div[title2="contents"] p.fm-head-2toc,
 div[title2="contents"] p[style^="margin-left: 4em;"] {
   font-size: 80%;
   margin-left: 4em;
-  margin-top: 0.1em;
+  margin-top: 0;
 }
 /* 찾아보기 */
 div[title2="index"] {
@@ -420,7 +442,7 @@ div[title2="index"] p.grouptitlesix,
 div[title2="index"] p[style="font-size: 110%;"] {
   font-size: 110%;
   font-weight: 700;
-  margin-top: 1rem;
+  margin: 1rem 0 0;
 }
 div[title2="index"] p.level1ix,
 div[title2="index"] p[style="margin-left: 0em;"] {
@@ -449,7 +471,7 @@ p.fm-footnote {
   font-family: sans-serif;
   color: #666666;
   padding-left: 0.5rem;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
 }
 /* end of mixins */
 /* 챕터 시작부 */

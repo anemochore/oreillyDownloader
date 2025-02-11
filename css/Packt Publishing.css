@@ -26,7 +26,7 @@ body {
   }
 }
 p {
-  margin: 1rem 0;
+  margin: 1em 0;
 }
 code,
 samp {
@@ -42,25 +42,28 @@ h3 {
 }
 ul,
 ol {
-  margin: 1rem 0;
-  padding: 0 0 0 2.25rem;
+  margin: 1em 0;
+  padding: 0 0 0 2.25em;
 }
-li p:last-child {
-  margin-bottom: 0;
+p + ul {
+  margin: 0 0 1em 0;
+}
+li p {
+  margin: 0;
 }
 ul ul,
 ol ol {
-  margin: 0.3rem 0;
+  margin: 0.3em 0;
 }
 dl {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 dl dt {
   font-weight: bold;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.8em;
 }
 dl dd {
-  margin: 0 0 0.8rem 2rem;
+  margin: 0 0 0.8em 2em;
 }
 dl dd:last-child {
   margin-bottom: 0;
@@ -444,3 +447,8 @@ div[title2="Index"] p.index-2 {
   vertical-align: super;
 }
 /* end of mixins */
+h1.chapter-number,
+h1.chapter-number + h1 {
+  display: inline;
+  margin-right: 0.5rem;
+}

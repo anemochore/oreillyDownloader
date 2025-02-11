@@ -26,7 +26,7 @@ body {
   }
 }
 p {
-  margin: 1rem 0;
+  margin: 1em 0;
 }
 code,
 samp {
@@ -42,25 +42,28 @@ h3 {
 }
 ul,
 ol {
-  margin: 1rem 0;
-  padding: 0 0 0 2rem;
+  margin: 1em 0;
+  padding: 0 0 0 2.25em;
 }
-li p:last-child {
-  margin-bottom: 0;
+p + ul {
+  margin: 0 0 1em 0;
+}
+li p {
+  margin: 0;
 }
 ul ul,
 ol ol {
-  margin: 0.3rem 0;
+  margin: 0.3em 0;
 }
 dl {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 dl dt {
   font-weight: bold;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.8em;
 }
 dl dd {
-  margin: 0 0 0.8rem 2rem;
+  margin: 0 0 0.8em 2em;
 }
 dl dd:last-child {
   margin-bottom: 0;
@@ -76,6 +79,7 @@ img {
   vertical-align: middle;
 }
 table {
+  font-size: 90%;
   margin-bottom: 1rem;
   border: 1px solid #ddd;
   border-spacing: 0;
@@ -88,11 +92,15 @@ table p {
 table th,
 table thead {
   background-color: #eee;
-  padding-right: 1rem;
-  text-align: start;
 }
 table td {
   vertical-align: top;
+}
+table th,
+table thead,
+table td {
+  border: 1px dotted #ddd;
+  padding: 0.5rem 1rem;
   text-align: start;
 }
 /* end of native tags */
@@ -104,14 +112,26 @@ table td {
 /* 4단계 제목 */
 /* 5단계 제목 */
 /* 6단계 제목 */
+/* no2 */
+.span-no2 {
+  color: gray;
+}
 /* 강조 */
 /* 강조 취소 */
+/* 강조 취소(배경색만) */
 /* 코드(베이스) */
 /* 코드블록 */
 /* 터미널 */
 /* 코드블록 안/아래 원번호 */
 /* 코드블록 아래 설명 */
 /* 본문코드 */
+/* 제목에 쓰인 코드의 크기 지정 취소 */
+h1 > code,
+h2 > code,
+h3 > code,
+h4 > code {
+  font-size: 90% !important;
+}
 /* 캡션(베이스) */
 /* 캡션(아래) */
 /* 캡션(위) */
@@ -130,6 +150,7 @@ table td {
 /* 찾아보기 */
 /* 각주 */
 /* 각주 텍스트 */
+/* 각주 번호 */
 /* dt, dd 한 줄에 */
 /* end of mixins */
 /* start of mixins */
@@ -142,7 +163,7 @@ body > div[data-type] {
 h1 {
   font-size: 2.1rem;
   font-weight: bold;
-  margin-top: 1.25rem;
+  margin-top: 2rem;
   margin-bottom: 1rem;
   break-before: page;
 }
@@ -154,8 +175,8 @@ h1:first-child {
 table.arr-recipe:has(tr[title2]) {
   font-size: 1.75rem;
   font-weight: bold;
-  margin-top: 0.83rem;
-  margin-bottom: 0.83rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
   border: 0;
   margin-top: 2rem;
 }
@@ -167,17 +188,18 @@ h3 {
 /* 4단계 제목 */
 h4 {
   font-size: 1.275rem;
+  font-style: italic;
   font-weight: bold;
   padding: 0 0.75rem;
 }
 /* 강조 */
 span.emph {
-  background-color: lightgreen;
+  background-color: #d2f8dc;
   font-weight: bold;
 }
 /* 코드블록 */
 table.processedcode {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
@@ -201,12 +223,12 @@ td.codeinfo span.codeprefix {
 }
 /* 본문코드 */
 span.cf {
-  font-size: 10pt;
+  font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
   white-space: pre;
   overflow-wrap: break-word;
-  font-size: 9.5pt;
+  font-size: 10pt;
   font-weight: normal;
   font-style: normal;
   color: #000;
@@ -286,9 +308,10 @@ div.footnotes {
 }
 div.footnotes dl {
   font-size: 85%;
+  font-family: sans-serif;
   color: #666666;
   padding-left: 0.5rem;
-  margin-bottom: 0;
+  margin-bottom: 0.5rem;
   display: grid;
   grid-template-columns: max-content auto;
 }
@@ -297,7 +320,6 @@ div.footnotes dl p {
 }
 div.footnotes dl dt {
   width: 16px;
-  margin: 0;
 }
 div.footnotes dl dd {
   margin: 0 0 0 1rem;
