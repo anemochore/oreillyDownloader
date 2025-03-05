@@ -26,7 +26,7 @@ body {
   }
 }
 p {
-  margin: 1rem 0;
+  margin: 1em 0;
 }
 code,
 samp {
@@ -42,25 +42,29 @@ h3 {
 }
 ul,
 ol {
-  margin: 1rem 0;
-  padding: 0 0 0 2.25rem;
+  margin: 1em 0;
+  padding: 0 0 0 2.25em;
 }
-li p:last-child {
-  margin-bottom: 0;
+p + ul {
+  margin: 0 0 1em 0;
+}
+li p {
+  margin: 0;
 }
 ul ul,
 ol ol {
-  margin: 0.3rem 0;
+  margin: 0.3em 0;
+  list-style-type: upper-roman;
 }
 dl {
-  margin-bottom: 1rem;
+  margin-bottom: 1em;
 }
 dl dt {
   font-weight: bold;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.8em;
 }
 dl dd {
-  margin: 0 0 0.8rem 2rem;
+  margin: 0 0 0.8em 2em;
 }
 dl dd:last-child {
   margin-bottom: 0;
@@ -76,6 +80,7 @@ img {
   vertical-align: middle;
 }
 table {
+  font-size: 90%;
   margin-bottom: 1rem;
   border: 1px solid #ddd;
   border-spacing: 0;
@@ -88,11 +93,15 @@ table p {
 table th,
 table thead {
   background-color: #eee;
-  padding-right: 1rem;
-  text-align: start;
 }
 table td {
   vertical-align: top;
+}
+table th,
+table thead,
+table td {
+  border: 1px dotted #ddd;
+  padding: 0.5rem 1rem;
   text-align: start;
 }
 /* end of native tags */
@@ -104,6 +113,10 @@ table td {
 /* 4단계 제목 */
 /* 5단계 제목 */
 /* 6단계 제목 */
+/* no2 */
+.span-no2 {
+  color: gray;
+}
 /* 강조 */
 /* 강조 취소 */
 /* 강조 취소(배경색만) */
@@ -138,6 +151,7 @@ h4 > code {
 /* 찾아보기 */
 /* 각주 */
 /* 각주 텍스트 */
+/* 각주 번호 */
 /* dt, dd 한 줄에 */
 /* end of mixins */
 /* start of mixins */
@@ -205,7 +219,7 @@ h5[data-type="sect5"] {
 /* 강조 */
 p em,
 p strong {
-  background-color: lightgreen;
+  background-color: #d2f8dc;
 }
 /* 강조 취소(캡션, 서명 등) */
 figcaption > p > em,
