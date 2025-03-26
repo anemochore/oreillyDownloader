@@ -54,10 +54,12 @@ li {
 li p {
   margin: 0;
 }
-ul ul,
 ol ol {
   margin: 0.3em 0;
   list-style-type: upper-roman;
+}
+ul ul {
+  margin: 0.3em 0;
 }
 dl {
   margin-bottom: 1em;
