@@ -48,12 +48,16 @@ ol {
 p + ul {
   margin: 0 0 1em 0;
 }
+li {
+  margin-bottom: 0.5em;
+}
 li p {
   margin: 0;
 }
 ul ul,
 ol ol {
   margin: 0.3em 0;
+  list-style-type: upper-roman;
 }
 dl {
   margin-bottom: 1em;
