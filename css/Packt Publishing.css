@@ -273,7 +273,8 @@ strong.source-inline {
 }
 /* 캡션(아래) */
 p.packt_figref,
-p[class$="-Caption"] {
+p[class$="-Caption"],
+p.IMG---Caption {
   font-size: 0.875rem;
   font-style: normal;
   font-weight: normal;
@@ -286,11 +287,16 @@ table {
   margin-bottom: 0;
 }
 /* 캡션(위): todo */
-/*
-p.fm-code-listing-caption, p.fm-table-caption {
-  .caption_up();
+p.fm-code-listing-caption,
+p.fm-table-caption,
+p.SC---Heading {
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: normal;
+  color: royalblue;
+  padding: 0;
+  margin-bottom: 0;
 }
-*/
 /* 박스의 제목 */
 p.callout-heading {
   max-width: 90%;
