@@ -550,7 +550,8 @@ div[id="index_xhtml"] ul,
 div[id="index_xhtml"] h3 {
   margin: 0;
 }
-div[id="index_xhtml"] h2 {
+div[id="index_xhtml"] h2,
+div[id="index_xhtml"] h3.index_h3 {
   font-size: 110%;
   font-weight: 700;
   margin: 1rem 0 0;
