@@ -211,6 +211,7 @@ h6 {
   padding: 0 1.1rem;
 }
 /* no2 */
+h1 > span:not([class]),
 .chapter-number {
   color: gray;
 }
@@ -230,6 +231,8 @@ th strong.bold {
   font-weight: bold;
 }
 /* 코드블록 */
+:not(pre) > code.hljs-code,
+pre.programlisting,
 pre.code,
 pre.source-code {
   font-size: 10.5pt;
@@ -242,6 +245,7 @@ pre.source-code {
   padding-left: 4px;
 }
 /* 터미널 */
+:not(pre) > code.hljs-con,
 pre.con,
 pre.console,
 pre[data-type="terminal"] {
@@ -256,6 +260,7 @@ pre[data-type="terminal"] {
   padding-left: 4px;
 }
 /* 본문코드 */
+code.inlineCode,
 code.Code-In-Text--PACKT-,
 strong.source-inline {
   font-size: 10.5pt;

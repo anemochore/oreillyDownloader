@@ -41,7 +41,7 @@ h6 {
 }
 
 /* no2 */
-.chapter-number {
+h1>span:not([class]), .chapter-number {
   .span-no2();
 }
 
@@ -60,17 +60,17 @@ thead, th {
 
 
 /* 코드블록 */
-pre.code, pre.source-code {
+:not(pre)>code.hljs-code, pre.programlisting, pre.code, pre.source-code {
   .code-block();
 }
 
 /* 터미널 */
-pre.con, pre.console, pre[data-type="terminal"] {
+:not(pre)>code.hljs-con, pre.con, pre.console, pre[data-type="terminal"] {
   .terminal();
 }
 
 /* 본문코드 */
-code.Code-In-Text--PACKT-, strong.source-inline {
+code.inlineCode, code.Code-In-Text--PACKT-, strong.source-inline {
   .inline-code();
   font-weight: normal;
 }
