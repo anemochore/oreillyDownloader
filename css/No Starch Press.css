@@ -215,7 +215,9 @@ p[class^="toc"] > a > b:first-child:not(:only-of-type) {
   margin-right: 1rem;
 }
 /* 강조 */
-p:not([class*="cap"]):not(.quote) > i,
+:not(caption):not([class^="tab-"]) > b,
+li > i:not(:has(a)),
+p:not([class*="cap"]):not(.quote) > i:not(:has(a)),
 :not(p.hang) > em,
 p[class*="indent"] > strong:not(:has(a)),
 li strong {
@@ -252,6 +254,11 @@ span[class^="CodeAnnotation"] {
   background-color: yellow;
   font-family: d2coding, monospace !important;
   font-family: revert !important;
+}
+/* 코드블록 안/아래 원번호(newer format) */
+span[class^="ent"] {
+  background-color: yellow;
+  font-family: d2coding, monospace !important;
 }
 /* 본문코드 */
 :not(pre[data-type="example"]) > code,
@@ -301,7 +308,6 @@ span[class^="codestrong"] {
   border: 0;
   padding-left: 0;
   font-weight: bold;
-  background-color: unset;
 }
 /* 가려진 본문코드(연습문제) */
 span[class^="wight"] {
@@ -542,6 +548,7 @@ div[id="toc1_xhtml"] p[class^="toc3"] {
   margin-left: 0;
 }
 /* 찾아보기 */
+section[title2="INDEX"],
 section[title2="Index"] {
   font-size: 95%;
   /* 찾아보기 헤딩 */
@@ -551,29 +558,56 @@ section[title2="Index"] {
   /* 찾아보기 헤딩 */
   /* 찾아보기 1단계 */
   /* 찾아보기 2단계 */
+  /* 찾아보기 3단계 */
 }
+section[title2="INDEX"] a,
 section[title2="Index"] a {
   text-decoration: none;
 }
+section[title2="INDEX"] p,
 section[title2="Index"] p,
+section[title2="INDEX"] ul,
 section[title2="Index"] ul,
+section[title2="INDEX"] h3,
 section[title2="Index"] h3 {
   margin: 0;
 }
+section[title2="INDEX"] ul[class^="none"],
+section[title2="Index"] ul[class^="none"] {
+  list-style: none;
+  padding-left: 0;
+}
+section[title2="INDEX"] h2[id],
+section[title2="Index"] h2[id],
+section[title2="INDEX"] p.indexletter,
 section[title2="Index"] p.indexletter,
+section[title2="INDEX"] p.indexmain,
 section[title2="Index"] p.indexmain {
   font-size: 110%;
   font-weight: 700;
   margin: 1rem 0 0;
 }
+section[title2="INDEX"] li.indexmain,
+section[title2="Index"] li.indexmain,
+section[title2="INDEX"] p.Index1,
 section[title2="Index"] p.Index1,
+section[title2="INDEX"] p.indexsub,
 section[title2="Index"] p.indexsub {
   font-size: 100%;
 }
+section[title2="INDEX"] li.indexsub,
+section[title2="Index"] li.indexsub,
+section[title2="INDEX"] p.Index2,
 section[title2="Index"] p.Index2,
+section[title2="INDEX"] p.indexsubsub,
 section[title2="Index"] p.indexsubsub {
   font-size: 90%;
   margin-left: 1em;
+}
+section[title2="INDEX"] li.indexsubsub,
+section[title2="Index"] li.indexsubsub {
+  font-size: 85%;
+  margin-left: 2em;
 }
 /* 찾아보기(how ai works) */
 div[id="index_xhtml"] {
@@ -624,6 +658,7 @@ div.cover {
   text-align: center;
 }
 /* 용어집 등(how ai works) */
+/* section[title2="GLOSSARY"], */
 div[id="glossary_xhtml"] p.glossary1,
 div[id="resources_xhtml"] p.glossary1,
 div[id="glossary_xhtml"] p.noindentt,
@@ -641,4 +676,15 @@ div[id="resources_xhtml"] p.noindent2 {
 /* 코드가 그림인 경우가 있어 너비 100%로 복원 */
 div[class^="image"] > img {
   max-width: 100%;
+}
+/* noindent */
+ul[class^="none-"],
+ol[class^="none-"] {
+  padding-left: 1em;
+  text-indent: -1em;
+  list-style: none;
+}
+ul[class^="none-"] li[class^="noindent"],
+ol[class^="none-"] li[class^="noindent"] {
+  margin-left: 0;
 }
