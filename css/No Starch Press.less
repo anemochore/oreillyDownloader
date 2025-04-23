@@ -37,12 +37,13 @@ h6[id] {
 }
 
 /* no2 */
-h1.chapter span.big {
+h1[class] span.big, p[class^="toc"]>a>b:first-child:not(:only-of-type) {
   .span-no2();
+  margin-right: 1rem;
 }
 
 /* 강조 */
-:not(p.hang)>em, p[class*="indent"]>strong:not(:has(a)), li strong {
+p:not([class*="cap"]):not(.quote)>i, :not(p.hang)>em, p[class*="indent"]>strong:not(:has(a)), li strong {
   .em();
 }
 
@@ -86,6 +87,7 @@ var {
 span[class^="codestrong"] {
   .inline-code();
   font-weight: bold;
+  background-color: unset;
 }
 
 /* 가려진 본문코드(연습문제) */
@@ -157,12 +159,13 @@ img:not([data-type]) {
 
 
 /* 판권지 */
-section[title2="Copyright"], div[id="copy_xhtml"] {
+section[title2="Copyright"], section[title2="Copyright Page"], div[id="copy_xhtml"] {
   .copyrights();
 }
 
 
 /* 목차 */
+section[title2="BRIEF CONTENTS"], 
 div[id="toc_xhtml"] {
   .contents();
 
@@ -173,6 +176,7 @@ div[id="toc_xhtml"] {
 }
 
 /* 자세한-_- 목차 */
+section[title2="CONTENTS IN DETAIL"], 
 div[id="toc1_xhtml"] {
   .contents();
 
@@ -187,8 +191,21 @@ div[id="toc1_xhtml"] {
   }
 
   /* 목차 3단계 */
-  p[class="toc-b"] {
+  p[class="toc-b"], p[class^="toc3"] {
     .contents-l3();
+  }
+
+  /* 목차 2단계(newer format T_T) */
+  p[class^="toc2"] {
+    .contents-l2();
+    font-weight: bold;
+    margin-left: 0;
+  }
+
+  /* 목차 3단계(newer format T_T) */
+  p[class^="toc3"] {
+    .contents-l3();
+    margin-left: 0;
   }
 }
 
@@ -247,7 +264,9 @@ div[id="index_xhtml"] {
 
 
 /* nsp 챕터 시작부 */
-figure.opener, h1:first-child+div[class^="image"] {
+figure.opener, 
+h1:first-child+blockquote+figure[class^="image"], 
+h1:first-child+div[class^="image"] {
   width: 20%;
   margin: 16px 32px 16px 0;
   float: left;

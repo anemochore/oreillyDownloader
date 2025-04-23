@@ -209,10 +209,13 @@ h6[id] {
   padding: 0 1.1rem;
 }
 /* no2 */
-h1.chapter span.big {
+h1[class] span.big,
+p[class^="toc"] > a > b:first-child:not(:only-of-type) {
   color: gray;
+  margin-right: 1rem;
 }
 /* 강조 */
+p:not([class*="cap"]):not(.quote) > i,
 :not(p.hang) > em,
 p[class*="indent"] > strong:not(:has(a)),
 li strong {
@@ -298,6 +301,7 @@ span[class^="codestrong"] {
   border: 0;
   padding-left: 0;
   font-weight: bold;
+  background-color: unset;
 }
 /* 가려진 본문코드(연습문제) */
 span[class^="wight"] {
@@ -438,64 +442,104 @@ img:not([data-type]) {
 */
 /* 판권지 */
 section[title2="Copyright"],
+section[title2="Copyright Page"],
 div[id="copy_xhtml"] {
   font-size: 70%;
 }
 /* 목차 */
+section[title2="BRIEF CONTENTS"],
 div[id="toc_xhtml"] {
-  font-size: 95%;
+  font-size: 90%;
   /* 목차 1단계 */
   /* 목차 2단계 */
   /* 목차 3단계 */
   /* 목차 1단계 */
 }
+section[title2="BRIEF CONTENTS"] p,
 div[id="toc_xhtml"] p {
   margin: 0;
 }
+section[title2="BRIEF CONTENTS"] ol,
+div[id="toc_xhtml"] ol {
+  list-style-type: decimal;
+}
+section[title2="BRIEF CONTENTS"] a,
 div[id="toc_xhtml"] a {
   text-decoration: none;
 }
+section[title2="BRIEF CONTENTS"] a:hover,
 div[id="toc_xhtml"] a:hover {
   text-decoration: underline;
 }
+section[title2="BRIEF CONTENTS"] p[class^="toc"],
 div[id="toc_xhtml"] p[class^="toc"] {
-  font-size: 110%;
+  font-size: 100%;
   font-weight: bold;
   margin-top: 0.5em;
 }
 /* 자세한-_- 목차 */
+section[title2="CONTENTS IN DETAIL"],
 div[id="toc1_xhtml"] {
-  font-size: 95%;
+  font-size: 90%;
   /* 목차 1단계 */
   /* 목차 2단계 */
   /* 목차 3단계 */
   /* 목차 1단계 */
   /* 목차 2단계 */
   /* 목차 3단계 */
+  /* 목차 2단계(newer format T_T) */
+  /* 목차 3단계(newer format T_T) */
 }
+section[title2="CONTENTS IN DETAIL"] p,
 div[id="toc1_xhtml"] p {
   margin: 0;
 }
+section[title2="CONTENTS IN DETAIL"] ol,
+div[id="toc1_xhtml"] ol {
+  list-style-type: decimal;
+}
+section[title2="CONTENTS IN DETAIL"] a,
 div[id="toc1_xhtml"] a {
   text-decoration: none;
 }
+section[title2="CONTENTS IN DETAIL"] a:hover,
 div[id="toc1_xhtml"] a:hover {
   text-decoration: underline;
 }
+section[title2="CONTENTS IN DETAIL"] p[class^="toc1"],
 div[id="toc1_xhtml"] p[class^="toc1"] {
-  font-size: 110%;
+  font-size: 100%;
   font-weight: bold;
   margin-top: 0.5em;
 }
+section[title2="CONTENTS IN DETAIL"] p[class="toc-a"],
 div[id="toc1_xhtml"] p[class="toc-a"] {
   font-size: 90%;
   margin-left: 2em;
   margin-top: 0;
 }
-div[id="toc1_xhtml"] p[class="toc-b"] {
+section[title2="CONTENTS IN DETAIL"] p[class="toc-b"],
+div[id="toc1_xhtml"] p[class="toc-b"],
+section[title2="CONTENTS IN DETAIL"] p[class^="toc3"],
+div[id="toc1_xhtml"] p[class^="toc3"] {
   font-size: 80%;
   margin-left: 4em;
   margin-top: 0;
+}
+section[title2="CONTENTS IN DETAIL"] p[class^="toc2"],
+div[id="toc1_xhtml"] p[class^="toc2"] {
+  font-size: 90%;
+  margin-left: 2em;
+  margin-top: 0;
+  font-weight: bold;
+  margin-left: 0;
+}
+section[title2="CONTENTS IN DETAIL"] p[class^="toc3"],
+div[id="toc1_xhtml"] p[class^="toc3"] {
+  font-size: 80%;
+  margin-left: 4em;
+  margin-top: 0;
+  margin-left: 0;
 }
 /* 찾아보기 */
 section[title2="Index"] {
@@ -568,6 +612,7 @@ div[id="index_xhtml"] p.indexsub {
 /* end of mixins */
 /* nsp 챕터 시작부 */
 figure.opener,
+h1:first-child + blockquote + figure[class^="image"],
 h1:first-child + div[class^="image"] {
   width: 20%;
   margin: 16px 32px 16px 0;
