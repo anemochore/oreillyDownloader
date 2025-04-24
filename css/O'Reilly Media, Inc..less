@@ -58,6 +58,20 @@ pre[data-type="programlisting"]:not([data-code-language]), pre[data-type="termin
   .terminal();
 }
 
+  /* 코드블록 및 터미널 내 주석 및 강조*/
+  code {
+    em {
+      background-color: gray;
+      color: white;
+    }
+
+    strong {
+      background-color: darkblue;
+      color: white;
+    }
+  }
+
+
 td {
   pre[data-type="programlisting"], code, p {
     white-space: revert !important;

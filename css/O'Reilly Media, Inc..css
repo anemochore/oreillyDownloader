@@ -246,9 +246,18 @@ pre[data-type="terminal"] {
   white-space: pre;
   overflow-wrap: break-word;
   color: white;
-  background-color: purple;
+  background-color: rebeccapurple;
   border-left: 8px solid lightgray;
   padding-left: 4px;
+}
+/* 코드블록 및 터미널 내 주석 및 강조*/
+code em {
+  background-color: gray;
+  color: white;
+}
+code strong {
+  background-color: darkblue;
+  color: white;
 }
 td pre[data-type="programlisting"],
 td code,
