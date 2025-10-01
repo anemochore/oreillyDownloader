@@ -237,6 +237,11 @@ section[title2="Index"] {
   p.indexsub {
     .index-l2();
   }
+
+  /* 찾아보기 3단계 */
+  p.indexsubsub {
+    .index-l3();
+  }
 }
 
 
@@ -300,7 +305,7 @@ section[data-type="appendix"] p[class^="ques"] {
 }
 
 /* 참고문헌 */
-section[data-type="appendix"] p.ref {
+section[data-type="appendix"] p[class^=".ref"] {
   text-indent: -1.25rem;
   padding-left: 1.25rem;
 }
