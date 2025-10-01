@@ -221,6 +221,11 @@ h5[data-type="sect5"] {
   font-weight: bold;
   padding: 0 1.1rem;
 }
+/* no2 */
+h1.chap_num > span.line {
+  color: gray;
+  text-decoration: none;
+}
 /* 강조 */
 p em,
 p strong {
@@ -545,7 +550,7 @@ section[data-type="appendix"] p[class^="ques"] {
   margin-top: 0;
 }
 /* 참고문헌 */
-section[data-type="appendix"] p[class^=".ref"] {
+section[data-type="appendix"] p[class^="ref"] {
   text-indent: -1.25rem;
   padding-left: 1.25rem;
 }
