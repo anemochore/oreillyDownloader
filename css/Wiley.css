@@ -269,6 +269,8 @@ img + h5 {
   color: royalblue;
   padding: 0;
   margin-top: 0;
+  margin-bottom: 24px;
+  /* 16px (body) * 150% */
 }
 p.fm-figure {
   margin-bottom: 0;
@@ -282,6 +284,8 @@ div[class*="-container"] > h5 {
   font-weight: normal;
   color: royalblue;
   padding: 0;
+  margin-top: 24px;
+  /* 16px (body) * 150% */
   margin-bottom: 0;
 }
 /* todo!!!  end */
@@ -336,7 +340,7 @@ section[title2="Copyright"] {
 }
 /* 목차 */
 section[title2="Table of Contents"] {
-  font-size: 95%;
+  font-size: 90%;
   /* 목차 1단계 */
   /* 목차 2단계 */
   /* 목차 3단계 */
@@ -346,6 +350,9 @@ section[title2="Table of Contents"] {
 }
 section[title2="Table of Contents"] p {
   margin: 0;
+}
+section[title2="Table of Contents"] ol {
+  list-style-type: decimal;
 }
 section[title2="Table of Contents"] a {
   text-decoration: none;
@@ -358,7 +365,7 @@ section[title2="Table of Contents"] ol {
   padding: 0;
 }
 section[title2="Table of Contents"] li.contentsH1 {
-  font-size: 110%;
+  font-size: 100%;
   font-weight: bold;
   margin-top: 0.5em;
 }

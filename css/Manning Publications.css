@@ -283,6 +283,8 @@ img + h5 {
   color: royalblue;
   padding: 0;
   margin-top: 0;
+  margin-bottom: 24px;
+  /* 16px (body) * 150% */
 }
 p.fm-figure {
   margin-bottom: 0;
@@ -296,6 +298,8 @@ div[class*="-container"] > h5 {
   font-weight: normal;
   color: royalblue;
   padding: 0;
+  margin-top: 24px;
+  /* 16px (body) * 150% */
   margin-bottom: 0;
 }
 /* 박스의 제목 */
@@ -377,7 +381,7 @@ div[title2="Copyright"] {
 }
 /* 목차 */
 div[title2="contents"] {
-  font-size: 95%;
+  font-size: 90%;
   /* 목차 1단계 */
   /* 목차 2단계 */
   /* 목차 3단계 */
@@ -387,6 +391,9 @@ div[title2="contents"] {
 }
 div[title2="contents"] p {
   margin: 0;
+}
+div[title2="contents"] ol {
+  list-style-type: decimal;
 }
 div[title2="contents"] a {
   text-decoration: none;
@@ -402,7 +409,7 @@ div[title2="contents"] p.tocchapters,
 div[title2="contents"] p.tocparts,
 div[title2="contents"] p[style="font-size: 110%;"],
 div[title2="contents"] p:not([style]):has(strong>a>em) {
-  font-size: 110%;
+  font-size: 100%;
   font-weight: bold;
   margin-top: 0.5em;
 }
