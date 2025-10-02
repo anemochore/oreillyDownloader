@@ -222,9 +222,9 @@ h5[data-type="sect5"] {
   padding: 0 1.1rem;
 }
 /* no2 */
-h1.chap_num > span.line {
+h1.chap_num > span.line,
+h1[class^="h1"] > span.line {
   color: gray;
-  text-decoration: none;
 }
 /* 강조 */
 p em,
