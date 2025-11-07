@@ -22,6 +22,7 @@
     }
 
     //generateAsync가 탬퍼멍키 안에서 작동하지 않아서 어쩔 수 없이 밖으로 뺐다...
+    //jszip 로드를 @require 말고 js로 하면 가능은 함.
     zip.generateAsync({type: "blob"})
     .then(blob => {
       const fileLink = document.createElement('a');

@@ -408,8 +408,9 @@ img:not([data-type]) {
   text-align: center;
   width: auto;
 }
-/* 판권지...는 불가하고 그 속의 일부-_- 텍스트 */
-p.hidden {
+/* 판권지 전체는 불가하고 그 속의 일부-_- 텍스트 */
+p.hidden,
+p[class^="FM-copyright-"] {
   font-size: 70%;
 }
 /* 찾아보기 */
