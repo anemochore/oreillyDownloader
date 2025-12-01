@@ -36,6 +36,10 @@ h6.sect5 {
   .h6();
 }
 
+/* no2 */
+h1[class]>span.chapter-title-numbering {
+  .span-no2();
+}
 
 /* 강조 */
 em, i[class^="fm-italics"]:not([class^="timesitalic"]) {
@@ -43,7 +47,7 @@ em, i[class^="fm-italics"]:not([class^="timesitalic"]) {
 }
 
 /* 강조 취소 */
-div[title2="contents"] em {
+div[title2="contents"] em, div[title2="brief contents"] em {
   .em_cancel();
 }
 
@@ -75,7 +79,7 @@ p[class^="fm-code-annotation"], div.code-annotations-overlay-container /*, p.co-
 }
 
 /* 본문코드 */
-span[class^="fm-code-in-"], code {
+span[class^="fm-code-in-"], code, kbd {
   .inline-code();
 }
 
@@ -150,7 +154,7 @@ div[title2="copyright"], div[title2="Copyright"] {
 
 
 /* 목차 */
-div[title2="contents"] {
+div[title2="contents"], div[title2="brief contents"] {
   .contents();
 
   strong, em {
@@ -158,7 +162,7 @@ div[title2="contents"] {
   }
 
   /* 목차 1단계 */
-  p.tocchapters, p.tocparts, p[style="font-size: 110%;"], p:not([style]):has(strong>a>em) {
+  p.tocchapters, p.tocparts, p[style="font-size: 110%;"], p:not([style]):has(strong>a>em), p:not([style]):has(>em) {
     .contents-l1();
 
     em {
@@ -218,16 +222,16 @@ p[data-type="footnote"], p.fm-footnote {
 
 /* 챕터 시작부 */
 p.co-summary-head {
-  border-top: 2px solid purple;
-  border-right: 2px solid purple;
-  border-left: 2px solid purple;
+  border-top: 2px solid plum;
+  border-right: 2px solid plum;
+  border-left: 2px solid plum;
   margin: 10px 15px 0 15px;
   padding: 1rem;
 
   &+ul[class] {
-    border-right: 2px solid purple;
-    border-left: 2px solid purple;
-    border-bottom: 2px solid purple;
+    border-right: 2px solid plum;
+    border-left: 2px solid plum;
+    border-bottom: 2px solid plum;
     margin: 0 15px 10px 15px;
     padding-bottom: 1rem;
   }
@@ -235,12 +239,12 @@ p.co-summary-head {
 
 /* 챕터 시작부(later ver. ex: Idiomatic Rust) */
 div.introduction-summary {
-  border: 2px solid purple;
+  font-size: 90%;
+  border: 2px solid plum;
   margin: 10px 15px 10px 15px;
   padding: 1rem 0 0 1rem;
 
   h3 {
-    .fontSize100();
     .em_cancel();
     margin: 0;
   }

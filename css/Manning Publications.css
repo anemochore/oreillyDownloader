@@ -211,13 +211,18 @@ h6.sect5 {
   font-weight: bold;
   padding: 0 1.1rem;
 }
+/* no2 */
+h1[class] > span.chapter-title-numbering {
+  color: gray;
+}
 /* 강조 */
 em,
 i[class^="fm-italics"]:not([class^="timesitalic"]) {
   background-color: #d2f8dc;
 }
 /* 강조 취소 */
-div[title2="contents"] em {
+div[title2="contents"] em,
+div[title2="brief contents"] em {
   font-style: normal;
   font-weight: normal;
   background-color: revert !important;
@@ -258,7 +263,8 @@ div.code-annotations-overlay-container br {
 }
 /* 본문코드 */
 span[class^="fm-code-in-"],
-code {
+code,
+kbd {
   font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -380,7 +386,8 @@ div[title2="Copyright"] {
   font-size: 70%;
 }
 /* 목차 */
-div[title2="contents"] {
+div[title2="contents"],
+div[title2="brief contents"] {
   font-size: 90%;
   /* 목차 1단계 */
   /* 목차 2단계 */
@@ -389,44 +396,66 @@ div[title2="contents"] {
   /* 목차 2단계 */
   /* 목차 3단계 */
 }
-div[title2="contents"] p {
+div[title2="contents"] p,
+div[title2="brief contents"] p {
   margin: 0;
 }
-div[title2="contents"] ol {
+div[title2="contents"] ol,
+div[title2="brief contents"] ol {
   list-style-type: decimal;
 }
-div[title2="contents"] a {
+div[title2="contents"] a,
+div[title2="brief contents"] a {
   text-decoration: none;
 }
-div[title2="contents"] a:hover {
+div[title2="contents"] a:hover,
+div[title2="brief contents"] a:hover {
   text-decoration: underline;
 }
 div[title2="contents"] strong,
-div[title2="contents"] em {
+div[title2="brief contents"] strong,
+div[title2="contents"] em,
+div[title2="brief contents"] em {
   font-style: normal;
 }
 div[title2="contents"] p.tocchapters,
+div[title2="brief contents"] p.tocchapters,
 div[title2="contents"] p.tocparts,
+div[title2="brief contents"] p.tocparts,
 div[title2="contents"] p[style="font-size: 110%;"],
-div[title2="contents"] p:not([style]):has(strong>a>em) {
-  font-size: 100%;
+div[title2="brief contents"] p[style="font-size: 110%;"],
+div[title2="contents"] p:not([style]):has(strong>a>em),
+div[title2="brief contents"] p:not([style]):has(strong>a>em),
+div[title2="contents"] p:not([style]):has(>em),
+div[title2="brief contents"] p:not([style]):has(>em) {
+  font-size: 110%;
   font-weight: bold;
   margin-top: 0.5em;
 }
 div[title2="contents"] p.tocchapters em,
+div[title2="brief contents"] p.tocchapters em,
 div[title2="contents"] p.tocparts em,
+div[title2="brief contents"] p.tocparts em,
 div[title2="contents"] p[style="font-size: 110%;"] em,
-div[title2="contents"] p:not([style]):has(strong>a>em) em {
+div[title2="brief contents"] p[style="font-size: 110%;"] em,
+div[title2="contents"] p:not([style]):has(strong>a>em) em,
+div[title2="brief contents"] p:not([style]):has(strong>a>em) em,
+div[title2="contents"] p:not([style]):has(>em) em,
+div[title2="brief contents"] p:not([style]):has(>em) em {
   font-weight: bold;
 }
 div[title2="contents"] p.fm-head-1toc,
-div[title2="contents"] p[style^="margin-left: 2em;"] {
+div[title2="brief contents"] p.fm-head-1toc,
+div[title2="contents"] p[style^="margin-left: 2em;"],
+div[title2="brief contents"] p[style^="margin-left: 2em;"] {
   font-size: 90%;
   margin-left: 2em;
   margin-top: 0;
 }
 div[title2="contents"] p.fm-head-2toc,
-div[title2="contents"] p[style^="margin-left: 4em;"] {
+div[title2="brief contents"] p.fm-head-2toc,
+div[title2="contents"] p[style^="margin-left: 4em;"],
+div[title2="brief contents"] p[style^="margin-left: 4em;"] {
   font-size: 80%;
   margin-left: 4em;
   margin-top: 0;
@@ -489,27 +518,27 @@ p.fm-footnote {
 /* end of mixins */
 /* 챕터 시작부 */
 p.co-summary-head {
-  border-top: 2px solid purple;
-  border-right: 2px solid purple;
-  border-left: 2px solid purple;
+  border-top: 2px solid plum;
+  border-right: 2px solid plum;
+  border-left: 2px solid plum;
   margin: 10px 15px 0 15px;
   padding: 1rem;
 }
 p.co-summary-head + ul[class] {
-  border-right: 2px solid purple;
-  border-left: 2px solid purple;
-  border-bottom: 2px solid purple;
+  border-right: 2px solid plum;
+  border-left: 2px solid plum;
+  border-bottom: 2px solid plum;
   margin: 0 15px 10px 15px;
   padding-bottom: 1rem;
 }
 /* 챕터 시작부(later ver. ex: Idiomatic Rust) */
 div.introduction-summary {
-  border: 2px solid purple;
+  font-size: 90%;
+  border: 2px solid plum;
   margin: 10px 15px 10px 15px;
   padding: 1rem 0 0 1rem;
 }
 div.introduction-summary h3 {
-  font-size: 100%;
   font-style: normal;
   font-weight: normal;
   background-color: revert !important;
