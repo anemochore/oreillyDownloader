@@ -116,7 +116,8 @@ table {
     margin: 0.25rem 0.5rem;
   }
 
-  th, thead {
+  th, thead, :not(thead)+tbody>tr:first-child {
+    font-weight: bold;
     background-color: #eee;
   }
 
@@ -304,6 +305,7 @@ h1>code, h2>code, h3>code, h4>code {
 .box-title() {
   .h6();
   margin: 1rem 0 0.5rem 0;
+  display: block;
 }
 
 /* 일반 박스 */
@@ -365,7 +367,7 @@ h1>code, h2>code, h3>code, h4>code {
 }
 
 .blockquote_deco() {
-  &::before{
+  &::before {
     content:'\201C';
 
     font-size: 60px;

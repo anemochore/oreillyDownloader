@@ -96,7 +96,9 @@ table p {
   margin: 0.25rem 0.5rem;
 }
 table th,
-table thead {
+table thead,
+table :not(thead) + tbody > tr:first-child {
+  font-weight: bold;
   background-color: #eee;
 }
 table td {
@@ -212,7 +214,8 @@ h6.sect5 {
   padding: 0 1.1rem;
 }
 /* no2 */
-h1[class] > span.chapter-title-numbering {
+h1[class] > span[class^="chapter-title-"],
+span.num-string {
   color: gray;
 }
 /* 강조 */
@@ -318,6 +321,7 @@ h5[class*="callout-container"] {
   font-weight: bold;
   padding: 0 1.1rem;
   margin: 1rem 0 0.5rem 0;
+  display: block;
 }
 /* 일반 박스 */
 div.fm-sidebar-block,
@@ -358,7 +362,8 @@ div.callout-container p.fm-sidebar-text:has(br:only-child) {
 }
 */
 /* 인용 */
-p.fm-quote {
+p.fm-quote,
+blockquote {
   font-size: 0.9rem;
   color: #666666;
   position: relative;
@@ -367,13 +372,38 @@ p.fm-quote {
   margin: 0 2rem 1.5rem 2rem;
   padding-left: 3rem;
 }
-p.fm-quote::before {
+p.fm-quote::before,
+blockquote::before {
   content: '\201C';
   font-size: 60px;
   position: absolute;
   left: 10px;
   top: 0;
   margin-top: -30px;
+}
+/* 여러 줄일 때 장식(") 제거 */
+p.fm-quote + p.fm-quote,
+div:has(>blockquote) + div > blockquote {
+  font-size: 0.9rem;
+  color: #666666;
+  position: relative;
+  border-left: 3px solid #DA8596;
+  padding: 0 1.5rem 0 2.5rem;
+  margin: 0 2rem 1.5rem 2rem;
+  padding-left: 3rem;
+}
+p.fm-quote + p.fm-quote::before,
+div:has(>blockquote) + div > blockquote::before {
+  content: '\201C';
+  font-size: 60px;
+  position: absolute;
+  left: 10px;
+  top: 0;
+  margin-top: -30px;
+}
+p.fm-quote + p.fm-quote::before,
+div:has(>blockquote) + div > blockquote::before {
+  content: '';
 }
 /* 인용 출처 */
 p.fm-quote-source {
@@ -552,7 +582,8 @@ div.introduction-summary ul {
 table th:not(:has(p)),
 td:not(:has(p)) {
   padding: 0.25rem 0.5rem !important;
-  border: 1px solid #ddd;
+  /* 왜 추가했는지 모르겠지만, just use postgres에서 표 이상하게 나와서 주석 처리
+  /* border: 1px solid #ddd; */
 }
 /* 잘못된?? 목록 */
 ol + ol.faux-ol-li {

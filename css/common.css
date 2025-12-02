@@ -96,7 +96,9 @@ table p {
   margin: 0.25rem 0.5rem;
 }
 table th,
-table thead {
+table thead,
+table :not(thead) + tbody > tr:first-child {
+  font-weight: bold;
   background-color: #eee;
 }
 table td {
