@@ -214,7 +214,6 @@ h6.sect5 {
   padding: 0 1.1rem;
 }
 /* no2 */
-h1[class] > span[class^="chapter-title-"],
 span.num-string {
   color: gray;
 }
