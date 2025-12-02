@@ -264,7 +264,8 @@ div.code-annotations-overlay-container br {
 /* 본문코드 */
 span[class^="fm-code-in-"],
 code,
-kbd {
+kbd,
+span.CodeinText {
   font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -547,10 +548,10 @@ div.introduction-summary h3 {
 div.introduction-summary ul {
   padding-left: 1rem;
 }
-/* 테이블 안 텍스트(later ver) */
+/* 테이블 안 텍스트(later ver). 엘리먼트 스타일은 무시해야 함 */
 table th:not(:has(p)),
 td:not(:has(p)) {
-  padding: 0.25rem 0.5rem;
+  padding: 0.25rem 0.5rem !important;
   border: 1px solid #ddd;
 }
 /* 잘못된?? 목록 */
