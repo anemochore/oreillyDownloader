@@ -105,34 +105,20 @@ p.fm-sidebar-title, span.fm-callout-head, span.print-book-callout-head, h5[class
 }
 
 /* 일반 박스 */
-div.fm-sidebar-block, p.fm-callout, div.print-book-callout, div.callout-container {
+div.fm-sidebar-block, p.fm-callout, div.sidebar-container {
   .box();
+  background-color: lightgrey;
 
   p.fm-sidebar-text:has(br:only-child) {
     display: none;
   }
 }
 
-/* 종류가 있는 박스(팁) */
-/*
-.typed-box_tip() {
-  .typed-box_tip();
+/* 종류가 있는 박스(팁, 노트, 주의) */
+div.print-book-callout:not(.sidebar-container), div.callout-container:not(.sidebar-container) {
+  .typed-box();
+  padding-left: 0.5rem;
 }
-*/
-
-/* 종류가 있는 박스(노트) */
-/*
-.typed-box_note() {
-  .typed-box_note();
-}
-*/
-
-/* 종류가 있는 박스(주의) */
-/*
-.typed-box_caution() {
-  .typed-box_caution();
-}
-*/
 
 
 /* 인용 */

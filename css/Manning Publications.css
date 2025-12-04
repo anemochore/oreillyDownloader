@@ -325,8 +325,7 @@ h5[class*="callout-container"] {
 /* 일반 박스 */
 div.fm-sidebar-block,
 p.fm-callout,
-div.print-book-callout,
-div.callout-container {
+div.sidebar-container {
   max-width: 90%;
   font-size: 90%;
   margin-top: 32px;
@@ -335,31 +334,27 @@ div.callout-container {
   background-repeat: no-repeat;
   border: 1px solid silver;
   padding: 0.5rem;
+  background-color: lightgrey;
 }
 div.fm-sidebar-block p.fm-sidebar-text:has(br:only-child),
 p.fm-callout p.fm-sidebar-text:has(br:only-child),
-div.print-book-callout p.fm-sidebar-text:has(br:only-child),
-div.callout-container p.fm-sidebar-text:has(br:only-child) {
+div.sidebar-container p.fm-sidebar-text:has(br:only-child) {
   display: none;
 }
-/* 종류가 있는 박스(팁) */
-/*
-.typed-box_tip() {
-  .typed-box_tip();
+/* 종류가 있는 박스(팁, 노트, 주의) */
+div.print-book-callout:not(.sidebar-container),
+div.callout-container:not(.sidebar-container) {
+  max-width: 90%;
+  font-size: 90%;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  border: 1px solid silver;
+  padding: 0.5rem;
+  padding-left: 80px;
+  padding-left: 0.5rem;
 }
-*/
-/* 종류가 있는 박스(노트) */
-/*
-.typed-box_note() {
-  .typed-box_note();
-}
-*/
-/* 종류가 있는 박스(주의) */
-/*
-.typed-box_caution() {
-  .typed-box_caution();
-}
-*/
 /* 인용 */
 p.fm-quote,
 blockquote {
