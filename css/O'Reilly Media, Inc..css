@@ -96,7 +96,9 @@ table p {
   margin: 0.25rem 0.5rem;
 }
 table th,
-table thead {
+table thead,
+table :not(thead) + tbody > tr:first-child {
+  font-weight: bold;
   background-color: #eee;
 }
 table td {
@@ -119,6 +121,7 @@ table td {
 /* 5단계 제목 */
 /* 6단계 제목 */
 /* no2 */
+/* 기본값 클래스로 하드코딩 */
 .span-no2 {
   color: gray;
 }
@@ -227,7 +230,7 @@ em.hyperlink {
   background-color: revert !important;
 }
 /* 코드블록 */
-pre[data-type="programlisting"] {
+:not(td>div) > pre[data-type="programlisting"] {
   font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -238,7 +241,7 @@ pre[data-type="programlisting"] {
   padding-left: 4px;
 }
 /* 터미널 */
-pre[data-type="programlisting"]:not([data-code-language]),
+:not(td>div) > pre[data-type="programlisting"]:not([data-code-language]),
 pre[data-type="terminal"] {
   font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
@@ -259,9 +262,23 @@ code strong {
   background-color: darkblue;
   color: white;
 }
+/* 본문코드(표 내부) */
 td pre[data-type="programlisting"],
 td code,
 td p {
+  font-size: 10.5pt;
+  font-family: "Sarasa Fixed K", d2coding, monospace;
+  line-height: 1.25;
+  white-space: pre;
+  overflow-wrap: break-word;
+  font-size: 10pt;
+  font-weight: normal;
+  font-style: normal;
+  color: #000;
+  background-color: #ccddff;
+  border: 0;
+  padding-left: 0;
+  display: inline-block;
   white-space: revert !important;
   border-left: 0 !important;
   padding-left: 0 !important;
@@ -299,7 +316,7 @@ dl.calloutlist dt {
 dl.calloutlist dd {
   margin-left: 0.25rem;
 }
-/* 본문코드 */
+/* 본문코드2 */
 :not(pre):not(em) > code {
   font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
@@ -364,6 +381,7 @@ div[data-type="warning"] > h1 {
   font-weight: bold;
   padding: 0 1.1rem;
   margin: 1rem 0 0.5rem 0;
+  display: block;
 }
 /* 일반 박스 */
 aside[data-type="sidebar"] {

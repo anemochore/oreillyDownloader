@@ -49,31 +49,33 @@ em.hyperlink {
 
 
 /* 코드블록 */
-pre[data-type="programlisting"] {
+:not(td>div)>pre[data-type="programlisting"] {
   .code-block();
 }
 
 /* 터미널 */
-pre[data-type="programlisting"]:not([data-code-language]), pre[data-type="terminal"] {
+:not(td>div)>pre[data-type="programlisting"]:not([data-code-language]), pre[data-type="terminal"] {
   .terminal();
 }
 
-  /* 코드블록 및 터미널 내 주석 및 강조*/
-  code {
-    em {
-      background-color: gray;
-      color: white;
-    }
-
-    strong {
-      background-color: darkblue;
-      color: white;
-    }
+/* 코드블록 및 터미널 내 주석 및 강조*/
+code {
+  em {
+    background-color: gray;
+    color: white;
   }
 
+  strong {
+    background-color: darkblue;
+    color: white;
+  }
+}
 
+/* 본문코드(표 내부) */
 td {
   pre[data-type="programlisting"], code, p {
+    .inline-code();
+    display: inline-block;
     white-space: revert !important;
     border-left: 0 !important;
     padding-left: 0 !important;
@@ -105,7 +107,7 @@ dl.calloutlist {
   }
 }
 
-/* 본문코드 */
+/* 본문코드2 */
 :not(pre):not(em)>code {
   .inline-code();
 }
