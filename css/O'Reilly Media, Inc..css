@@ -196,13 +196,13 @@ h2 {
 /* 4단계 제목 */
 h3 {
   font-size: 1.275rem;
-  font-style: italic;
   font-weight: bold;
   padding: 0 0.75rem;
 }
 /* 5단계 제목 */
 h4 {
   font-size: 1.05rem;
+  font-style: italic;
   font-weight: bold;
   padding: 0 1rem;
 }
