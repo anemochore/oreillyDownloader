@@ -96,7 +96,9 @@ table p {
   margin: 0.25rem 0.5rem;
 }
 table th,
-table thead {
+table thead,
+table :not(thead) + tbody > tr:first-child {
+  font-weight: bold;
   background-color: #eee;
 }
 table td {
@@ -119,6 +121,7 @@ table td {
 /* 5단계 제목 */
 /* 6단계 제목 */
 /* no2 */
+/* 기본값 클래스로 하드코딩 */
 .span-no2 {
   color: gray;
 }
@@ -205,13 +208,13 @@ h3[data-type="sect2"] {
 /* 4단계 제목 */
 h4[data-type="sect3"] {
   font-size: 1.275rem;
-  font-style: italic;
   font-weight: bold;
   padding: 0 0.75rem;
 }
 /* 5단계 제목 */
 h5[data-type="sect4"] {
   font-size: 1.05rem;
+  font-style: italic;
   font-weight: bold;
   padding: 0 1rem;
 }
@@ -332,6 +335,7 @@ p.sb-title {
   font-weight: bold;
   padding: 0 1.1rem;
   margin: 1rem 0 0.5rem 0;
+  display: block;
 }
 /* 일반 박스 */
 div[class^="side"],
@@ -368,7 +372,8 @@ div.note {
 /* 인용 */
 /* blockquote, */
 p[class^="bq"],
-p[class^="app"] {
+p[class^="app"],
+p.quote {
   font-size: 0.9rem;
   color: #666666;
   position: relative;
@@ -441,7 +446,7 @@ section[title2="Contents"] p.toc-chap,
 section[title2="Contents"] p.toc-part,
 section[title2="Contents"] p.toc-fm,
 section[title2="Contents"] p.toc-fmt {
-  font-size: 100%;
+  font-size: 110%;
   font-weight: bold;
   margin-top: 0.5em;
 }
