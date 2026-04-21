@@ -96,7 +96,9 @@ table p {
   margin: 0.25rem 0.5rem;
 }
 table th,
-table thead {
+table thead,
+table :not(thead) + tbody > tr:first-child {
+  font-weight: bold;
   background-color: #eee;
 }
 table td {
@@ -119,6 +121,7 @@ table td {
 /* 5단계 제목 */
 /* 6단계 제목 */
 /* no2 */
+/* 기본값 클래스로 하드코딩 */
 .span-no2 {
   color: gray;
 }
@@ -167,14 +170,16 @@ div[id][class]:not([class^="image"]):not([class^="exe"]) {
   margin-top: 5rem;
 }
 /* 1단계 제목 */
-h1[class] {
+h1[class],
+p.FSQH {
   font-size: 2.1rem;
   font-weight: bold;
   margin-top: 2rem;
   margin-bottom: 1rem;
   break-before: page;
 }
-h1[class]:first-child {
+h1[class]:first-child,
+p.FSQH:first-child {
   break-before: avoid;
 }
 /* 2단계 제목 */
@@ -192,13 +197,13 @@ h3[id] {
 /* 4단계 제목 */
 h4[id] {
   font-size: 1.275rem;
-  font-style: italic;
   font-weight: bold;
   padding: 0 0.75rem;
 }
 /* 5단계 제목 */
 h5[id] {
   font-size: 1.05rem;
+  font-style: italic;
   font-weight: bold;
   padding: 0 1rem;
 }
@@ -263,7 +268,9 @@ span[class^="ent"] {
 /* 본문코드 */
 :not(pre[data-type="example"]) > code,
 span[class^="literal"],
-td > div > pre {
+td > div > pre,
+section[title2="INDEX"] span[class*="Mono"],
+section[title2="Index"] span[class*="Mono"] {
   font-size: 10.5pt;
   font-family: "Sarasa Fixed K", d2coding, monospace;
   line-height: 1.25;
@@ -396,6 +403,7 @@ div.exe p.exe-title {
   font-weight: bold;
   padding: 0 1.1rem;
   margin: 1rem 0 0.5rem 0;
+  display: block;
 }
 aside[data-type="sidebar"] div.hr,
 div.note div.hr,
@@ -407,7 +415,8 @@ div.exe div.hr {
 blockquote,
 div.bq,
 p.bq,
-div.blockquote {
+div.blockquote,
+p.FSQ {
   font-size: 0.9rem;
   color: #666666;
   position: relative;
@@ -418,7 +427,8 @@ div.blockquote {
 blockquote::before,
 div.bq::before,
 p.bq::before,
-div.blockquote::before {
+div.blockquote::before,
+p.FSQ::before {
   content: '\201C';
   font-size: 60px;
   position: absolute;
@@ -427,7 +437,8 @@ div.blockquote::before {
   margin-top: -30px;
 }
 /* 인용 출처 */
-p.att {
+p.att,
+p.FSQC {
   display: block;
   font-size: 0.8rem;
   text-align: right;
@@ -483,7 +494,7 @@ div[id="toc_xhtml"] a:hover {
 }
 section[title2="BRIEF CONTENTS"] p[class^="toc"],
 div[id="toc_xhtml"] p[class^="toc"] {
-  font-size: 100%;
+  font-size: 110%;
   font-weight: bold;
   margin-top: 0.5em;
 }
@@ -518,7 +529,7 @@ div[id="toc1_xhtml"] a:hover {
 }
 section[title2="CONTENTS IN DETAIL"] p[class^="toc1"],
 div[id="toc1_xhtml"] p[class^="toc1"] {
-  font-size: 100%;
+  font-size: 110%;
   font-weight: bold;
   margin-top: 0.5em;
 }
@@ -562,7 +573,7 @@ section[title2="Index"] {
   /* 찾아보기 헤딩 */
   /* 찾아보기 1단계 */
   /* 찾아보기 2단계 */
-  /* 찾아보기 3단계 */
+  /* 찾아보기 3단계(p.Index3, p.indexsubsub는 확인된 적은 없지만 추가했음) */
 }
 section[title2="INDEX"] a,
 section[title2="Index"] a {
@@ -576,8 +587,8 @@ section[title2="INDEX"] h3,
 section[title2="Index"] h3 {
   margin: 0;
 }
-section[title2="INDEX"] ul[class^="none"],
-section[title2="Index"] ul[class^="none"] {
+section[title2="INDEX"] ul,
+section[title2="Index"] ul {
   list-style: none;
   padding-left: 0;
 }
@@ -586,7 +597,9 @@ section[title2="Index"] h2[id],
 section[title2="INDEX"] p.indexletter,
 section[title2="Index"] p.indexletter,
 section[title2="INDEX"] p.indexmain,
-section[title2="Index"] p.indexmain {
+section[title2="Index"] p.indexmain,
+section[title2="INDEX"] li.IXA,
+section[title2="Index"] li.IXA {
   font-size: 110%;
   font-weight: 700;
   margin: 1rem 0 0;
@@ -596,7 +609,9 @@ section[title2="Index"] li.indexmain,
 section[title2="INDEX"] p.Index1,
 section[title2="Index"] p.Index1,
 section[title2="INDEX"] p.indexsub,
-section[title2="Index"] p.indexsub {
+section[title2="Index"] p.indexsub,
+section[title2="INDEX"] li.IX,
+section[title2="Index"] li.IX {
   font-size: 100%;
 }
 section[title2="INDEX"] li.indexsub,
@@ -604,12 +619,20 @@ section[title2="Index"] li.indexsub,
 section[title2="INDEX"] p.Index2,
 section[title2="Index"] p.Index2,
 section[title2="INDEX"] p.indexsubsub,
-section[title2="Index"] p.indexsubsub {
+section[title2="Index"] p.indexsubsub,
+section[title2="INDEX"] li.IXS,
+section[title2="Index"] li.IXS {
   font-size: 90%;
   margin-left: 1em;
 }
 section[title2="INDEX"] li.indexsubsub,
-section[title2="Index"] li.indexsubsub {
+section[title2="Index"] li.indexsubsub,
+section[title2="INDEX"] p.Index3,
+section[title2="Index"] p.Index3,
+section[title2="INDEX"] p.indexsubsub,
+section[title2="Index"] p.indexsubsub,
+section[title2="INDEX"] li.IXSS,
+section[title2="Index"] li.IXSS {
   font-size: 85%;
   margin-left: 2em;
 }

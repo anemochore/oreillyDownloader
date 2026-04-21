@@ -7,7 +7,7 @@ section[data-type], div[id][class]:not([class^="image"]):not([class^="exe"]) {
 }
 
 /* 1단계 제목 */
-h1[class] {
+h1[class], p.FSQH {
   .h1();
 }
 
@@ -78,7 +78,9 @@ span[class^="ent"] {
 }
 
 /* 본문코드 */
-:not(pre[data-type="example"])>code, span[class^="literal"], td>div>pre {
+:not(pre[data-type="example"])>code, span[class^="literal"], td>div>pre,
+section[title2="INDEX"] span[class*="Mono"],
+section[title2="Index"] span[class*="Mono"] {
   .inline-code();
 }
 
@@ -134,12 +136,12 @@ aside[data-type="sidebar"], div.note, div[class^="box"], div.exe {
 
 
 /* 인용 */
-blockquote, div.bq, p.bq, div.blockquote {
+blockquote, div.bq, p.bq, div.blockquote, p.FSQ {
   .blockquote();
 }
 
 /* 인용 출처 */
-p.att {
+p.att, p.FSQC {
   .byline();
   padding-right: 1.5rem;
 }
@@ -169,7 +171,7 @@ section[title2="Copyright"], section[title2="Copyright Page"], div[id="copy_xhtm
 
 
 /* 목차 */
-section[title2="BRIEF CONTENTS"], 
+section[title2="BRIEF CONTENTS"],
 div[id="toc_xhtml"] {
   .contents();
 
@@ -180,7 +182,7 @@ div[id="toc_xhtml"] {
 }
 
 /* 자세한-_- 목차 */
-section[title2="CONTENTS IN DETAIL"], 
+section[title2="CONTENTS IN DETAIL"],
 div[id="toc1_xhtml"] {
   .contents();
 
@@ -218,28 +220,28 @@ div[id="toc1_xhtml"] {
 section[title2="INDEX"], section[title2="Index"] {
   .index();
 
-  ul[class^="none"] {
+  ul {
     list-style: none;
     padding-left: 0;
   }
 
   /* 찾아보기 헤딩 */
-  h2[id], p.indexletter, p.indexmain {
+  h2[id], p.indexletter, p.indexmain, li.IXA {
     .index-h();
   }
 
   /* 찾아보기 1단계 */
-  li.indexmain, p.Index1, p.indexsub {
+  li.indexmain, p.Index1, p.indexsub, li.IX {
     .index-l1();
   }
 
   /* 찾아보기 2단계 */
-  li.indexsub, p.Index2, p.indexsubsub {
+  li.indexsub, p.Index2, p.indexsubsub, li.IXS {
     .index-l2();
   }
 
-  /* 찾아보기 3단계 */
-  li.indexsubsub {
+  /* 찾아보기 3단계(p.Index3, p.indexsubsub는 확인된 적은 없지만 추가했음) */
+  li.indexsubsub, p.Index3, p.indexsubsub, li.IXSS {
     .index-l3();
   }
 }
@@ -278,8 +280,8 @@ div[id="index_xhtml"] {
 
 
 /* nsp 챕터 시작부 */
-figure.opener, 
-h1:first-child+blockquote+figure[class^="image"], 
+figure.opener,
+h1:first-child+blockquote+figure[class^="image"],
 h1:first-child+div[class^="image"] {
   width: 20%;
   margin: 16px 32px 16px 0;
