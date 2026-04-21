@@ -54,7 +54,10 @@ em.hyperlink {
 }
 
 /* 터미널 */
-:not(td>div)>pre[data-type="programlisting"]:not([data-code-language]), pre[data-type="terminal"] {
+:not(td>div)>pre.console,
+:not(td>div)>pre[data-type="programlisting"][data-code-language="console"],
+:not(td>div)>pre[data-type="programlisting"]:not([data-code-language]),
+:not(td>div)>pre[data-type="terminal"] {
   .terminal();
 }
 
