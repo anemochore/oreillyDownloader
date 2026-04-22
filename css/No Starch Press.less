@@ -52,6 +52,11 @@ aside.box span[class*="_Oblique_"] {
   .em();
 }
 
+/* 그냥 볼드(이탤릭은 앞에서 적용)... */
+span[class*="_Heavy_"] {
+  font-weight: bold;
+}
+
 /* 강조 취소 */
 p.indexletter>b, p.notep>em, p.figcap>em, p.caption>strong, em:has(a) {
   .em_cancel_bg();
@@ -138,11 +143,6 @@ aside[data-type="sidebar"], aside.box, div[class^="box"], div.note, div.exe {
 
   div.hr {
     display: none;
-  }
-
-  /* 박스 내 볼드(이탤릭은 앞에서 '강조' 적용)... */
-  span[class*="_Heavy_"] {
-    font-weight: bold;
   }
 }
 

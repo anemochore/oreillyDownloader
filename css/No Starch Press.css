@@ -230,6 +230,10 @@ li strong,
 aside.box span[class*="_Oblique_"] {
   background-color: #d2f8dc;
 }
+/* 그냥 볼드(이탤릭은 앞에서 적용)... */
+span[class*="_Heavy_"] {
+  font-weight: bold;
+}
 /* 강조 취소 */
 p.indexletter > b,
 p.notep > em,
@@ -400,7 +404,6 @@ div.exe {
   background-color: wheat;
   border: 1px solid silver;
   padding: 0.5rem;
-  /* 박스 내 볼드(이탤릭은 앞에서 '강조' 적용)... */
 }
 aside[data-type="sidebar"] div.hr,
 aside.box div.hr,
@@ -408,13 +411,6 @@ div[class^="box"] div.hr,
 div.note div.hr,
 div.exe div.hr {
   display: none;
-}
-aside[data-type="sidebar"] span[class*="_Heavy_"],
-aside.box span[class*="_Heavy_"],
-div[class^="box"] span[class*="_Heavy_"],
-div.note span[class*="_Heavy_"],
-div.exe span[class*="_Heavy_"] {
-  font-weight: bold;
 }
 /* 종류가 있는 박스 제목(더 북 NOTE) */
 blockquote:has(>p.NOTE) {
