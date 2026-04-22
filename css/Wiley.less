@@ -48,11 +48,6 @@ p.fm-code-listing-caption+div[data-type="example"]>pre.programlisting:not(.con) 
   margin-top: 0;
 }
 
-/* 코드블록 안/아래 원번호 */
-span[class^="fm-combinumeral"] {
-  .code-number();
-}
-
 /* 코드블록 아래 설명 */
 p[class^="fm-code-annotation"], div.code-annotations-overlay-container /*, p.co-fm-toc */ {
   .code-number-desc();
@@ -70,6 +65,10 @@ span[class^="fm-code-in-"], code {
   .inline-code();
 }
 
+/* 코드블록 안/아래 원번호(본문코드 다음에 와야만 할 듯) */
+span[class^="fm-combinumeral"] {
+  .code-number();
+}
 
 /* 캡션(아래) */
 p.fm-figure-caption, figcaption>p, p.figurecaption, img+h5 {

@@ -121,6 +121,7 @@ table td {
 /* 5단계 제목 */
 /* 6단계 제목 */
 /* no2 */
+/* 기본값 클래스로 하드코딩 */
 .span-no2 {
   color: gray;
 }
@@ -130,9 +131,9 @@ table td {
 /* 코드(베이스) */
 /* 코드블록 */
 /* 터미널 */
+/* 본문코드 */
 /* 코드블록 안/아래 원번호 */
 /* 코드블록 아래 설명 */
-/* 본문코드 */
 /* 제목에 쓰인 코드의 크기 지정 취소 */
 h1 > code,
 h2 > code,
@@ -145,7 +146,7 @@ h4 > code {
 /* 캡션(위) */
 /* 박스의 제목 */
 /* 일반 박스 */
-/* 종류가 있는 박스(베이스). 일반 박스가 베이스. 오라일리와 팩트만 사용. */
+/* 종류가 있는 박스(베이스). 일반 박스가 베이스. 거의 오라일리와 팩트만 사용. */
 /* 종류가 있는 박스(팁) */
 /* 종류가 있는 박스(노트) */
 /* 종류가 있는 박스(주의) */
@@ -197,13 +198,13 @@ p.fm-exercise-head {
 h4.sect3,
 h4[class^="fm-head"] {
   font-size: 1.275rem;
-  font-style: italic;
   font-weight: bold;
   padding: 0 0.75rem;
 }
 /* 5단계 제목(p가??) */
 h5.sect4 {
   font-size: 1.05rem;
+  font-style: italic;
   font-weight: bold;
   padding: 0 1rem;
 }
@@ -245,11 +246,6 @@ pre.code-area {
 p.fm-code-listing-caption + div[data-type="example"] > pre.programlisting:not(.con) {
   margin-top: 0;
 }
-/* 코드블록 안/아래 원번호 */
-span[class^="fm-combinumeral"] {
-  background-color: yellow;
-  font-family: d2coding, monospace !important;
-}
 /* 코드블록 아래 설명 */
 p[class^="fm-code-annotation"],
 div.code-annotations-overlay-container {
@@ -280,6 +276,11 @@ span.CodeinText {
   background-color: #ccddff;
   border: 0;
   padding-left: 0;
+}
+/* 코드블록 안/아래 원번호(본문코드 다음에 와야만 할 듯) */
+span[class^="fm-combinumeral"] {
+  background-color: yellow;
+  font-family: d2coding, monospace !important;
 }
 /* 캡션(아래) */
 p.fm-figure-caption,
@@ -332,9 +333,9 @@ div.sidebar-container {
   margin-bottom: 32px;
   background-position: left top;
   background-repeat: no-repeat;
+  background-color: wheat;
   border: 1px solid silver;
   padding: 0.5rem;
-  background-color: lightgrey;
 }
 div.fm-sidebar-block p.fm-sidebar-text:has(br:only-child),
 p.fm-callout p.fm-sidebar-text:has(br:only-child),
@@ -350,6 +351,7 @@ div.callout-container:not(.sidebar-container) {
   margin-bottom: 32px;
   background-position: left top;
   background-repeat: no-repeat;
+  background-color: wheat;
   border: 1px solid silver;
   padding: 0.5rem;
   padding-left: 80px;

@@ -15,7 +15,7 @@ body {
   padding: 1rem;
   margin: auto auto auto 2rem;
   max-width: 42rem;
-  background-color: #ffffff;  
+  background-color: #ffffff;
 }
 
 :target {
@@ -247,18 +247,6 @@ table {
   padding-left: 4px;
 }
 
-/* 코드블록 안/아래 원번호 */
-.code-number() {
-  background-color: yellow;
-  font-family: d2coding, monospace !important;
-}
-
-/* 코드블록 아래 설명 */
-.code-number-desc() {
-  font-size: 0.9rem;
-  color: darkblue;
-}
-
 /* 본문코드 */
 .inline-code() {
   .code();
@@ -270,6 +258,18 @@ table {
   background-color: #ccddff;
   border: 0;
   padding-left: 0;
+}
+
+/* 코드블록 안/아래 원번호(본문코드 다음에 와야만 할 듯) */
+.code-number() {
+  background-color: yellow;
+  font-family: d2coding, monospace !important;
+}
+
+/* 코드블록 아래 설명 */
+.code-number-desc() {
+  font-size: 0.9rem;
+  color: darkblue;
 }
 
 /* 제목에 쓰인 코드의 크기 지정 취소 */
@@ -317,11 +317,12 @@ h1>code, h2>code, h3>code, h4>code {
   margin-bottom: 32px;
   background-position: left top;
   background-repeat: no-repeat;
+  background-color: wheat;
   border: 1px solid silver;
   padding: 0.5rem;
 }
 
-/* 종류가 있는 박스(베이스). 일반 박스가 베이스. 오라일리와 팩트만 사용. */
+/* 종류가 있는 박스(베이스). 일반 박스가 베이스. 거의 오라일리와 팩트만 사용. */
 .typed-box() {
   .box();
   padding-left: 80px;
