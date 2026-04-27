@@ -368,8 +368,8 @@ blockquote {
   color: #666666;
   position: relative;
   border-left: 3px solid #DA8596;
-  padding: 0 1.5rem 0 2.5rem;
-  margin: 0 2rem 1.5rem 2rem;
+  padding: 0 1.5rem 1.5rem 2.5rem;
+  margin: 0 2rem 0 2rem;
   padding-left: 3rem;
 }
 p.fm-quote::before,
@@ -388,8 +388,8 @@ div:has(>blockquote) + div > blockquote {
   color: #666666;
   position: relative;
   border-left: 3px solid #DA8596;
-  padding: 0 1.5rem 0 2.5rem;
-  margin: 0 2rem 1.5rem 2rem;
+  padding: 0 1.5rem 1.5rem 2.5rem;
+  margin: 0 2rem 0 2rem;
   padding-left: 3rem;
 }
 p.fm-quote + p.fm-quote::before,

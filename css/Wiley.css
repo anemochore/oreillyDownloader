@@ -132,7 +132,7 @@ table td {
 /* 코드블록 */
 /* 터미널 */
 /* 본문코드 */
-/* 코드블록 안/아래 원번호 */
+/* 코드블록 안/아래 원번호(본문코드 다음에 와야만 할 듯) */
 /* 코드블록 아래 설명 */
 /* 제목에 쓰인 코드의 크기 지정 취소 */
 h1 > code,
@@ -321,8 +321,8 @@ blockquote {
   color: #666666;
   position: relative;
   border-left: 3px solid #DA8596;
-  padding: 0 1.5rem 0 2.5rem;
-  margin: 0 2rem 1.5rem 2rem;
+  padding: 0 1.5rem 1.5rem 2.5rem;
+  margin: 0 2rem 0 2rem;
   padding-left: 3rem;
 }
 blockquote::before {
