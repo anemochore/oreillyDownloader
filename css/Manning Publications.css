@@ -132,7 +132,7 @@ table td {
 /* 코드블록 */
 /* 터미널 */
 /* 본문코드 */
-/* 코드블록 안/아래 원번호 */
+/* 코드블록 안/아래 원번호(본문코드 다음에 와야만 할 듯) */
 /* 코드블록 아래 설명 */
 /* 제목에 쓰인 코드의 크기 지정 취소 */
 h1 > code,
@@ -341,6 +341,10 @@ div.fm-sidebar-block p.fm-sidebar-text:has(br:only-child),
 p.fm-callout p.fm-sidebar-text:has(br:only-child),
 div.sidebar-container p.fm-sidebar-text:has(br:only-child) {
   display: none;
+}
+/* AI 대화 박스 */
+div.prompt-response-sidebar {
+  background-color: aquamarine;
 }
 /* 종류가 있는 박스(팁, 노트, 주의) */
 div.print-book-callout:not(.sidebar-container),
