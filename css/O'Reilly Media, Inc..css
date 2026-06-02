@@ -408,6 +408,7 @@ div[data-type="tip"] {
   background-color: wheat;
   border: 1px solid silver;
   padding: 0.5rem;
+  background-color: unset;
   padding-left: 80px;
   background-image: url("@tip.jpg");
 }
@@ -422,6 +423,7 @@ div[data-type="note"] {
   background-color: wheat;
   border: 1px solid silver;
   padding: 0.5rem;
+  background-color: unset;
   padding-left: 80px;
   background-image: url("@note.jpg");
 }
@@ -436,6 +438,7 @@ div[data-type="warning"] {
   background-color: wheat;
   border: 1px solid silver;
   padding: 0.5rem;
+  background-color: unset;
   padding-left: 80px;
   background-image: url("@warning.jpg");
 }

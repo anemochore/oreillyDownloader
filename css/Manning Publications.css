@@ -358,6 +358,7 @@ div.callout-container:not(.sidebar-container) {
   background-color: wheat;
   border: 1px solid silver;
   padding: 0.5rem;
+  background-color: unset;
   padding-left: 80px;
   padding-left: 0.5rem;
 }
